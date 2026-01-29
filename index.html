@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" id="top">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,12 @@
       --shadow: 0 18px 60px rgba(0,0,0,.35);
       --radius:18px;
       --max:1100px;
+      --headerH: 72px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -35,26 +38,39 @@
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
+    section{scroll-margin-top: calc(var(--headerH) + 16px); padding:20px 0}
+
     /* Header */
     .header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(5,11,24,.55);
+      background: rgba(5,11,24,.62);
       border-bottom:1px solid var(--line);
     }
     .bar{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:12px 0;
+      min-height: var(--headerH);
     }
+
     .brand{display:flex; align-items:center; gap:10px; min-width: 240px}
     .logo{
-      width:38px; height:38px; border-radius:12px;
+      width:44px; height:44px; border-radius:14px;
       background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
       border:1px solid var(--line);
       display:grid; place-items:center;
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
       flex:0 0 auto;
+      overflow:hidden;
     }
+    .logo img{
+      width:100%; height:100%;
+      object-fit:contain;
+      display:block;
+      padding:6px;
+    }
+    .logo.fallback{font-size:18px}
+
     .brand h1{font-size:14px; margin:0; line-height:1.2}
     .brand span{display:block; font-size:12px; color:var(--muted)}
     nav{display:flex; align-items:center; gap:10px}
@@ -139,6 +155,32 @@
     }
     .heroText{margin:14px 0 18px; color:var(--muted); font-size:15px; line-height:1.6}
     .ctaRow{display:flex; flex-wrap:wrap; gap:10px}
+
+    .heroLogos{
+      display:flex; gap:10px; align-items:center;
+      margin:12px 0 6px;
+      flex-wrap:wrap;
+    }
+    .heroBadge{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .heroBadge .bimg{
+      width:44px; height:44px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      overflow:hidden;
+      display:grid; place-items:center;
+    }
+    .heroBadge .bimg img{width:100%; height:100%; object-fit:contain; padding:6px; display:block}
+    .heroBadge .bimg.fallback{font-size:18px}
+    .heroBadge .btxt{line-height:1.25}
+    .heroBadge .btxt b{display:block; font-size:13px}
+    .heroBadge .btxt span{display:block; font-size:12px; color:var(--muted)}
+
     .miniGrid{
       display:grid;
       grid-template-columns: 1fr;
@@ -161,15 +203,12 @@
     .divider{height:1px; background:var(--line); margin:14px 0}
 
     /* Sections */
-    section{padding:20px 0}
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
       margin:0 0 12px;
     }
     .sectionHead h2{margin:0; font-size:18px}
-    .sectionHead .hint{color:var(--muted); font-size:13px}
     .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
     .pad{padding:18px}
     .muted{color:var(--muted)}
     .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.6; font-size:14px}
@@ -183,9 +222,7 @@
       font-size:13px;
     }
     .kv .row b{font-weight:700}
-    .events{
-      display:grid; gap:10px; margin-top:10px;
-    }
+    .events{display:grid; gap:10px; margin-top:10px}
     .event{
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
@@ -201,6 +238,25 @@
       background:rgba(255,255,255,.02);
     }
     iframe{width:100%; border:0; display:block}
+
+    /* Back-to-top arrows between sections */
+    .sectionNav{
+      display:flex;
+      justify-content:center;
+      padding:12px 0 6px;
+    }
+    .upBtn{
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      display:grid; place-items:center;
+      text-decoration:none;
+      color:var(--muted);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .upBtn:hover{background:rgba(255,255,255,.07); color:var(--text)}
+    .upBtn:active{transform:translateY(1px)}
 
     /* Forms */
     form{display:grid; gap:10px; margin-top:10px}
@@ -237,7 +293,6 @@
     @media (max-width: 940px){
       .heroGrid{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
     }
     @media (max-width: 860px){
       .navlinks{display:none}
@@ -258,7 +313,9 @@
     <div class="wrap">
       <div class="bar">
         <div class="brand">
-          <div class="logo" aria-hidden="true">⚽</div>
+          <div class="logo" aria-hidden="true">
+            <img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='⚽';">
+          </div>
           <div>
             <h1>Kinnicher Fussball Fanclub 2024 e.V.</h1>
             <span>Bad König · Weiß/Blau</span>
@@ -296,14 +353,37 @@
           <div class="card heroMain">
             <div class="kicker">Gemeinschaft · Support · Aktionen</div>
             <h2 class="heroTitle">Unser <strong>Kinnicher</strong> Fanclub.</h2>
+
+            <div class="heroLogos" aria-label="Logos">
+              <div class="heroBadge">
+                <div class="bimg" aria-hidden="true">
+                  <img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='⚽';">
+                </div>
+                <div class="btxt">
+                  <b>Fanclub</b>
+                  <span>Kinnicher FFC</span>
+                </div>
+              </div>
+
+              <div class="heroBadge">
+                <div class="bimg" aria-hidden="true">
+                  <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
+                </div>
+                <div class="btxt">
+                  <b>Teamspirit</b>
+                  <span>Zusammenhalt</span>
+                </div>
+              </div>
+            </div>
+
             <p class="heroText">
               Plattform für alle, die die gleiche Leidenschaft teilen: Treffen, Austausch, Aktionen rund um unsere Teams,
               und Unterstützung der bestehenden Strukturen der Sparte Fußball & Förderverein.
             </p>
 
             <div class="ctaRow">
-              <a class="btn primary" href="https://www.whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
-              <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">Google Kalender öffnen</a>
+              <a class="btn primary" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
+              <a class="btn" href="#events">Kalender</a>
               <a class="btn" href="members.html">Mitglieder-Login</a>
               <a class="btn" href="#kontakt">Kontakt</a>
             </div>
@@ -323,21 +403,16 @@
               <p>Alles Wichtige direkt erreichbar.</p>
               <div class="pillRow">
                 <a class="pill" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
-                <a class="pill" href="https://www.whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp</a>
-                <!-- TODO: Social Links eintragen -->
-                <a class="pill" href="#" id="instagramLink" target="_blank" rel="noopener">Instagram</a>
-                <a class="pill" href="#" id="facebookLink" target="_blank" rel="noopener">Facebook</a>
-                <a class="pill" href="#" id="youtubeLink" target="_blank" rel="noopener">YouTube</a>
+                <a class="pill" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="pill" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
+                <a class="pill" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
+                <a class="pill" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
                 <a class="pill" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">Philosophie (PDF)</a>
               </div>
-              <p class="muted" style="margin-top:12px; font-size:12px">
-                Hinweis: Instagram/Facebook/YouTube-Links sind Platzhalter – trage die echten URLs ein.
-              </p>
             </div>
 
             <div class="card heroSide">
               <h3>Aktuelles</h3>
-              <p class="muted">Hier kannst du später News/Updates eintragen (oder automatisch aus einem Feed ziehen).</p>
               <ul class="list">
                 <li>Neue Termine im Kalender</li>
                 <li>Aktionen & Fahrten</li>
@@ -351,7 +426,6 @@
       <section id="ueberuns">
         <div class="sectionHead">
           <h2>Über uns</h2>
-          <div class="hint">Aus der bestehenden Wix-Seite übernommen</div>
         </div>
         <div class="card pad">
           <p class="muted" style="margin:0; line-height:1.8">
@@ -371,117 +445,93 @@
           </p>
         </div>
       </section>
+      <div class="sectionNav"><a class="upBtn" href="#top" aria-label="Nach oben">↑</a></div>
 
       <section id="events">
         <div class="sectionHead">
           <h2>Events & Kalender</h2>
-          <div class="hint">Einbettung + Liste (konfigurierbar)</div>
         </div>
 
         <div class="grid2">
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">
-              Für GitHub Pages braucht die Kalender-Einbettung eine <b>Embed-URL</b>.
-              Dein Link ist eine Web-App-Ansicht. Unten ist daher ein Platzhalter.
-            </p>
-
             <div class="events" id="eventsList">
               <div class="event">
-                <p class="t" style="margin:0 0 4px">Noch keine Termine geladen</p>
-                <p class="m" style="margin:0">Sobald Kalender-ID + API-Key gesetzt sind, erscheinen hier die nächsten Veranstaltungen.</p>
+                <p class="t" style="margin:0 0 4px">Kalender wird gepflegt</p>
+                <p class="m" style="margin:0">Sobald der Google Kalender final eingebunden ist, erscheinen hier die nächsten Veranstaltungen.</p>
               </div>
             </div>
 
             <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">Kalender öffnen</a>
+              <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">Google Kalender öffnen</a>
               <a class="btn" href="#kontakt">Termin vorschlagen</a>
             </div>
           </div>
 
           <div class="card pad">
             <div class="iframeWrap" aria-label="Kalender Einbettung">
-              <!--
-                TODO: Google Calendar Embed:
-                1) In Google Kalender: Einstellungen → "Kalender integrieren" → "Einbettungscode"
-                2) Die src-URL ins iframe unten einsetzen.
-              -->
               <iframe
-                title="Google Kalender (Einbettung)"
+                title="Google Kalender"
                 height="520"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                src="about:blank"></iframe>
+                src=""></iframe>
             </div>
-            <p class="muted" style="font-size:12px; margin:10px 0 0">
-              Wenn du mir die Embed-URL (oder Kalender-ID) gibst, setze ich das final korrekt ein.
-            </p>
           </div>
         </div>
       </section>
+      <div class="sectionNav"><a class="upBtn" href="#top" aria-label="Nach oben">↑</a></div>
 
       <section id="videos">
         <div class="sectionHead">
           <h2>Galerie Videos</h2>
-          <div class="hint">YouTube Einbettung</div>
         </div>
 
         <div class="grid2">
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">
-              Beispiel-Video (aus eurer Galerie).
-              Für eine Playlist/Channel-Ansicht: YouTube-Channel/Playlist-ID eintragen.
-            </p>
             <div class="iframeWrap">
               <iframe
                 title="YouTube Video"
                 height="320"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.youtube-nocookie.com/embed/yA_s7NLXWNU"
+                src="https://www.youtube-nocookie.com/embed/sF92CW6yZ3c"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
             <p class="muted" style="font-size:12px; margin:10px 0 0">
-              Video: „Kinnicher Jungs - Vereinshymne TSG Bad König“
+              Highlight 30.11.25 SG Bad König/ Zell
             </p>
           </div>
 
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">
-              Optional: hier später eine Playlist (z.B. „Alle Videos“) einbetten.
-            </p>
             <div class="iframeWrap">
-              <!-- TODO: Playlist Embed (Beispiel):
-                   https://www.youtube-nocookie.com/embed/videoseries?list=PLAYLIST_ID
-              -->
               <iframe
-                title="YouTube Playlist (Platzhalter)"
+                title="YouTube Video 2"
                 height="320"
                 loading="lazy"
-                src="about:blank"></iframe>
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.youtube-nocookie.com/embed/EhmrgWUoteo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
             <div style="margin-top:12px">
-              <a class="btn" href="#" id="youtubeCta" target="_blank" rel="noopener">Zum YouTube-Kanal</a>
+              <a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">Zum YouTube-Kanal</a>
             </div>
           </div>
         </div>
       </section>
+      <div class="sectionNav"><a class="upBtn" href="#top" aria-label="Nach oben">↑</a></div>
 
       <section id="mitglied">
         <div class="sectionHead">
           <h2>Mitglied werden</h2>
-          <div class="hint">Anfrage + Mitgliederbereich</div>
         </div>
 
         <div class="grid2">
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">
-              Mitgliedsantrag / Infos: Du kannst hier später einen Download (PDF) verlinken oder ein Formular anbinden.
-            </p>
             <ul class="list">
-              <li>Mitgliedsantrag (PDF) einbinden</li>
-              <li>Infos zu Beiträgen/Leistungen</li>
-              <li>Fragen direkt an: <a href="mailto:info@kinnicherffc.de">info@kinnicherffc.de</a></li>
+              <li>Mitgliedsantrag / Infos per Anfrage</li>
+              <li>Fragen an: <a href="mailto:info@kinnicherffc.de">info@kinnicherffc.de</a></li>
             </ul>
             <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
               <a class="btn primary" href="mailto:info@kinnicherffc.de?subject=Mitglied%20werden%20-%20Anfrage">Mitglied werden (E-Mail)</a>
@@ -490,32 +540,23 @@
           </div>
 
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">
-              Wichtig: Ein „echtes“ Login (mit Schutz von Inhalten) braucht ein Backend/Service
-              (z.B. Netlify Identity, Firebase, Memberstack). Auf GitHub Pages allein geht es nur „pseudo“.
-            </p>
             <div class="kv">
-              <div class="row"><b>Option A</b> <span>Netlify (kostenlos startbar)</span></div>
-              <div class="row"><b>Option B</b> <span>Firebase Auth</span></div>
-              <div class="row"><b>Option C</b> <span>Memberstack (SaaS)</span></div>
+              <div class="row"><b>Instagram</b> <span><a href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">kinnicher_ffc</a></span></div>
+              <div class="row"><b>Facebook</b> <span><a href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Profil</a></span></div>
+              <div class="row"><b>YouTube</b> <span><a href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">@KinnicherFFC</a></span></div>
             </div>
           </div>
         </div>
       </section>
+      <div class="sectionNav"><a class="upBtn" href="#top" aria-label="Nach oben">↑</a></div>
 
       <section id="kontakt">
         <div class="sectionHead">
           <h2>Kontakt</h2>
-          <div class="hint">Kontaktanfrage (E-Mail)</div>
         </div>
 
         <div class="grid2">
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">
-              Dieses Formular sendet per <b>mailto:</b> (öffnet das lokale Mailprogramm). Für serverseitiges Senden:
-              Netlify Forms / Formspree / Firebase Functions.
-            </p>
-
             <form id="contactForm">
               <div class="formRow">
                 <input type="text" id="name" placeholder="Name" autocomplete="name" />
@@ -527,7 +568,6 @@
           </div>
 
           <div class="card pad">
-            <p class="muted" style="margin:0 0 10px">Direktkontakt</p>
             <div class="kv">
               <div class="row"><b>E-Mail</b> <span><a href="mailto:info@kinnicherffc.de">info@kinnicherffc.de</a></span></div>
               <div class="row"><b>Telefon</b> <span><a href="tel:+4960632090">+49 (0) 6063 2090</a></span></div>
@@ -535,19 +575,22 @@
             </div>
 
             <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn" href="https://www.whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
+              <a class="btn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
               <a class="btn" href="legal.html">Impressum & Datenschutz</a>
             </div>
           </div>
         </div>
       </section>
+      <div class="sectionNav"><a class="upBtn" href="#top" aria-label="Nach oben">↑</a></div>
 
       <footer>
         <div class="wrap">
           <div class="footerGrid">
             <div>
               <div style="display:flex; align-items:center; gap:10px">
-                <div class="logo" aria-hidden="true">⚽</div>
+                <div class="logo" aria-hidden="true">
+                  <img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='⚽';">
+                </div>
                 <div>
                   <div style="font-weight:800">Kinnicher Fussball Fanclub 2024 e.V.</div>
                   <div class="muted" style="font-size:12px">Bad König · Community & Support</div>
@@ -562,9 +605,9 @@
                 <a class="btn" href="members.html">Mitglieder-Login</a>
                 <a class="btn" href="legal.html">Impressum</a>
                 <a class="btn" href="legal.html#datenschutz">Datenschutz</a>
-              </div>
-              <div class="copy">
-                Social-Links: <span class="muted">tragen wir in <code>index.html</code> ein (Platzhalter).</span>
+                <a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
+                <a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
+                <a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
               </div>
             </div>
           </div>
@@ -577,10 +620,33 @@
     // Mobile Menü
     const burger = document.getElementById('burger');
     const mobilemenu = document.getElementById('mobilemenu');
-    burger?.addEventListener('click', () => {
+
+    function closeMobileMenu(){
+      if(!mobilemenu) return;
+      mobilemenu.style.display = 'none';
+      burger?.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMobileMenu(){
       const open = mobilemenu.style.display === 'block';
       mobilemenu.style.display = open ? 'none' : 'block';
-      burger.setAttribute('aria-expanded', String(!open));
+      burger?.setAttribute('aria-expanded', String(!open));
+    }
+
+    burger?.addEventListener('click', toggleMobileMenu);
+
+    // Quick-fix: Menü schließen nach Klick auf Link
+    mobilemenu?.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMobileMenu);
+    });
+
+    // Optional: Menü schließen bei Klick außerhalb
+    document.addEventListener('click', (e) => {
+      if(!mobilemenu || !burger) return;
+      const isOpen = mobilemenu.style.display === 'block';
+      if(!isOpen) return;
+      const t = e.target;
+      if(mobilemenu.contains(t) || burger.contains(t)) return;
+      closeMobileMenu();
     });
 
     // Footer Year
@@ -597,28 +663,8 @@
         `Name: ${decodeURIComponent(name)}%0D%0A` +
         `E-Mail: ${decodeURIComponent(email)}%0D%0A%0D%0A` +
         `${decodeURIComponent(message)}`;
-
       window.location.href = `mailto:info@kinnicherffc.de?subject=${subject}&body=${body}`;
     });
-
-    // TODO: Social Links eintragen (URLs ersetzen)
-    const social = {
-      instagram: 'https://instagram.com/DEIN_PROFIL',
-      facebook: 'https://facebook.com/DEINE_SEITE',
-      youtube: 'https://www.youtube.com/@DEIN_KANAL'
-    };
-    document.getElementById('instagramLink').href = social.instagram;
-    document.getElementById('facebookLink').href = social.facebook;
-    document.getElementById('youtubeLink').href = social.youtube;
-    document.getElementById('youtubeCta').href = social.youtube;
-    document.getElementById('youtubeLink').textContent = 'YouTube';
-
-    // Events-Liste (optional) via Google Calendar API:
-    // - Dafür brauchst du:
-    //   1) public calendarId (oder eine öffentliche ICS/JSON Quelle)
-    //   2) Google API key
-    // - Dann kann man kommende Events per fetch laden.
-    // (Ich setze dir das final, sobald du calendarId + apiKey hast.)
   </script>
 </body>
 </html>
