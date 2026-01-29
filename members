@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mitglieder-Login – Kinnicher FFC</title>
+  <style>
+    :root{--bg:#071428; --text:#eaf2ff; --muted:#b9c8e6; --line:rgba(255,255,255,.12); --radius:18px;}
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      background: linear-gradient(180deg, #061126 0%, #050b18 100%);
+    }
+    .wrap{max-width:860px; margin:0 auto; padding:22px 18px}
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.04);
+      padding:18px;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid var(--line); background:rgba(255,255,255,.04);
+      text-decoration:none; font-size:13px; color:var(--text);
+      cursor:pointer;
+    }
+    .btn:hover{background:rgba(255,255,255,.07)}
+    input{
+      width:100%; padding:12px 12px;
+      border-radius:14px; border:1px solid var(--line);
+      background:rgba(0,0,0,.22); color:var(--text);
+      outline:none; font-size:14px;
+    }
+    p{color:var(--muted); line-height:1.65; font-size:14px; margin:8px 0}
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="row">
+      <a class="btn" href="index.html">← Zur Startseite</a>
+      <a class="btn" href="legal.html">Impressum & Datenschutz</a>
+    </div>
+
+    <div class="card">
+      <h1 style="margin:0; font-size:18px">Mitglieder-Login</h1>
+      <p>
+        Hinweis: Für „echten“ Schutz bitte Netlify Identity / Firebase / Memberstack nutzen.
+        Dieses Login ist nur ein einfacher Platzhalter.
+      </p>
+
+      <div id="loginBox">
+        <p>Passwort eingeben:</p>
+        <input type="password" id="pw" placeholder="Passwort" />
+        <div class="row">
+          <button class="btn" id="loginBtn">Anmelden</button>
+        </div>
+        <p id="err" class="hidden" style="color:#ffb3b3">Falsches Passwort.</p>
+      </div>
+
+      <div id="memberArea" class="hidden">
+        <h2 style="margin:14px 0 8px; font-size:16px">Mitgliederbereich</h2>
+        <p>Hier kannst du später Inhalte/Downloads/Protokolle/Internes platzieren.</p>
+
+        <ul>
+          <li style="color:var(--muted); line-height:1.65; font-size:14px">Interne Termine / Aufgaben</li>
+          <li style="color:var(--muted); line-height:1.65; font-size:14px">Downloads (PDF) / Vorlagen</li>
+          <li style="color:var(--muted); line-height:1.65; font-size:14px">Kontakt Vorstand / interne Infos</li>
+        </ul>
+
+        <div class="row">
+          <button class="btn" id="logoutBtn">Abmelden</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // UNSICHER: Client-side "Login" (nur UI)
+    // TODO: Für echten Schutz: Netlify Identity / Firebase etc.
+    const PASSWORD = "FFC2024"; // <-- ändern
+
+    const loginBox = document.getElementById('loginBox');
+    const memberArea = document.getElementById('memberArea');
+    const err = document.getElementById('err');
+
+    function setLoggedIn(on){
+      if(on){
+        localStorage.setItem('kffc_logged_in', '1');
+        loginBox.classList.add('hidden');
+        memberArea.classList.remove('hidden');
+      }else{
+        localStorage.removeItem('kffc_logged_in');
+        memberArea.classList.add('hidden');
+        loginBox.classList.remove('hidden');
+      }
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const pw = document.getElementById('pw').value || '';
+      if(pw === PASSWORD){
+        err.classList.add('hidden');
+        setLoggedIn(true);
+      }else{
+        err.classList.remove('hidden');
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => setLoggedIn(false));
+
+    // Auto-login if previously set (again: not secure)
+    if(localStorage.getItem('kffc_logged_in') === '1') setLoggedIn(true);
+  </script>
+</body>
+</html>
