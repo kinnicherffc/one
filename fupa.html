@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FuPa Widgets | Kinnicher FFC</title>
+  <meta name="description" content="Spiele, Ergebnisse und Tabellen der Mannschaften der TSG Bad König (FuPa Widgets)." />
+  <style>
+    :root{
+      --bg:#071428;
+      --card:#0c1f3b;
+      --text:#eaf2ff;
+      --muted:#b9c8e6;
+      --line:rgba(255,255,255,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 12% 10%, rgba(58,160,255,.18), transparent 60%),
+        radial-gradient(700px 420px at 85% 10%, rgba(121,212,255,.12), transparent 55%),
+        linear-gradient(180deg, #061126 0%, #050b18 100%);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      text-decoration:none;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .btn:hover{background:rgba(255,255,255,.07)}
+    h1{margin:0; font-size:20px}
+    p{margin:6px 0 0; color:var(--muted); line-height:1.6}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(12,31,59,.65);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      padding:14px;
+      min-height: 560px;
+    }
+    .card h2{margin:0 0 10px; font-size:16px}
+    .widgetWrap{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+      padding:10px;
+      min-height: 500px;
+    }
+    /* Mobile: untereinander */
+    @media (max-width: 940px){
+      .grid{grid-template-columns:1fr}
+      .card{min-height:auto}
+      .widgetWrap{min-height: 520px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div>
+        <h1>Spiele & Tabellen (FuPa)</h1>
+        <p>TSG Bad König – 1. und 2. Mannschaft.</p>
+      </div>
+      <a class="btn" href="index.html#events">← Zurück zur Startseite</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>1. Mannschaft</h2>
+        <div class="widgetWrap">
+          <div id="fp-widget_root-38wpDfgKAtDvsIwkOAZOMwUF0gL">
+            <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Mannschaft</h2>
+        <div class="widgetWrap">
+          <div id="fp-widget_root-38wpVCOSki09ntqEF6UWhGFmUYr">
+            <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://widget-api.fupa.net/vendor/widget.js?v1"></script>
+</body>
+</html>
