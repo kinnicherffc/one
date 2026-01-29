@@ -19,7 +19,7 @@
       --shadow: 0 18px 60px rgba(0,0,0,.35);
       --radius:18px;
       --max:1100px;
-      --headerH: 72px;
+      --headerH: 120px;
     }
 
     *{box-sizing:border-box}
@@ -54,25 +54,30 @@
     }
 
     .brand{display:flex; align-items:center; gap:10px; min-width: 240px}
-    .logo{
-      width:44px; height:44px; border-radius:14px;
-      background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
-      border:1px solid var(--line);
-      display:grid; place-items:center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      flex:0 0 auto;
-      overflow:hidden;
+    .logo{      
+  width:88px;
+  height:88px;
+  border-radius:22px;
+  background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  flex:0 0 auto;
+  overflow:hidden;
+}
+
     }
     .logo img{
       width:100%; height:100%;
       object-fit:contain;
       display:block;
-      padding:6px;
+        padding:10px;
     }
     .logo.fallback{font-size:18px}
 
-    .brand h1{font-size:14px; margin:0; line-height:1.2}
-    .brand span{display:block; font-size:12px; color:var(--muted)}
+    .brand h1{font-size:18px; margin:0; line-height:1.2}
+    .brand span{display:block; font-size:14px; color:var(--muted)}
     nav{display:flex; align-items:center; gap:10px}
     .navlinks{display:flex; gap:10px; align-items:center}
     .navlinks a{
@@ -305,6 +310,15 @@
       .formRow{grid-template-columns:1fr}
       .footerGrid{grid-template-columns:1fr}
     }
+    @media (max-width: 520px){
+  :root{ --headerH: 96px; }
+
+  .logo{
+    width:64px;
+    height:64px;
+    border-radius:18px;
+  }
+}
   </style>
 </head>
 
