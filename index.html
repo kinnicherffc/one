@@ -209,6 +209,67 @@
     .pill:hover{color:var(--text); background:rgba(255,255,255,.05)}
     .divider{height:1px; background:var(--line); margin:14px 0}
 
+    .dashboard{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap:16px;
+      margin:20px 0;
+    }
+    .appBtn{
+      display:flex; flex-direction:column; align-items:center; gap:8px;
+      padding:16px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:var(--card);
+      text-decoration:none;
+      color:var(--text);
+      transition: all .2s;
+      box-shadow: var(--shadow);
+    }
+    .appBtn:hover{transform: translateY(-2px); border-color:var(--accent)}
+    .appBtn .icon{
+      width:48px; height:48px;
+      border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display:grid; place-items:center;
+      font-size:20px;
+    }
+    .appBtn .label{font-size:12px; text-align:center; color:var(--muted)}
+
+    /* Modal */
+    .modal{
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,.7);
+      display:flex; align-items:center; justify-content:center;
+      z-index:1000;
+      opacity:0; visibility:hidden;
+      transition: all .3s;
+    }
+    .modal.show{opacity:1; visibility:visible}
+    .modalContent{
+      background:var(--bg);
+      border-radius:var(--radius);
+      padding:20px;
+      max-width:400px; width:90%;
+      box-shadow: var(--shadow);
+    }
+    .modal h3{margin-top:0}
+    .modal .close{
+      position:absolute; top:10px; right:10px;
+      background:none; border:none; color:var(--text); font-size:20px; cursor:pointer;
+    }
+
+    /* Cookie Banner */
+    .cookieBanner{
+      position:fixed; bottom:0; left:0; right:0;
+      background:var(--card); border-top:1px solid var(--line);
+      padding:16px; z-index:999;
+      display:none;
+    }
+    .cookieBanner.show{display:block}
+    .cookieBanner p{margin:0 0 10px}
+    .cookieBanner .btn{margin-right:10px}
+
     /* Sections */
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
@@ -419,6 +480,57 @@
 
   <main>
     <div class="wrap">
+      <div class="dashboard">
+        <a class="appBtn" href="members.html">
+          <div class="icon">👤</div>
+          <div class="label">Mitglieder</div>
+        </a>
+        <a class="appBtn" href="#events">
+          <div class="icon">📅</div>
+          <div class="label">Kalender</div>
+        </a>
+        <a class="appBtn" href="fupa.html">
+          <div class="icon">⚽</div>
+          <div class="label">Spiele</div>
+        </a>
+        <a class="appBtn" href="membership.html">
+          <div class="icon">📝</div>
+          <div class="label">Antrag</div>
+        </a>
+        <a class="appBtn" href="#kontakt">
+          <div class="icon">📞</div>
+          <div class="label">Kontakt</div>
+        </a>
+        <a class="appBtn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">
+          <div class="icon">🛒</div>
+          <div class="label">Fanshop</div>
+        </a>
+        <a class="appBtn" href="https://app.vereinsplaner.at/t/aktuelles" target="_blank" rel="noopener">
+          <div class="icon">👥</div>
+          <div class="label">Vorstand</div>
+        </a>
+        <a class="appBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
+          <div class="icon">💬</div>
+          <div class="label">WhatsApp</div>
+        </a>
+        <a class="appBtn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">
+          <div class="icon">📺</div>
+          <div class="label">YouTube</div>
+        </a>
+        <a class="appBtn" href="#videos">
+          <div class="icon">🎥</div>
+          <div class="label">Videos</div>
+        </a>
+        <a class="appBtn" href="https://www.kicktipp.de/kinnicher-fussball-fanclub/" target="_blank" rel="noopener">
+          <div class="icon">🎯</div>
+          <div class="label">Tippspiel</div>
+        </a>
+        <a class="appBtn" href="#" id="chatBtn">
+          <div class="icon">💬</div>
+          <div class="label">Chat</div>
+        </a>
+      </div>
+
       <div class="hero">
         <div class="heroGrid">
           <div class="card heroMain">
@@ -821,6 +933,126 @@
         deferredPrompt = null;
       });
     });
+
+    // Login check
+    function isLoggedIn() {
+      return localStorage.getItem('loggedIn') === 'true';
+    }
+
+    // Modal functions
+    function showModal(id) {
+      document.getElementById(id).classList.add('show');
+    }
+    function hideModal(id) {
+      document.getElementById(id).classList.remove('show');
+    }
+
+    // Chat and Tippspiel
+    document.getElementById('chatBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!isLoggedIn()) {
+        showModal('loginModal');
+      } else {
+        showModal('chatModal');
+      }
+    });
+
+    // Simple login
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Dummy login
+      localStorage.setItem('loggedIn', 'true');
+      hideModal('loginModal');
+      alert('Eingeloggt!');
+    });
+
+    // Simple register
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Dummy register
+      localStorage.setItem('loggedIn', 'true');
+      hideModal('registerModal');
+      alert('Registriert und eingeloggt!');
+    });
+
+    // Chat
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const messages = document.getElementById('chatMessages');
+      if (input.value.trim()) {
+        messages.innerHTML += `<p><strong>Du:</strong> ${input.value}</p>`;
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+      }
+    }
+    document.getElementById('chatInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    // Cookie Banner
+    if (window.innerWidth > 768 && !localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieBanner').classList.add('show');
+    }
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      hideCookieBanner();
+    }
+    function hideCookieBanner() {
+      document.getElementById('cookieBanner').classList.remove('show');
+    }
   </script>
+
+  <!-- Modals -->
+  <div class="modal" id="loginModal">
+    <div class="modalContent">
+      <button class="close" onclick="hideModal('loginModal')">×</button>
+      <h3>Login</h3>
+      <form id="loginForm">
+        <input type="text" placeholder="Benutzername" required>
+        <input type="password" placeholder="Passwort" required>
+        <button type="submit">Einloggen</button>
+      </form>
+      <p><a href="#" onclick="hideModal('loginModal'); showModal('registerModal')">Registrieren</a></p>
+    </div>
+  </div>
+
+  <div class="modal" id="registerModal">
+    <div class="modalContent">
+      <button class="close" onclick="hideModal('registerModal')">×</button>
+      <h3>Registrieren</h3>
+      <form id="registerForm">
+        <input type="text" placeholder="Benutzername" required>
+        <input type="email" placeholder="E-Mail" required>
+        <input type="password" placeholder="Passwort" required>
+        <button type="submit">Registrieren</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="chatModal">
+    <div class="modalContent">
+      <button class="close" onclick="hideModal('chatModal')">×</button>
+      <h3>Mitglieder-Chat</h3>
+      <div id="chatMessages" style="height:200px; overflow-y:auto; border:1px solid var(--line); padding:10px; margin-bottom:10px;"></div>
+      <input type="text" id="chatInput" placeholder="Nachricht..." style="width:100%; padding:8px;">
+      <button onclick="sendMessage()">Senden</button>
+    </div>
+  </div>
+
+  <div class="modal" id="tippspielModal">
+    <div class="modalContent">
+      <button class="close" onclick="hideModal('tippspielModal')">×</button>
+      <h3>Tippspiel</h3>
+      <p>Hier kannst du tippen...</p>
+      <!-- Add tippspiel content -->
+    </div>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div class="cookieBanner" id="cookieBanner">
+    <p>Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern. Durch die Nutzung stimmen Sie der Verwendung von Cookies zu.</p>
+    <button class="btn" onclick="acceptCookies()">Akzeptieren</button>
+    <button class="btn" onclick="hideCookieBanner()">Ablehnen</button>
+  </div>
 </body>
 </html>

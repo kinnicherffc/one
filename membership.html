@@ -29,7 +29,10 @@
     }
     .btn:hover{background:rgba(255,255,255,.07)}
     p{color:var(--muted); line-height:1.65; font-size:14px; margin:8px 0}
-    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .captcha{display:none}
+    @media (min-width: 769px){
+      .captcha{display:block}
+    }
   </style>
 </head>
 <body>
@@ -45,8 +48,30 @@
         Fülle das Formular aus, um Mitglied zu werden.
       </p>
 
-      <iframe src="https://formular.vereinsplaner.com/embed/1e679e4f-42ba-487a-a463-ba000f6b972c" style="width: 100%; height: 600px; border: none"></iframe>
+      <div class="captcha">
+        <p>Bitte löse das Captcha: Was ist 2 + 3?</p>
+        <input type="text" id="captchaInput" placeholder="Antwort">
+        <button class="btn" onclick="checkCaptcha()">Überprüfen</button>
+      </div>
+
+      <iframe id="formIframe" src="https://formular.vereinsplaner.com/embed/1e679e4f-42ba-487a-a463-ba000f6b972c" style="width: 100%; height: 600px; border: none; display:none"></iframe>
     </div>
   </div>
+
+  <script>
+    function checkCaptcha() {
+      const input = document.getElementById('captchaInput').value;
+      if (input === '5') {
+        document.getElementById('formIframe').style.display = 'block';
+        document.querySelector('.captcha').style.display = 'none';
+      } else {
+        alert('Falsche Antwort!');
+      }
+    }
+    if (window.innerWidth <= 768) {
+      document.getElementById('formIframe').style.display = 'block';
+      document.querySelector('.captcha').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
