@@ -105,6 +105,14 @@
       cursor:pointer;
     }
     .btn:hover{background:rgba(255,255,255,.07)}
+    .bigBtn{
+      font-size:16px; padding:12px 20px; font-weight:700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:white; border-color: var(--accent);
+    }
+    .installText{
+      text-align:center; font-size:14px; color:var(--accent); font-weight:600; margin:8px 0;
+    }
     .btn.primary{
       border-color: rgba(58,160,255,.45);
       background: linear-gradient(135deg, rgba(58,160,255,.22), rgba(121,212,255,.14));
@@ -160,8 +168,15 @@
       color:transparent;
       font-weight:800;
     }
+    .eyecatcher{
+      font-size:20px; text-align:center; margin:16px 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+      font-weight:700;
+    }
     .heroText{margin:14px 0 18px; color:var(--muted); font-size:15px; line-height:1.6}
-    .ctaRow{display:flex; flex-wrap:wrap; gap:10px}
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; justify-content:center;}
 
     .heroLogos{
       display:flex; gap:10px; align-items:center;
@@ -567,8 +582,8 @@
               </div>
 
               <div class="heroBadge">
-                <div class="bimg" aria-hidden="true">
-                  <img src="assets/kreisliga.png" alt="Kreisliga Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🏆';">
+                <div class="bimg fallback" aria-hidden="true">
+                  🏆
                 </div>
                 <div class="btxt">
                   <b>SG Bad König/ Zell</b>
@@ -582,11 +597,15 @@
               und Unterstützung der bestehenden Strukturen der Sparte Fußball & Förderverein.
             </p>
 
+            <div class="divider"></div>
+
             <div class="ctaRow">
-              <a class="btn" id="installBtn" href="#">FFC App</a>
+              <a class="btn bigBtn" id="installBtn" href="#">FFC App</a>
             </div>
 
-            <div class="divider"></div>
+            <p class="installText">Installiere unsere App!!!</p>
+
+            <p class="eyecatcher" style="margin-top:20px;">Unterstütze uns...werde Mitglied</p>
           </div>
 
           <div class="miniGrid">
@@ -938,20 +957,7 @@
 
     // Fallback for other browsers
     if (!('beforeinstallprompt' in window)) {
-      installBtn.textContent = 'FFC App (manuell hinzufügen)';
-      installBtn.addEventListener('click', () => {
-        const isFirefox = navigator.userAgent.includes('Firefox');
-        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-        let message = 'Um die App zu installieren: ';
-        if (isFirefox) {
-          message += 'Gehe zu Menü > Seite > App installieren.';
-        } else if (isSafari) {
-          message += 'Tippe auf Teilen > Zum Home-Bildschirm hinzufügen.';
-        } else {
-          message += 'Suche im Browser-Menü nach "App hinzufügen" oder "Installieren".';
-        }
-        alert(message);
-      });
+      installBtn.textContent = 'FFC App';
     }
 
     // Login check
