@@ -183,7 +183,7 @@
       display:grid; place-items:center;
     }
     .heroBadge .bimg img{width:100%; height:100%; object-fit:contain; padding:6px; display:block}
-    .heroBadge .bimg.fallback{font-size:18px}
+    .heroBadge .bimg.fallback{font-size:28px}
     .heroBadge .btxt{line-height:1.25}
     .heroBadge .btxt b{display:block; font-size:13px}
     .heroBadge .btxt span{display:block; font-size:12px; color:var(--muted)}
@@ -481,17 +481,13 @@
   <main>
     <div class="wrap">
       <div class="dashboard">
-        <a class="appBtn" href="members.html">
-          <div class="icon">👤</div>
-          <div class="label">Mitglieder</div>
-        </a>
         <a class="appBtn" href="#events">
           <div class="icon">📅</div>
           <div class="label">Kalender</div>
         </a>
         <a class="appBtn" href="fupa.html">
           <div class="icon">⚽</div>
-          <div class="label">Spiele</div>
+          <div class="label">Spielplan</div>
         </a>
         <a class="appBtn" href="membership.html">
           <div class="icon">📝</div>
@@ -504,10 +500,6 @@
         <a class="appBtn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">
           <div class="icon">🛒</div>
           <div class="label">Fanshop</div>
-        </a>
-        <a class="appBtn" href="https://app.vereinsplaner.at/t/aktuelles" target="_blank" rel="noopener">
-          <div class="icon">👥</div>
-          <div class="label">Vorstand</div>
         </a>
         <a class="appBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
           <div class="icon">💬</div>
@@ -528,6 +520,22 @@
         <a class="appBtn" href="#" id="chatBtn">
           <div class="icon">💬</div>
           <div class="label">Chat</div>
+        </a>
+        <a class="appBtn" href="#ueberuns">
+          <div class="icon">ℹ️</div>
+          <div class="label">Über uns</div>
+        </a>
+        <a class="appBtn" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">
+          <div class="icon">📄</div>
+          <div class="label">Philosophie</div>
+        </a>
+        <a class="appBtn" href="members.html">
+          <div class="icon">👤</div>
+          <div class="label">Mitglieder Login</div>
+        </a>
+        <a class="appBtn" href="https://app.vereinsplaner.at/t/aktuelles" target="_blank" rel="noopener">
+          <div class="icon">👥</div>
+          <div class="label">Vorstand Login</div>
         </a>
       </div>
 
@@ -557,6 +565,16 @@
                   <span>Zusammenhalt</span>
                 </div>
               </div>
+
+              <div class="heroBadge">
+                <div class="bimg" aria-hidden="true">
+                  <img src="assets/kreisliga.png" alt="Kreisliga Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🏆';">
+                </div>
+                <div class="btxt">
+                  <b>SG Bad König/ Zell</b>
+                  <span>Fußball</span>
+                </div>
+              </div>
             </div>
 
             <p class="heroText">
@@ -565,35 +583,20 @@
             </p>
 
             <div class="ctaRow">
-              <a class="btn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
-              <a class="btn" id="installBtn" href="#" style="display:none;">FFC App</a>
-                           <a class="btn" href="#events">Kalender</a>
-              <a class="btn" href="members.html">Mitglieder-Login</a>
-              <a class="btn" href="#kontakt">Kontakt</a>
+              <a class="btn" id="installBtn" href="#">FFC App</a>
             </div>
 
             <div class="divider"></div>
-
-            <div class="kv">
-              <div class="row"><b>E-Mail</b> <span><a href="mailto:info@kinnicherffc.de">info@kinnicherffc.de</a></span></div>
-              <div class="row"><b>Telefon</b> <span><a href="tel:+4960632090">+49 (0) 6063 2090</a></span></div>
-              <div class="row"><b>Adresse</b> <span>64732 Bad König</span></div>
-            </div>
           </div>
 
           <div class="miniGrid">
             <div class="card heroSide">
-              <h3>Schnelllinks</h3>
-              <p>Alles Wichtige direkt erreichbar.</p>
-              <div class="pillRow">
-                <a class="pill" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
-                <a class="pill" href="membership.html">Online-Antrag</a>
-                <a class="pill" href="https://app.vereinsplaner.at/t/aktuelles" target="_blank" rel="noopener">Vorstand</a>
-                <a class="pill" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp</a>
-                <a class="pill" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
-                <a class="pill" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
-                <a class="pill" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
-                <a class="pill" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">Philosophie (PDF)</a>
+              <h3>Kontakt</h3>
+              <p>Erreiche uns direkt.</p>
+              <div class="kv">
+                <div class="row"><b>E-Mail</b> <span><a href="mailto:info@kinnicherffc.de">info@kinnicherffc.de</a></span></div>
+                <div class="row"><b>Telefon</b> <span><a href="tel:+4960632090">+49 (0) 6063 2090</a></span></div>
+                <div class="row"><b>Adresse</b> <span>64732 Bad König</span></div>
               </div>
             </div>
 
@@ -918,21 +921,38 @@
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      installBtn.style.display = 'inline-block';
-    });
-
-    installBtn.addEventListener('click', (e) => {
-      installBtn.style.display = 'none';
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
-        } else {
-          console.log('User dismissed the install prompt');
-        }
-        deferredPrompt = null;
+      installBtn.textContent = 'FFC App installieren';
+      installBtn.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          } else {
+            console.log('User dismissed the install prompt');
+          }
+          deferredPrompt = null;
+          installBtn.style.display = 'none';
+        });
       });
     });
+
+    // Fallback for other browsers
+    if (!('beforeinstallprompt' in window)) {
+      installBtn.textContent = 'FFC App (manuell hinzufügen)';
+      installBtn.addEventListener('click', () => {
+        const isFirefox = navigator.userAgent.includes('Firefox');
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        let message = 'Um die App zu installieren: ';
+        if (isFirefox) {
+          message += 'Gehe zu Menü > Seite > App installieren.';
+        } else if (isSafari) {
+          message += 'Tippe auf Teilen > Zum Home-Bildschirm hinzufügen.';
+        } else {
+          message += 'Suche im Browser-Menü nach "App hinzufügen" oder "Installieren".';
+        }
+        alert(message);
+      });
+    }
 
     // Login check
     function isLoggedIn() {
