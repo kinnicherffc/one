@@ -8,6 +8,7 @@
 <meta name="description" content="Offizieller Fanclub in Bad König: Kinnicher Fussball Fanclub 2024 e.V. – Termine, Aktionen, Gemeinschaft & Support. SG Bad König/ Zell" />
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="manifest" href="manifest.json">
 
   <style>
     :root{
@@ -453,7 +454,7 @@
 
             <div class="ctaRow">
               <a class="btn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
-              <a class="btn" href="#">FFC App</a>
+              <a class="btn" id="installBtn" href="#" style="display:none;">FFC App</a>
                            <a class="btn" href="#events">Kalender</a>
               <a class="btn" href="members.html">Mitglieder-Login</a>
               <a class="btn" href="#kontakt">Kontakt</a>
@@ -792,5 +793,34 @@
     });
   </script>
   <script src="https://widget-api.fupa.net/vendor/widget.js?v1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-block';
+    });
+
+    installBtn.addEventListener('click', (e) => {
+      installBtn.style.display = 'none';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+      });
+    });
+  </script>
 </body>
 </html>
