@@ -1,0 +1,22 @@
+{
+  "name": "Kinnicher FFC Fanclub",
+  "short_name": "KFFC",
+  "description": "Offizielle App des Kinnicher Fussball Fanclub 2024 e.V.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#071428",
+  "theme_color": "#3aa0ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo-kffc.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
