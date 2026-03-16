@@ -207,7 +207,7 @@
 
     .miniGrid{
       display:grid;
-      grid-template-columns: repeat(2, minmax(200px, 1fr));
+      grid-template-columns: 1fr;
       gap:18px;
     }
     .heroSide{padding:18px}
@@ -425,6 +425,7 @@
 
     /* Responsive */
     @media (max-width: 940px){
+      .heroGrid{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
     }
     @media (max-width: 860px){
@@ -487,6 +488,10 @@
   <main>
     <div class="wrap">
       <div class="dashboard">
+        <a class="appBtn" href="ueberuns.html">
+          <div class="icon">ℹ️</div>
+          <div class="label">Über uns</div>
+        </a>
         <a class="appBtn" href="events.html">
           <div class="icon">📅</div>
           <div class="label">Kalender</div>
@@ -499,33 +504,17 @@
           <div class="icon">📝</div>
           <div class="label">Antrag</div>
         </a>
-        <a class="appBtn" href="kontakt.html">
-          <div class="icon">📞</div>
-          <div class="label">Kontakt</div>
-        </a>
         <a class="appBtn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">
           <div class="icon">🛒</div>
           <div class="label">Fanshop</div>
         </a>
-        <a class="appBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
-          <div class="icon">💬</div>
-          <div class="label">WhatsApp</div>
-        </a>
-        <a class="appBtn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">
-          <div class="icon">📺</div>
-          <div class="label">YouTube</div>
-        </a>
-        <a class="appBtn" href="videos.html">
-          <div class="icon">🎥</div>
-          <div class="label">Videos</div>
+        <a class="appBtn" href="liveticker.html">
+          <div class="icon">📊</div>
+          <div class="label">Live Ticker</div>
         </a>
         <a class="appBtn" href="#" target="_blank" rel="noopener">
           <div class="icon">📺</div>
           <div class="label">Live Video</div>
-        </a>
-        <a class="appBtn" href="liveticker.html">
-          <div class="icon">📊</div>
-          <div class="label">Live Ticker</div>
         </a>
         <a class="appBtn" href="https://www.kicktipp.de/kinnicher-fussball-fanclub/" target="_blank" rel="noopener">
           <div class="icon">🎯</div>
@@ -535,9 +524,25 @@
           <div class="icon">💬</div>
           <div class="label">Chat</div>
         </a>
-        <a class="appBtn" href="ueberuns.html">
-          <div class="icon">ℹ️</div>
-          <div class="label">Über uns</div>
+        <a class="appBtn" href="videos.html">
+          <div class="icon">🎥</div>
+          <div class="label">Videos</div>
+        </a>
+        <a class="appBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
+          <div class="icon">💬</div>
+          <div class="label">WhatsApp</div>
+        </a>
+        <a class="appBtn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">
+          <div class="icon">📺</div>
+          <div class="label">YouTube</div>
+        </a>
+        <a class="appBtn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">
+          <div class="icon">📘</div>
+          <div class="label">Facebook</div>
+        </a>
+        <a class="appBtn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">
+          <div class="icon">📷</div>
+          <div class="label">Instagram</div>
         </a>
         <a class="appBtn" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">
           <div class="icon">📄</div>
