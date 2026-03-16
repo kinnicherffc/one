@@ -465,18 +465,7 @@
         </div>
 
         <nav aria-label="Hauptnavigation">
-          <div class="navlinks">
-            <a href="#ueberuns">Über uns</a>
-            <a href="#events">Events</a>
-            <a href="#videos">Videos</a>
-            <a href="#mitglied">Mitglied werden</a>
-            <a href="#kontakt">Kontakt</a>
-            <a href="fupa.html">Spielplan</a>
-            <a href="membership.html">Online-Antrag</a>
-            <a href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
-
-          </div>
-          <button class="burger" id="burger" aria-expanded="false" aria-controls="mobilemenu" aria-label="Menü">☰</button>
+          <!-- Menüleiste entfernt -->
         </nav>
       </div>
 
@@ -544,7 +533,7 @@
           <div class="icon">📄</div>
           <div class="label">Philosophie</div>
         </a>
-        <a class="appBtn" href="members.html">
+        <a class="appBtn" href="https://app.vereinsplaner.at/t/aktuelles" target="_blank" rel="noopener">
           <div class="icon">👤</div>
           <div class="label">Mitglieder Login</div>
         </a>
@@ -934,7 +923,7 @@
       });
     }
 
-    let deferredPrompt;
+    // Install Button
     const installBtn = document.getElementById('installBtn');
 
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -955,9 +944,22 @@
       });
     });
 
-    // Fallback for other browsers
-    if (!('beforeinstallprompt' in window)) {
-      installBtn.textContent = 'FFC App';
+    // Fallback for other browsers and mobile
+    if (!('beforeinstallprompt' in window) || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      installBtn.textContent = 'FFC App hinzufügen';
+      installBtn.addEventListener('click', () => {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isAndroid = /Android/.test(navigator.userAgent);
+        let message = 'Um die App hinzuzufügen: ';
+        if (isIOS) {
+          message += 'Tippe auf Teilen > Zum Home-Bildschirm.';
+        } else if (isAndroid) {
+          message += 'Öffne das Browser-Menü und wähle "App installieren" oder "Zum Startbildschirm hinzufügen".';
+        } else {
+          message += 'Suche im Browser-Menü nach "App hinzufügen".';
+        }
+        alert(message);
+      });
     }
 
     // Login check
