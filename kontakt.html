@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Über uns – Kinnicher FFC</title>
+  <title>Kontakt – Kinnicher FFC</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="manifest" href="manifest.json">
   <style>
@@ -101,6 +101,11 @@
       cursor:pointer;
     }
     .btn:hover{background:rgba(255,255,255,.07)}
+    .btn.primary{
+      border-color: rgba(58,160,255,.45);
+      background: linear-gradient(135deg, rgba(58,160,255,.22), rgba(121,212,255,.14));
+    }
+    .btn.primary:hover{filter:brightness(1.08)}
 
     /* Footer */
     footer{
@@ -134,6 +139,31 @@
       padding:18px;
       margin-bottom:18px;
     }
+    .kv{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:10px}
+    .kv .row{
+      display:flex; justify-content:space-between; gap:12px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      font-size:13px;
+    }
+    .kv .row b{font-weight:700}
+
+    /* Forms */
+    form{display:grid; gap:10px; margin-top:10px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .formRow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
 
     /* Responsive */
     @media (max-width: 940px){
@@ -147,6 +177,7 @@
     }
     @media (max-width: 520px){
       .footerGrid{grid-template-columns:1fr}
+      .formRow{grid-template-columns:1fr}
     }
     @media (max-width: 520px){
   :root{ --headerH: 96px; }
@@ -187,56 +218,35 @@
         <a class="btn" href="index.html">← Zur Startseite</a>
       </div>
 
-      <section id="ueberuns">
+      <section id="kontakt">
         <div class="sectionHead">
-          <h2>Über uns</h2>
+          <h2>Kontakt</h2>
         </div>
-        <div class="card pad">
-          <p class="muted" style="margin:0; line-height:1.8">
-            Unser Fanclub bietet eine Plattform für alle, die die gleiche Leidenschaft teilen, um sich zu treffen und
-            auszutauschen. Diese Gemeinschaft fördert ein Gefühl der Zugehörigkeit und stärkt soziale Bindungen.
-            Wir organisieren Aktivitäten, um die Mannschaften zu unterstützen und die Mitglieder, Vorstände und
-            Mannschaften näher zusammen zu bringen.<br><br>
-            Wir wollen mit dem Fanclub die bisherigen sehr guten Strukturen der Sparte Fußball und des
-            Fördervereins mit unterstützen und um diese dritte Säule erweitern.<br><br>
-            Wir setzen uns für unsere Mitglieder und die Belange der Fans ein und tragen die Wünsche oder
-            Verbesserungsvorschläge an die beiden Vorstände heran.<br><br>
-            Bereits vor der Gründung des Fanclubs fanden mit den Beteiligten erste Gespräche statt und es
-            herrschte einstimmige Befürwortung. Beschlüsse für den Bereich Senioren und die sportliche Leitung
-            erfolgen ausschließlich durch den Spartenvorstand Fußball.<br><br>
-            Der Fanclub möchte seine jungen Mitglieder an diese Vereinsaufgaben heranführen,
-            um unseren Verein zukunftsfähig aufzustellen.
-            <!-- Vorstand / Beisitzer – Platzhalter -->
-            <h3 class="boardTitle">Vorstand</h3>
 
-<div class="boardGrid" aria-label="Vorstand & Beisitzer">
-  <div class="boardCard">
-    <div class="avatar"></div>
-    <div class="role">1. Vorsitzender</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar"></div>
-    <div class="role">2. Vorsitzender</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar"></div>
-    <div class="role">Schatzmeisterin</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar"></div>
-    <div class="role">Schriftführerin</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar"></div>
-    <div class="role">Beisitzer</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar"></div>
-    <div class="role">Beisitzer</div>
-  </div>
-</div>
+        <div class="grid2">
+          <div class="card pad">
+            <form id="contactForm">
+              <div class="formRow">
+                <input type="text" id="name" placeholder="Name" autocomplete="name" />
+                <input type="email" id="email" placeholder="E-Mail" autocomplete="email" />
+              </div>
+              <textarea id="message" placeholder="Nachricht"></textarea>
+              <button class="btn primary" type="submit">Nachricht senden</button>
+            </form>
+          </div>
 
-          </p>
+          <div class="card pad">
+            <div class="kv">
+              <div class="row"><b>E-Mail</b> <span><a href="mailto:info@kinnicherffc.de">info@kinnicherffc.de</a></span></div>
+              <div class="row"><b>Telefon</b> <span><a href="tel:+4960632090">+49 (0) 6063 2090</a></span></div>
+              <div class="row"><b>Adresse</b> <span>64732 Bad König</span></div>
+            </div>
+
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp Kanal</a>
+              <a class="btn" href="legal.html">Impressum & Datenschutz</a>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -272,6 +282,20 @@
   <script>
     // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Kontaktformular -> mailto
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const email = encodeURIComponent(document.getElementById('email').value || '');
+      const message = encodeURIComponent(document.getElementById('message').value || '');
+      const subject = encodeURIComponent('Kontaktanfrage Website');
+      const body =
+        `Name: ${decodeURIComponent(name)}%0D%0A` +
+        `E-Mail: ${decodeURIComponent(email)}%0D%0A%0D%0A` +
+        `${decodeURIComponent(message)}`;
+      window.location.href = `mailto:info@kinnicherffc.de?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>

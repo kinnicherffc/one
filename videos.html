@@ -183,6 +183,10 @@
 
   <main>
     <div class="wrap">
+      <div style="margin:20px 0; text-align:center">
+        <a class="btn" href="index.html">← Zur Startseite</a>
+      </div>
+
       <section id="videos">
         <div class="sectionHead">
           <h2>Galerie Videos</h2>
@@ -230,23 +234,31 @@
       <div class="footerGrid">
         <div>
           <div class="footLinks">
+            <a class="btn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
+            <a class="btn" href="members.html">Mitglieder-Login</a>
+            <a class="btn" href="legal.html">Impressum</a>
+            <a class="btn" href="legal.html#datenschutz">Datenschutz</a>
+            <a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="copy">© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.</div>
+        </div>
+
+        <div>
+          <div class="footLinks">
             <a href="legal.html">Impressum & Datenschutz</a>
             <a href="membership.html">Mitgliedsantrag</a>
             <a href="members.html">Mitgliederbereich</a>
-          </div>
-          <div class="copy">© 2026 Kinnicher FFC. Alle Rechte vorbehalten.</div>
-        </div>
-        <div>
-          <p class="muted">Bleib auf dem Laufenden!</p>
-          <div class="footLinks">
-            <a href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">WhatsApp</a>
-            <a href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
-            <a href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
           </div>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Footer Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
