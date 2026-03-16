@@ -53,7 +53,7 @@
       min-height: var(--headerH);
     }
 
-    .brand{display:flex; align-items:center; gap:10px; min-width: 240px}
+    .brand{display:flex; align-items:center; gap:10px; flex:1; justify-content:center; text-align:center}
     .logo{      
   width:88px;
   height:88px;
@@ -175,7 +175,9 @@
         </div>
 
         <nav aria-label="Hauptnavigation">
-          <!-- Menüleiste entfernt -->
+          <div class="logo" aria-hidden="true">
+            <img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='⚽';">
+          </div>
         </nav>
       </div>
     </div>
@@ -242,16 +244,10 @@
             <a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
             <a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
           </div>
-          <div class="copy">© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.</div>
         </div>
-
-        <div>
-          <div class="footLinks">
-            <a href="legal.html">Impressum & Datenschutz</a>
-            <a href="membership.html">Mitgliedsantrag</a>
-            <a href="members.html">Mitgliederbereich</a>
-          </div>
-        </div>
+      </div>
+      <div style="text-align:center; margin-top:10px">
+        <div class="copy">© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.</div>
       </div>
     </div>
   </footer>
