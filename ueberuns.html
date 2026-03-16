@@ -129,6 +129,31 @@
     .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
     .pad{padding:18px}
     .muted{color:var(--muted)}
+
+    .boardGrid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .boardCard{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      text-align:center;
+      background:rgba(255,255,255,.04);
+    }
+    .boardCard .avatar{
+      width:72px; height:72px;
+      margin:0 auto 10px;
+      border-radius:18px;
+      background:rgba(255,255,255,.08);
+      display:grid; place-items:center;
+      font-size:32px;
+    }
+    .boardCard .name{font-weight:700; margin:6px 0 2px;}
+    .boardCard .role{font-size:13px; color:var(--muted);}    
+
     .card{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -214,27 +239,33 @@
 
 <div class="boardGrid" aria-label="Vorstand & Beisitzer">
   <div class="boardCard">
-    <div class="avatar"></div>
+    <div class="avatar" aria-hidden="true">🧑‍✈️</div>
+    <div class="name">Max Mustermann</div>
     <div class="role">1. Vorsitzender</div>
   </div>
   <div class="boardCard">
-    <div class="avatar"></div>
+    <div class="avatar" aria-hidden="true">🧑‍💼</div>
+    <div class="name">Anna Beispiel</div>
     <div class="role">2. Vorsitzender</div>
   </div>
   <div class="boardCard">
-    <div class="avatar"></div>
+    <div class="avatar" aria-hidden="true">💰</div>
+    <div class="name">Lisa Muster</div>
     <div class="role">Schatzmeisterin</div>
   </div>
   <div class="boardCard">
-    <div class="avatar"></div>
+    <div class="avatar" aria-hidden="true">✍️</div>
+    <div class="name">Julia Schrift</div>
     <div class="role">Schriftführerin</div>
   </div>
   <div class="boardCard">
-    <div class="avatar"></div>
+    <div class="avatar" aria-hidden="true">🤝</div>
+    <div class="name">Tom Beisitzer</div>
     <div class="role">Beisitzer</div>
   </div>
   <div class="boardCard">
-    <div class="avatar"></div>
+    <div class="avatar" aria-hidden="true">🤝</div>
+    <div class="name">Lea Beisitzer</div>
     <div class="role">Beisitzer</div>
   </div>
 </div>
