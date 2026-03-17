@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
   <title>Kinnicher Fussball Fanclub 2024 e.V. | Bad König</title>
-<meta name="description" content="Offizieller Fanclub in Bad König: Kinnicher Fussball Fanclub 2024 e.V. – Termine, Aktionen, Gemeinschaft & Support. SG Bad König/ Zell" />
+  <meta name="description" content="Offizieller Fanclub in Bad König: Kinnicher Fussball Fanclub 2024 e.V. – Termine, Aktionen, Gemeinschaft & Support. SG Bad König/ Zell" />
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="manifest" href="manifest.json">
 
   <style>
     :root{
@@ -44,7 +43,6 @@
 
     section{scroll-margin-top: calc(var(--headerH) + 16px); padding:20px 0}
 
-    /* Header */
     .header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
@@ -60,23 +58,25 @@
     .brand{display:flex; align-items:center; gap:10px; flex:1; justify-content:center; text-align:center}
     .headerLeft, .headerRight { display:flex; align-items:center; }
     .headerCenter { text-align:center; flex:1; }
-    .logo{      
-  width:88px;
-  height:88px;
-  border-radius:22px;
-  background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
-  border:1px solid var(--line);
-  display:grid;
-  place-items:center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  flex:0 0 auto;
-  overflow:hidden;
-} 
+
+    .logo{
+      width:88px;
+      height:88px;
+      border-radius:22px;
+      background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+      overflow:hidden;
+    }
     .logo img{
-      width:100%; height:100%;
+      width:100%;
+      height:100%;
       object-fit:contain;
       display:block;
-        padding:10px;
+      padding:10px;
     }
     .logo.fallback{font-size:18px}
 
@@ -94,6 +94,7 @@
       white-space:nowrap;
     }
     .navlinks a:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04)}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:8px;
@@ -108,21 +109,30 @@
     }
     .btn:hover{background:rgba(255,255,255,.07)}
     .bigBtn{
-      font-size:16px; padding:12px 20px; font-weight:700;
+      font-size:16px;
+      padding:12px 20px;
+      font-weight:700;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color:white; border-color: var(--accent);
+      color:white;
+      border-color: var(--accent);
     }
     .installText{
-      text-align:center; font-size:14px; color:var(--accent); font-weight:600; margin:8px 0;
+      text-align:center;
+      font-size:14px;
+      color:var(--accent);
+      font-weight:600;
+      margin:8px 0;
     }
     .btn.primary{
       border-color: rgba(58,160,255,.45);
       background: linear-gradient(135deg, rgba(58,160,255,.22), rgba(121,212,255,.14));
     }
     .btn.primary:hover{filter:brightness(1.08)}
+
     .burger{
       display:none;
-      width:42px; height:42px;
+      width:42px;
+      height:42px;
       border-radius:14px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.04);
@@ -135,10 +145,15 @@
       border-top:1px solid var(--line);
       padding:10px 0 14px;
     }
-    .mobilemenu a{display:block; padding:10px 10px; border-radius:12px; text-decoration:none; color:var(--muted)}
+    .mobilemenu a{
+      display:block;
+      padding:10px 10px;
+      border-radius:12px;
+      text-decoration:none;
+      color:var(--muted);
+    }
     .mobilemenu a:hover{background:rgba(255,255,255,.05); color:var(--text)}
 
-    /* Hero */
     .hero{padding:44px 0 26px}
     .heroGrid{
       display:grid;
@@ -155,8 +170,11 @@
     }
     .heroMain{padding:22px}
     .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      font-size:12px; color:var(--muted);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
       padding:8px 10px;
@@ -166,14 +184,18 @@
     .heroTitle{margin:0; font-size:34px; line-height:1.1}
     .heroTitle strong{
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip:text; background-clip:text;
+      -webkit-background-clip:text;
+      background-clip:text;
       color:transparent;
       font-weight:800;
     }
     .eyecatcher{
-      font-size:20px; text-align:center; margin:16px 0;
+      font-size:20px;
+      text-align:center;
+      margin:16px 0;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip:text; background-clip:text;
+      -webkit-background-clip:text;
+      background-clip:text;
       color:transparent;
       font-weight:700;
     }
@@ -181,25 +203,38 @@
     .ctaRow{display:flex; flex-wrap:wrap; gap:10px; justify-content:center;}
 
     .heroLogos{
-      display:flex; gap:10px; align-items:center;
+      display:flex;
+      gap:10px;
+      align-items:center;
       margin:12px 0 6px;
       flex-wrap:wrap;
     }
     .heroBadge{
-      display:flex; align-items:center; gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
       padding:10px 12px;
       border-radius:16px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.03);
     }
     .heroBadge .bimg{
-      width:44px; height:44px; border-radius:14px;
+      width:44px;
+      height:44px;
+      border-radius:14px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.02);
       overflow:hidden;
-      display:grid; place-items:center;
+      display:grid;
+      place-items:center;
     }
-    .heroBadge .bimg img{width:100%; height:100%; object-fit:contain; padding:6px; display:block}
+    .heroBadge .bimg img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:6px;
+      display:block;
+    }
     .heroBadge .bimg.fallback{font-size:28px}
     .heroBadge .btxt{line-height:1.25}
     .heroBadge .btxt b{display:block; font-size:13px}
@@ -233,7 +268,10 @@
       margin:20px 0;
     }
     .appBtn{
-      display:flex; flex-direction:column; align-items:center; gap:8px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
       padding:16px;
       border-radius:var(--radius);
       border:1px solid var(--line);
@@ -245,21 +283,29 @@
     }
     .appBtn:hover{transform: translateY(-2px); border-color:var(--accent)}
     .appBtn .icon{
-      width:48px; height:48px;
+      width:48px;
+      height:48px;
       border-radius:12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display:grid; place-items:center;
+      display:grid;
+      place-items:center;
       font-size:20px;
     }
     .appBtn .label{font-size:12px; text-align:center; color:var(--muted)}
 
-    /* Modal */
     .modal{
-      position:fixed; top:0; left:0; width:100%; height:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
       background:rgba(0,0,0,.7);
-      display:flex; align-items:center; justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       z-index:1000;
-      opacity:0; visibility:hidden;
+      opacity:0;
+      visibility:hidden;
       transition: all .3s;
     }
     .modal.show{opacity:1; visibility:visible}
@@ -267,29 +313,42 @@
       background:var(--bg);
       border-radius:var(--radius);
       padding:20px;
-      max-width:400px; width:90%;
+      max-width:400px;
+      width:90%;
       box-shadow: var(--shadow);
     }
     .modal h3{margin-top:0}
     .modal .close{
-      position:absolute; top:10px; right:10px;
-      background:none; border:none; color:var(--text); font-size:20px; cursor:pointer;
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:none;
+      border:none;
+      color:var(--text);
+      font-size:20px;
+      cursor:pointer;
     }
 
-    /* Cookie Banner */
     .cookieBanner{
-      position:fixed; bottom:0; left:0; right:0;
-      background:var(--card); border-top:1px solid var(--line);
-      padding:16px; z-index:999;
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      background:var(--card);
+      border-top:1px solid var(--line);
+      padding:16px;
+      z-index:999;
       display:none;
     }
     .cookieBanner.show{display:block}
     .cookieBanner p{margin:0 0 10px}
     .cookieBanner .btn{margin-right:10px}
 
-    /* Sections */
     .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
       margin:0 0 12px;
     }
     .sectionHead h2{margin:0; font-size:18px}
@@ -299,7 +358,9 @@
     .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.6; font-size:14px}
     .kv{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:10px}
     .kv .row{
-      display:flex; justify-content:space-between; gap:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
       padding:10px 12px;
       border:1px solid var(--line);
       border-radius:14px;
@@ -324,18 +385,19 @@
     }
     iframe{width:100%; border:0; display:block}
 
-    /* Back-to-top arrows between sections */
     .sectionNav{
       display:flex;
       justify-content:center;
       padding:12px 0 6px;
     }
     .upBtn{
-      width:44px; height:44px;
+      width:44px;
+      height:44px;
       border-radius:16px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.04);
-      display:grid; place-items:center;
+      display:grid;
+      place-items:center;
       text-decoration:none;
       color:var(--muted);
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
@@ -343,7 +405,6 @@
     .upBtn:hover{background:rgba(255,255,255,.07); color:var(--text)}
     .upBtn:active{transform:translateY(1px)}
 
-    /* Forms */
     form{display:grid; gap:10px; margin-top:10px}
     input, textarea{
       width:100%;
@@ -358,7 +419,6 @@
     textarea{min-height:120px; resize:vertical}
     .formRow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
 
-    /* Footer */
     footer{
       margin-top:30px;
       border-top:1px solid var(--line);
@@ -373,57 +433,51 @@
     }
     .footLinks{display:flex; flex-wrap:wrap; gap:10px}
     .copy{color:var(--muted); font-size:12px; margin-top:10px}
-/* Vorstand Platzhalter */
+
     .boardTitle{
-  margin:22px 0 12px;
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:.3px;
-  color:var(--text);
-}
+      margin:22px 0 12px;
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:.3px;
+      color:var(--text);
+    }
+    .boardGrid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:12px;
+    }
+    .boardCard{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding:12px;
+      text-align:center;
+    }
+    .avatar{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      border-radius:14px;
+      border:2px dashed rgba(255,255,255,.35);
+      background: rgba(0,0,0,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .avatar::before{
+      content:"👤";
+      font-size:32px;
+      opacity:.6;
+    }
+    .avatar::after{
+      content:"Foto folgt";
+      position:absolute;
+      bottom:8px;
+      font-size:11px;
+      color:var(--muted);
+    }
 
-.boardGrid{
-  margin-top:16px;
-  display:grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap:12px;
-}
-.boardCard{
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.03);
-  border-radius: 16px;
-  padding:12px;
-  text-align:center;
-}
-.avatar{
-  width:100%;
-  aspect-ratio: 1 / 1;
-  border-radius:14px;
-  border:2px dashed rgba(255,255,255,.35);
-  background: rgba(0,0,0,.18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-/* Icon im Platzhalter */
-.avatar::before{
-  content:"👤";
-  font-size:32px;
-  opacity:.6;
-}
-
-/* Text unter dem Icon */
-.avatar::after{
-  content:"Foto folgt";
-  position:absolute;
-  bottom:8px;
-  font-size:11px;
-  color:var(--muted);
-}
-
-    /* Responsive */
     @media (max-width: 940px){
       .heroGrid{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
@@ -441,14 +495,13 @@
       .headerCenter span{font-size:12px}
     }
     @media (max-width: 520px){
-  :root{ --headerH: 96px; }
-
-  .logo{
-    width:64px;
-    height:64px;
-    border-radius:18px;
-  }
-}
+      :root{ --headerH: 96px; }
+      .logo{
+        width:64px;
+        height:64px;
+        border-radius:18px;
+      }
+    }
   </style>
 </head>
 
@@ -458,7 +511,7 @@
       <div class="bar">
         <div class="headerLeft">
           <div class="logo" aria-hidden="true">
-           <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
+            <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
           </div>
         </div>
         <div class="headerCenter">
@@ -480,7 +533,6 @@
         <a href="#kontakt">Kontakt</a>
         <a href="members.html">Mitglieder-Login</a>
         <a href="fupa.html">Spielplan</a>
-
       </div>
     </div>
   </header>
@@ -586,9 +638,7 @@
               </div>
 
               <div class="heroBadge">
-                <div class="bimg fallback" aria-hidden="true">
-                  🏆
-                </div>
+                <div class="bimg fallback" aria-hidden="true">🏆</div>
                 <div class="btxt">
                   <b>SG Bad König/ Zell</b>
                   <span>Fußball</span>
@@ -625,26 +675,22 @@
 
             <div class="card heroSide">
               <h3>Nächste Termine</h3>
-<ul class="list">
-  <li>📅 20.03.2026 - 18 Uhr - Fanclub-Treffen / Stammtisch</li>
-  <li>📅 25.03.2026 - 19 Uhr - Jahreshauptversammlung Hotel Irene</li>
-  <li>⚽ 29.03.2026 - 13 Uhr - Heimspieltag in Bad König</li>
-  <li>⚽ 12.04.2026 - 12 Uhr - Auswärtsfahrt (Organisation läuft)</li>
-  <li>📅 30.05.2026 - 19 Uhr - Teilnahme 9er Cup Bad König</li>
-</ul>
+              <ul class="list">
+                <li>📅 20.03.2026 - 18 Uhr - Fanclub-Treffen / Stammtisch</li>
+                <li>📅 25.03.2026 - 19 Uhr - Jahreshauptversammlung Hotel Irene</li>
+                <li>⚽ 29.03.2026 - 13 Uhr - Heimspieltag in Bad König</li>
+                <li>⚽ 12.04.2026 - 12 Uhr - Auswärtsfahrt (Organisation läuft)</li>
+                <li>📅 30.05.2026 - 19 Uhr - Teilnahme 9er Cup Bad König</li>
+              </ul>
 
-<div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-  <a class="btn" href="#kontakt">Termin vorschlagen</a>
-  <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">Kalender öffnen</a>
-</div>
-
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+                <a class="btn" href="#kontakt">Termin vorschlagen</a>
+                <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">Kalender öffnen</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      </div>
-
     </div>
   </main>
 
@@ -665,10 +711,9 @@
     </div>
   </footer>
 
-
+  <script src="https://widget-api.fupa.net/vendor/widget.js?v1"></script>
 
   <script>
-    // Mobile Menü
     const burger = document.getElementById('burger');
     const mobilemenu = document.getElementById('mobilemenu');
 
@@ -677,6 +722,7 @@
       mobilemenu.style.display = 'none';
       burger?.setAttribute('aria-expanded', 'false');
     }
+
     function toggleMobileMenu(){
       const open = mobilemenu.style.display === 'block';
       mobilemenu.style.display = open ? 'none' : 'block';
@@ -685,12 +731,10 @@
 
     burger?.addEventListener('click', toggleMobileMenu);
 
-    // Quick-fix: Menü schließen nach Klick auf Link
     mobilemenu?.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', closeMobileMenu);
     });
 
-    // Optional: Menü schließen bei Klick außerhalb
     document.addEventListener('click', (e) => {
       if(!mobilemenu || !burger) return;
       const isOpen = mobilemenu.style.display === 'block';
@@ -700,10 +744,8 @@
       closeMobileMenu();
     });
 
-    // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Kontaktformular -> mailto
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = encodeURIComponent(document.getElementById('name').value || '');
@@ -716,26 +758,27 @@
         `${decodeURIComponent(message)}`;
       window.location.href = `mailto:info@kinnicherffc.de?subject=${subject}&body=${body}`;
     });
-  </script>
-  <script src="https://widget-api.fupa.net/vendor/widget.js?v1"></script>
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', async () => {
-      const registrations = await navigator.serviceWorker.getRegistrations();
-      for (const registration of registrations) {
-        await registration.unregister();
-      }
-    });
-  }
-</script>
-    // Install Button
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (const registration of registrations) {
+          await registration.unregister();
+        }
+      });
+    }
+
     const installBtn = document.getElementById('installBtn');
+    let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
+      if (!installBtn) return;
+
       installBtn.textContent = 'FFC App installieren';
       installBtn.addEventListener('click', () => {
+        if (!deferredPrompt) return;
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
@@ -746,11 +789,10 @@
           deferredPrompt = null;
           installBtn.style.display = 'none';
         });
-      });
+      }, { once: true });
     });
 
-    // Fallback for other browsers and mobile
-    if (!('beforeinstallprompt' in window) || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    if (installBtn && (!('onbeforeinstallprompt' in window) || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
       installBtn.textContent = 'FFC App hinzufügen';
       installBtn.addEventListener('click', () => {
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -767,21 +809,19 @@
       });
     }
 
-    // Login check
     function isLoggedIn() {
       return localStorage.getItem('loggedIn') === 'true';
     }
 
-    // Modal functions
     function showModal(id) {
-      document.getElementById(id).classList.add('show');
-    }
-    function hideModal(id) {
-      document.getElementById(id).classList.remove('show');
+      document.getElementById(id)?.classList.add('show');
     }
 
-    // Chat and Tippspiel
-    document.getElementById('chatBtn').addEventListener('click', (e) => {
+    function hideModal(id) {
+      document.getElementById(id)?.classList.remove('show');
+    }
+
+    document.getElementById('chatBtn')?.addEventListener('click', (e) => {
       e.preventDefault();
       if (!isLoggedIn()) {
         showModal('loginModal');
@@ -790,52 +830,48 @@
       }
     });
 
-    // Simple login
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
+    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Dummy login
       localStorage.setItem('loggedIn', 'true');
       hideModal('loginModal');
       alert('Eingeloggt!');
     });
 
-    // Simple register
-    document.getElementById('registerForm').addEventListener('submit', (e) => {
+    document.getElementById('registerForm')?.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Dummy register
       localStorage.setItem('loggedIn', 'true');
       hideModal('registerModal');
       alert('Registriert und eingeloggt!');
     });
 
-    // Chat
     function sendMessage() {
       const input = document.getElementById('chatInput');
       const messages = document.getElementById('chatMessages');
-      if (input.value.trim()) {
+      if (input && messages && input.value.trim()) {
         messages.innerHTML += `<p><strong>Du:</strong> ${input.value}</p>`;
         input.value = '';
         messages.scrollTop = messages.scrollHeight;
       }
     }
-    document.getElementById('chatInput').addEventListener('keypress', (e) => {
+
+    document.getElementById('chatInput')?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
 
-    // Cookie Banner
     if (window.innerWidth > 768 && !localStorage.getItem('cookiesAccepted')) {
-      document.getElementById('cookieBanner').classList.add('show');
+      document.getElementById('cookieBanner')?.classList.add('show');
     }
+
     function acceptCookies() {
       localStorage.setItem('cookiesAccepted', 'true');
       hideCookieBanner();
     }
+
     function hideCookieBanner() {
-      document.getElementById('cookieBanner').classList.remove('show');
+      document.getElementById('cookieBanner')?.classList.remove('show');
     }
   </script>
 
-  <!-- Modals -->
   <div class="modal" id="loginModal">
     <div class="modalContent">
       <button class="close" onclick="hideModal('loginModal')">×</button>
@@ -877,11 +913,9 @@
       <button class="close" onclick="hideModal('tippspielModal')">×</button>
       <h3>Tippspiel</h3>
       <p>Hier kannst du tippen...</p>
-      <!-- Add tippspiel content -->
     </div>
   </div>
 
-  <!-- Cookie Banner -->
   <div class="cookieBanner" id="cookieBanner">
     <p>Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern. Durch die Nutzung stimmen Sie der Verwendung von Cookies zu.</p>
     <button class="btn" onclick="acceptCookies()">Akzeptieren</button>
