@@ -121,7 +121,7 @@
       font-size:14px;
       color:var(--accent);
       font-weight:600;
-      margin:8px 0;
+      margin:8px 0 12px;
     }
     .btn.primary{
       border-color: rgba(58,160,255,.45);
@@ -189,18 +189,35 @@
       color:transparent;
       font-weight:800;
     }
-    .eyecatcher{
-      font-size:20px;
-      text-align:center;
-      margin:16px 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-weight:700;
-    }
     .heroText{margin:14px 0 18px; color:var(--muted); font-size:15px; line-height:1.6}
     .ctaRow{display:flex; flex-wrap:wrap; gap:10px; justify-content:center;}
+
+    .socialRow{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:6px 0 8px;
+    }
+    .socialIcon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      color:var(--text);
+      font-size:20px;
+      transition:all .2s;
+    }
+    .socialIcon:hover{
+      background:rgba(255,255,255,.08);
+      transform:translateY(-1px);
+    }
 
     .heroLogos{
       display:flex;
@@ -344,143 +361,8 @@
     .cookieBanner p{margin:0 0 10px}
     .cookieBanner .btn{margin-right:10px}
 
-    .sectionHead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      margin:0 0 12px;
-    }
-    .sectionHead h2{margin:0; font-size:18px}
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .pad{padding:18px}
-    .muted{color:var(--muted)}
-    .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.6; font-size:14px}
-    .kv{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:10px}
-    .kv .row{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.03);
-      font-size:13px;
-    }
-    .kv .row b{font-weight:700}
-    .events{display:grid; gap:10px; margin-top:10px}
-    .event{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      border-radius:14px;
-      padding:12px;
-    }
-    .event .t{font-size:14px; margin:0 0 4px}
-    .event .m{font-size:13px; color:var(--muted); margin:0}
-    .iframeWrap{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background:rgba(255,255,255,.02);
-    }
-    iframe{width:100%; border:0; display:block}
-
-    .sectionNav{
-      display:flex;
-      justify-content:center;
-      padding:12px 0 6px;
-    }
-    .upBtn{
-      width:44px;
-      height:44px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      display:grid;
-      place-items:center;
-      text-decoration:none;
-      color:var(--muted);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    .upBtn:hover{background:rgba(255,255,255,.07); color:var(--text)}
-    .upBtn:active{transform:translateY(1px)}
-
-    form{display:grid; gap:10px; margin-top:10px}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.22);
-      color:var(--text);
-      outline:none;
-      font-size:14px;
-    }
-    textarea{min-height:120px; resize:vertical}
-    .formRow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-
-    footer{
-      margin-top:30px;
-      border-top:1px solid var(--line);
-      background: rgba(5,11,24,.55);
-    }
-    .footerGrid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      padding:18px 0;
-      align-items:start;
-    }
-    .footLinks{display:flex; flex-wrap:wrap; gap:10px}
-    .copy{color:var(--muted); font-size:12px; margin-top:10px}
-
-    .boardTitle{
-      margin:22px 0 12px;
-      font-size:15px;
-      font-weight:700;
-      letter-spacing:.3px;
-      color:var(--text);
-    }
-    .boardGrid{
-      margin-top:16px;
-      display:grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap:12px;
-    }
-    .boardCard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: 16px;
-      padding:12px;
-      text-align:center;
-    }
-    .avatar{
-      width:100%;
-      aspect-ratio: 1 / 1;
-      border-radius:14px;
-      border:2px dashed rgba(255,255,255,.35);
-      background: rgba(0,0,0,.18);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-    }
-    .avatar::before{
-      content:"👤";
-      font-size:32px;
-      opacity:.6;
-    }
-    .avatar::after{
-      content:"Foto folgt";
-      position:absolute;
-      bottom:8px;
-      font-size:11px;
-      color:var(--muted);
-    }
-
     @media (max-width: 940px){
       .heroGrid{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
     }
     @media (max-width: 860px){
       .navlinks{display:none}
@@ -489,10 +371,14 @@
       .brand{min-width:auto}
     }
     @media (max-width: 520px){
-      .heroTitle{font-size:28px}
-      .formRow{grid-template-columns:1fr}
       .headerCenter h1{font-size:18px}
       .headerCenter span{font-size:12px}
+      .heroTitle{font-size:28px}
+      .socialIcon{
+        width:42px;
+        height:42px;
+        font-size:18px;
+      }
     }
     @media (max-width: 520px){
       :root{ --headerH: 96px; }
@@ -546,7 +432,7 @@
         </a>
         <a class="appBtn" href="events.html">
           <div class="icon">📅</div>
-          <div class="label">Kalender</div>
+          <div class="label">FFC Kalender</div>
         </a>
         <a class="appBtn" href="fupa.html">
           <div class="icon">⚽</div>
@@ -554,7 +440,7 @@
         </a>
         <a class="appBtn" href="membership.html">
           <div class="icon">📝</div>
-          <div class="label">Antrag</div>
+          <div class="label">Online Antrag</div>
         </a>
         <a class="appBtn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">
           <div class="icon">🛒</div>
@@ -575,26 +461,6 @@
         <a class="appBtn" href="chat.html">
           <div class="icon">💬</div>
           <div class="label">Chat</div>
-        </a>
-        <a class="appBtn" href="videos.html">
-          <div class="icon">🎥</div>
-          <div class="label">Videos</div>
-        </a>
-        <a class="appBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
-          <div class="icon">💬</div>
-          <div class="label">WhatsApp</div>
-        </a>
-        <a class="appBtn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">
-          <div class="icon">📺</div>
-          <div class="label">YouTube</div>
-        </a>
-        <a class="appBtn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">
-          <div class="icon">📘</div>
-          <div class="label">Facebook</div>
-        </a>
-        <a class="appBtn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">
-          <div class="icon">📷</div>
-          <div class="label">Instagram</div>
         </a>
         <a class="appBtn" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">
           <div class="icon">📄</div>
@@ -659,7 +525,12 @@
 
             <p class="installText">Installiere unsere App!!!</p>
 
-            <p class="eyecatcher" style="margin-top:20px;">Unterstütze uns...werde Mitglied</p>
+            <div class="socialRow" aria-label="Social Media">
+              <a class="socialIcon" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+              <a class="socialIcon" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener" title="YouTube">▶️</a>
+              <a class="socialIcon" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener" title="Facebook">📘</a>
+              <a class="socialIcon" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener" title="Instagram">📷</a>
+            </div>
           </div>
 
           <div class="miniGrid">
@@ -746,19 +617,6 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('name').value || '');
-      const email = encodeURIComponent(document.getElementById('email').value || '');
-      const message = encodeURIComponent(document.getElementById('message').value || '');
-      const subject = encodeURIComponent('Kontaktanfrage Website');
-      const body =
-        `Name: ${decodeURIComponent(name)}%0D%0A` +
-        `E-Mail: ${decodeURIComponent(email)}%0D%0A%0D%0A` +
-        `${decodeURIComponent(message)}`;
-      window.location.href = `mailto:info@kinnicherffc.de?subject=${subject}&body=${body}`;
-    });
-
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', async () => {
         const registrations = await navigator.serviceWorker.getRegistrations();
@@ -781,13 +639,12 @@
         if (!deferredPrompt) return;
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
+          deferredPrompt = null;
           if (choiceResult.outcome === 'accepted') {
             console.log('User accepted the install prompt');
           } else {
             console.log('User dismissed the install prompt');
           }
-          deferredPrompt = null;
-          installBtn.style.display = 'none';
         });
       }, { once: true });
     });
@@ -808,118 +665,6 @@
         alert(message);
       });
     }
-
-    function isLoggedIn() {
-      return localStorage.getItem('loggedIn') === 'true';
-    }
-
-    function showModal(id) {
-      document.getElementById(id)?.classList.add('show');
-    }
-
-    function hideModal(id) {
-      document.getElementById(id)?.classList.remove('show');
-    }
-
-    document.getElementById('chatBtn')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (!isLoggedIn()) {
-        showModal('loginModal');
-      } else {
-        showModal('chatModal');
-      }
-    });
-
-    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      localStorage.setItem('loggedIn', 'true');
-      hideModal('loginModal');
-      alert('Eingeloggt!');
-    });
-
-    document.getElementById('registerForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      localStorage.setItem('loggedIn', 'true');
-      hideModal('registerModal');
-      alert('Registriert und eingeloggt!');
-    });
-
-    function sendMessage() {
-      const input = document.getElementById('chatInput');
-      const messages = document.getElementById('chatMessages');
-      if (input && messages && input.value.trim()) {
-        messages.innerHTML += `<p><strong>Du:</strong> ${input.value}</p>`;
-        input.value = '';
-        messages.scrollTop = messages.scrollHeight;
-      }
-    }
-
-    document.getElementById('chatInput')?.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
-
-    if (window.innerWidth > 768 && !localStorage.getItem('cookiesAccepted')) {
-      document.getElementById('cookieBanner')?.classList.add('show');
-    }
-
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      hideCookieBanner();
-    }
-
-    function hideCookieBanner() {
-      document.getElementById('cookieBanner')?.classList.remove('show');
-    }
   </script>
-
-  <div class="modal" id="loginModal">
-    <div class="modalContent">
-      <button class="close" onclick="hideModal('loginModal')">×</button>
-      <h3>Login</h3>
-      <form id="loginForm">
-        <input type="text" placeholder="Benutzername" required>
-        <input type="password" placeholder="Passwort" required>
-        <button type="submit">Einloggen</button>
-      </form>
-      <p><a href="#" onclick="hideModal('loginModal'); showModal('registerModal')">Registrieren</a></p>
-    </div>
-  </div>
-
-  <div class="modal" id="registerModal">
-    <div class="modalContent">
-      <button class="close" onclick="hideModal('registerModal')">×</button>
-      <h3>Registrieren</h3>
-      <form id="registerForm">
-        <input type="text" placeholder="Benutzername" required>
-        <input type="email" placeholder="E-Mail" required>
-        <input type="password" placeholder="Passwort" required>
-        <button type="submit">Registrieren</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" id="chatModal">
-    <div class="modalContent">
-      <button class="close" onclick="hideModal('chatModal')">×</button>
-      <h3>Mitglieder-Chat</h3>
-      <div id="chatMessages" style="height:200px; overflow-y:auto; border:1px solid var(--line); padding:10px; margin-bottom:10px;"></div>
-      <input type="text" id="chatInput" placeholder="Nachricht..." style="width:100%; padding:8px;">
-      <button onclick="sendMessage()">Senden</button>
-    </div>
-  </div>
-
-  <div class="modal" id="tippspielModal">
-    <div class="modalContent">
-      <button class="close" onclick="hideModal('tippspielModal')">×</button>
-      <h3>Tippspiel</h3>
-      <p>Hier kannst du tippen...</p>
-    </div>
-  </div>
-
-  <div class="cookieBanner" id="cookieBanner">
-    <p>Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern. Durch die Nutzung stimmen Sie der Verwendung von Cookies zu.</p>
-    <button class="btn" onclick="acceptCookies()">Akzeptieren</button>
-    <button class="btn" onclick="hideCookieBanner()">Ablehnen</button>
-  </div>
 </body>
 </html>
