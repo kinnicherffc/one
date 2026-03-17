@@ -6,200 +6,514 @@
   <title>FFC Chat</title>
 
   <style>
-    body {
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#071428;
-      color:white;
+    :root{
+      --bg:#071428;
+      --card:#0c1f3b;
+      --text:#eaf2ff;
+      --muted:#b9c8e6;
+      --line:rgba(255,255,255,.12);
+      --accent:#3aa0ff;
+      --accent2:#79d4ff;
+      --danger:#ff4b4b;
+      --success:#2e8b57;
+      --radius:16px;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --max:900px;
     }
 
-    .wrap {
-      max-width:800px;
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 12% 10%, rgba(58,160,255,.18), transparent 60%),
+        radial-gradient(700px 420px at 85% 10%, rgba(121,212,255,.12), transparent 55%),
+        linear-gradient(180deg, #061126 0%, #050b18 100%);
+      color:var(--text);
+    }
+
+    .wrap{
+      max-width:var(--max);
       margin:auto;
       padding:20px;
     }
 
-    h1 { text-align:center; }
+    .topbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:18px;
+    }
 
-    .box {
-      border:1px solid #2a3f6a;
+    .toplink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
       border-radius:12px;
-      padding:15px;
-      background:#0c1f3b;
-      margin-bottom:15px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
     }
 
-    input {
+    .toplink:hover{
+      background:rgba(255,255,255,.07);
+    }
+
+    h1{
+      text-align:center;
+      margin:6px 0 20px;
+      font-size:28px;
+    }
+
+    .box{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      background:linear-gradient(180deg, rgba(12,31,59,.75), rgba(10,24,48,.65));
+      margin-bottom:16px;
+      box-shadow:var(--shadow);
+    }
+
+    input{
       width:100%;
-      padding:10px;
-      margin-bottom:10px;
-      border-radius:8px;
-      border:none;
+      padding:12px;
+      margin-bottom:12px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      box-sizing:border-box;
+      font-size:15px;
     }
 
-    button {
-      padding:10px;
+    input::placeholder{
+      color:#b9c8e6;
+    }
+
+    button{
+      padding:12px 14px;
       border:none;
-      border-radius:8px;
+      border-radius:10px;
       background:#3aa0ff;
       color:white;
       cursor:pointer;
       width:100%;
+      font-size:15px;
+      font-weight:600;
     }
 
-    #chat {
-      height:300px;
+    button:hover{
+      opacity:.94;
+    }
+
+    .authButtons{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:6px;
+    }
+
+    .authButtons button{
+      margin:0;
+      min-height:48px;
+    }
+
+    #chat{
+      height:360px;
       overflow-y:auto;
       background:#000;
-      padding:10px;
-      border-radius:10px;
+      padding:12px;
+      border-radius:12px;
+      margin-bottom:12px;
+      border:1px solid var(--line);
+    }
+
+    .msg{
       margin-bottom:10px;
-    }
-
-    .msg {
-      margin-bottom:8px;
       font-size:14px;
+      line-height:1.45;
+      word-break:break-word;
     }
 
-    .user {
+    .user{
       color:#79d4ff;
       font-weight:bold;
     }
 
-    .logout {
-      background:#ff4b4b;
+    .logout{
+      background:var(--danger);
       margin-top:10px;
+    }
+
+    .error{
+      display:none;
+      background:#4a1010;
+      border:1px solid #a94442;
+      color:#ffd5d5;
+      padding:10px;
+      border-radius:8px;
+      margin-bottom:12px;
+      font-size:14px;
+    }
+
+    .success{
+      display:none;
+      background:#103d22;
+      border:1px solid var(--success);
+      color:#d7ffe5;
+      padding:10px;
+      border-radius:8px;
+      margin-bottom:12px;
+      font-size:14px;
+    }
+
+    .hint{
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 14px;
+      line-height:1.5;
+    }
+
+    .chatActions{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+
+    .quickLinks{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .quickLinks a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      text-align:center;
+      min-height:48px;
+    }
+
+    .quickLinks a:hover{
+      background:rgba(255,255,255,.07);
+    }
+
+    .subhead{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    @media (max-width: 640px){
+      .wrap{
+        padding:14px;
+      }
+
+      h1{
+        font-size:24px;
+      }
+
+      .authButtons{
+        grid-template-columns: 1fr 1fr;
+        gap:14px;
+      }
+
+      .quickLinks{
+        grid-template-columns: 1fr 1fr;
+        gap:10px;
+      }
+
+      #chat{
+        height:320px;
+      }
     }
   </style>
 </head>
 
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="toplink" href="index.html">← Zurück zur Startseite</a>
+    </div>
 
-  <h1>FFC Fanclub Chat</h1>
+    <h1>FFC Fanclub Chat</h1>
 
-  <!-- LOGIN -->
-  <div id="authBox" class="box">
-    <h3>Login / Registrierung</h3>
-    <input id="email" type="email" placeholder="E-Mail">
-    <input id="password" type="password" placeholder="Passwort">
+    <div class="quickLinks" style="margin-bottom:16px;">
+      <a href="liveticker.html">📊 Live Ticker</a>
+      <a href="livevideo.html">📺 Live Video</a>
+    </div>
 
-    <button onclick="login()">Login</button>
-    <button onclick="register()">Registrieren</button>
+    <div id="errorBox" class="error"></div>
+    <div id="successBox" class="success"></div>
+
+    <div id="authBox" class="box">
+      <h3 class="subhead">Login / Registrierung</h3>
+      <p class="hint">Nur angemeldete Nutzer können schreiben.</p>
+
+      <input id="email" type="email" placeholder="E-Mail">
+      <input id="password" type="password" placeholder="Passwort">
+
+      <div class="authButtons">
+        <button id="loginBtn" type="button">Login</button>
+        <button id="registerBtn" type="button">Registrieren</button>
+      </div>
+    </div>
+
+    <div id="chatBox" class="box" style="display:none;">
+      <h3 class="subhead">Chat</h3>
+
+      <div class="quickLinks" style="margin-bottom:14px;">
+        <a href="liveticker.html">📊 Live Ticker</a>
+        <a href="livevideo.html">📺 Live Video</a>
+      </div>
+
+      <div id="chat"></div>
+
+      <div class="chatActions">
+        <input id="msgInput" type="text" placeholder="Nachricht eingeben...">
+        <button id="sendBtn" type="button">Senden</button>
+        <button id="logoutBtn" class="logout" type="button">Logout</button>
+      </div>
+    </div>
   </div>
 
-  <!-- CHAT -->
-  <div id="chatBox" class="box" style="display:none;">
-    <div id="chat"></div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    <input id="msgInput" placeholder="Nachricht eingeben...">
-    <button onclick="sendMessage()">Senden</button>
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      query,
+      orderBy,
+      onSnapshot
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    <button class="logout" onclick="logout()">Logout</button>
-  </div>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDShDkLcHwjsnLuzlEhUeXJFDoSyjdc970",
+      authDomain: "ffc-chat-340e9.firebaseapp.com",
+      projectId: "ffc-chat-340e9",
+      storageBucket: "ffc-chat-340e9.firebasestorage.app",
+      messagingSenderId: "297409812256",
+      appId: "1:297409812256:web:f608c0960103bfd8e42945"
+    };
 
-</div>
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-<!-- Firebase SDK -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { 
-    getAuth, 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
-    onAuthStateChanged,
-    signOut 
-  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const authBox = document.getElementById("authBox");
+    const chatBox = document.getElementById("chatBox");
+    const chatDiv = document.getElementById("chat");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const msgInput = document.getElementById("msgInput");
+    const loginBtn = document.getElementById("loginBtn");
+    const registerBtn = document.getElementById("registerBtn");
+    const sendBtn = document.getElementById("sendBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const errorBox = document.getElementById("errorBox");
+    const successBox = document.getElementById("successBox");
 
-  import { 
-    getFirestore, 
-    collection, 
-    addDoc, 
-    query, 
-    orderBy, 
-    onSnapshot 
-  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    let unsubscribeMessages = null;
 
-  // 🔥 DEIN CONFIG
-  const firebaseConfig = {
-    apiKey: "AIzaSyDShDkLcHwjsnLuzlEhUeXJFDoSyjdc970",
-    authDomain: "ffc-chat-340e9.firebaseapp.com",
-    projectId: "ffc-chat-340e9",
-    storageBucket: "ffc-chat-340e9.firebasestorage.app",
-    messagingSenderId: "297409812256",
-    appId: "1:297409812256:web:f608c0960103bfd8e42945"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  const chatDiv = document.getElementById("chat");
-
-  // LOGIN
-  window.login = async () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    await signInWithEmailAndPassword(auth, email, password);
-  };
-
-  // REGISTER
-  window.register = async () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    await createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  // LOGOUT
-  window.logout = async () => {
-    await signOut(auth);
-  };
-
-  // USER STATE
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      document.getElementById("authBox").style.display = "none";
-      document.getElementById("chatBox").style.display = "block";
-      loadMessages();
-    } else {
-      document.getElementById("authBox").style.display = "block";
-      document.getElementById("chatBox").style.display = "none";
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.style.display = "block";
+      successBox.style.display = "none";
     }
-  });
 
-  // SEND MESSAGE
-  window.sendMessage = async () => {
-    const text = document.getElementById("msgInput").value;
-    if (!text) return;
+    function showSuccess(message) {
+      successBox.textContent = message;
+      successBox.style.display = "block";
+      errorBox.style.display = "none";
+    }
 
-    await addDoc(collection(db, "messages"), {
-      text: text,
-      user: auth.currentUser.email,
-      time: Date.now()
-    });
+    function clearMessages() {
+      errorBox.style.display = "none";
+      successBox.style.display = "none";
+    }
 
-    document.getElementById("msgInput").value = "";
-  };
+    function mapFirebaseError(code) {
+      switch (code) {
+        case "auth/invalid-email":
+          return "Die E-Mail-Adresse ist ungültig.";
+        case "auth/missing-password":
+          return "Bitte ein Passwort eingeben.";
+        case "auth/weak-password":
+          return "Das Passwort ist zu schwach. Bitte mindestens 6 Zeichen verwenden.";
+        case "auth/email-already-in-use":
+          return "Diese E-Mail ist bereits registriert.";
+        case "auth/invalid-credential":
+        case "auth/wrong-password":
+        case "auth/user-not-found":
+          return "Login fehlgeschlagen. E-Mail oder Passwort stimmt nicht.";
+        case "auth/operation-not-allowed":
+          return "E-Mail/Passwort-Login ist in Firebase noch nicht aktiviert.";
+        case "auth/network-request-failed":
+          return "Netzwerkfehler. Bitte Verbindung prüfen.";
+        default:
+          return `Firebase-Fehler: ${code}`;
+      }
+    }
 
-  // LOAD MESSAGES (LIVE)
-  function loadMessages() {
-    const q = query(collection(db, "messages"), orderBy("time"));
+    async function login() {
+      clearMessages();
 
-    onSnapshot(q, (snapshot) => {
-      chatDiv.innerHTML = "";
-      snapshot.forEach(doc => {
-        const m = doc.data();
-        chatDiv.innerHTML += `
-          <div class="msg">
-            <span class="user">${m.user}:</span> ${m.text}
-          </div>
-        `;
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        showError("Bitte E-Mail und Passwort eingeben.");
+        return;
+      }
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        showSuccess("Login erfolgreich.");
+      } catch (error) {
+        showError(mapFirebaseError(error.code));
+        console.error("Login error:", error);
+      }
+    }
+
+    async function register() {
+      clearMessages();
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        showError("Bitte E-Mail und Passwort eingeben.");
+        return;
+      }
+
+      if (password.length < 6) {
+        showError("Das Passwort muss mindestens 6 Zeichen lang sein.");
+        return;
+      }
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        showSuccess("Registrierung erfolgreich. Du bist jetzt eingeloggt.");
+      } catch (error) {
+        showError(mapFirebaseError(error.code));
+        console.error("Register error:", error);
+      }
+    }
+
+    async function logout() {
+      clearMessages();
+
+      try {
+        await signOut(auth);
+        showSuccess("Logout erfolgreich.");
+      } catch (error) {
+        showError("Logout fehlgeschlagen.");
+        console.error("Logout error:", error);
+      }
+    }
+
+    async function sendMessage() {
+      clearMessages();
+
+      const text = msgInput.value.trim();
+      const user = auth.currentUser;
+
+      if (!user) {
+        showError("Du musst eingeloggt sein, um zu schreiben.");
+        return;
+      }
+
+      if (!text) {
+        showError("Bitte zuerst eine Nachricht eingeben.");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "messages"), {
+          text,
+          user: user.email,
+          time: Date.now()
+        });
+
+        msgInput.value = "";
+      } catch (error) {
+        showError("Nachricht konnte nicht gesendet werden.");
+        console.error("Send error:", error);
+      }
+    }
+
+    function loadMessages() {
+      if (unsubscribeMessages) {
+        unsubscribeMessages();
+      }
+
+      const q = query(collection(db, "messages"), orderBy("time"));
+
+      unsubscribeMessages = onSnapshot(q, (snapshot) => {
+        chatDiv.innerHTML = "";
+
+        snapshot.forEach((doc) => {
+          const m = doc.data();
+          const div = document.createElement("div");
+          div.className = "msg";
+          div.innerHTML = `<span class="user">${m.user}:</span> ${m.text}`;
+          chatDiv.appendChild(div);
+        });
+
+        chatDiv.scrollTop = chatDiv.scrollHeight;
+      }, (error) => {
+        showError("Nachrichten konnten nicht geladen werden.");
+        console.error("Snapshot error:", error);
       });
-      chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        authBox.style.display = "none";
+        chatBox.style.display = "block";
+        clearMessages();
+        loadMessages();
+      } else {
+        authBox.style.display = "block";
+        chatBox.style.display = "none";
+        if (unsubscribeMessages) {
+          unsubscribeMessages();
+          unsubscribeMessages = null;
+        }
+      }
     });
-  }
-</script>
+
+    loginBtn.addEventListener("click", login);
+    registerBtn.addEventListener("click", register);
+    logoutBtn.addEventListener("click", logout);
+    sendBtn.addEventListener("click", sendMessage);
+
+    msgInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        sendMessage();
+      }
+    });
+  </script>
 </body>
 </html>
