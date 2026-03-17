@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kinnicher Fussball Fanclub 2024 e.V.</title>
+  
   <title>Kinnicher Fussball Fanclub 2024 e.V. | Bad König</title>
 <meta name="description" content="Offizieller Fanclub in Bad König: Kinnicher Fussball Fanclub 2024 e.V. – Termine, Aktionen, Gemeinschaft & Support. SG Bad König/ Zell" />
 
@@ -719,12 +719,15 @@
   </script>
   <script src="https://widget-api.fupa.net/vendor/widget.js?v1"></script>
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      for (const registration of registrations) {
+        await registration.unregister();
+      }
+    });
+  }
+</script>
     // Install Button
     const installBtn = document.getElementById('installBtn');
 
