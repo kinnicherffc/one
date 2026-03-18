@@ -1,10 +1,10 @@
-<!doctype html>
-<html lang="de">
+<!doctype html> 
+<html lang="de" id="top">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FuPa Widgets | Kinnicher FFC</title>
-  <meta name="description" content="Spiele, Ergebnisse und Tabellen der Mannschaften der TSG Bad König (FuPa Widgets)." />
+
   <style>
     :root{
       --bg:#071428;
@@ -12,102 +12,209 @@
       --text:#eaf2ff;
       --muted:#b9c8e6;
       --line:rgba(255,255,255,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --accent:#3aa0ff;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
       --radius:18px;
-      --max:1100px;
+      --max:1200px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       background:
         radial-gradient(900px 500px at 12% 10%, rgba(58,160,255,.18), transparent 60%),
         radial-gradient(700px 420px at 85% 10%, rgba(121,212,255,.12), transparent 55%),
         linear-gradient(180deg, #061126 0%, #050b18 100%);
     }
+
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      margin-bottom:14px;
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px;
     }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0;
+      font-size:20px;
+    }
+
+    p{
+      margin:6px 0 0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 12px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:11px 16px;
       border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
       color:var(--text);
       text-decoration:none;
-      font-size:13px;
-      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:.2px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 8px 24px rgba(0,0,0,.22);
+      transition:transform .18s ease, background .18s ease, border-color .18s ease;
     }
-    .btn:hover{background:rgba(255,255,255,.07)}
-    h1{margin:0; font-size:20px}
-    p{margin:6px 0 0; color:var(--muted); line-height:1.6}
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(58,160,255,.45);
+      background:
+        linear-gradient(180deg, rgba(58,160,255,.20), rgba(255,255,255,.05));
+    }
+
+    .back-btn{
+      white-space:nowrap;
+    }
+
+    .hero{
+      border:1px solid var(--line);
+      background:rgba(12,31,59,.68);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      margin-bottom:18px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .hero-actions .btn{
+      min-width:140px;
+    }
 
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:18px;
-      margin-top:14px;
     }
+
     .card{
       border:1px solid var(--line);
-      background: rgba(12,31,59,.65);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      background:rgba(12,31,59,.68);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       overflow:hidden;
       padding:14px;
-      min-height: 560px;
+      scroll-margin-top:18px;
     }
-    .card h2{margin:0 0 10px; font-size:16px}
+
+    .card h2{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    .card p{
+      margin:0 0 12px;
+      font-size:14px;
+    }
+
     .widgetWrap{
       border:1px solid var(--line);
-      border-radius: 16px;
+      border-radius:16px;
       overflow:hidden;
-      background: rgba(0,0,0,.18);
+      background:rgba(0,0,0,.18);
       padding:10px;
-      min-height: 500px;
+      min-height:460px;
     }
-    /* Mobile: untereinander */
+
     @media (max-width: 940px){
-      .grid{grid-template-columns:1fr}
-      .card{min-height:auto}
-      .widgetWrap{min-height: 400px}
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .widgetWrap{
+        min-height:400px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .wrap{
+        padding:14px;
+      }
+
+      h1{
+        font-size:18px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
     }
   </style>
 </head>
 
-<body>
+<body id="top">
   <div class="wrap">
+
     <div class="topbar">
       <div>
         <h1>Spiele & Tabellen (FuPa)</h1>
-        <p>TSG Bad König – 1. und 2. Mannschaft.</p>
+        <p>SG 1a und SG 1b</p>
       </div>
-      <a class="btn" href="index.html#events">← Zurück zur Startseite</a>
+      <a class="btn back-btn" href="index.html#events">← Zurück</a>
+    </div>
+
+    <div class="hero">
+      <div class="hero-actions">
+        <a class="btn" href="#sg1a">SG 1a</a>
+        <a class="btn" href="#sg1b">SG 1b</a>
+      </div>
     </div>
 
     <div class="grid">
-      <div class="card">
-        <h2>1. Mannschaft</h2>
-        <div class="widgetWrap">
-          <div id="fp-widget_root-38wpDfgKAtDvsIwkOAZOMwUF0gL">
-            <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="card">
-        <h2>2. Mannschaft</h2>
+      <section class="card" id="sg1a">
+        <h2>SG 1a</h2>
+        <p>Spielplan, Ergebnisse und aktuelle Übersicht.</p>
         <div class="widgetWrap">
-          <div id="fp-widget_root-38wpVCOSki09ntqEF6UWhGFmUYr">
+          <div id="fp-widget_root-3B7li1Go9Fi25BOMNqJI4xKW9Ei">
             <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="card" id="sg1b">
+        <h2>SG 1b</h2>
+        <p>Spielplan, Ergebnisse und aktuelle Übersicht.</p>
+        <div class="widgetWrap">
+          <div id="fp-widget_root-3B7m0ZI5PMi51iBPt1sMaKRA2Hg">
+            <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 

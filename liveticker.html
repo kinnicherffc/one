@@ -7,6 +7,7 @@
   <meta name="description" content="Live-Ticker für Spiele des Kinnicher FFC – Updates im WhatsApp-Kanal." />
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="manifest" href="manifest.json">
+
   <style>
     :root{
       --bg:#071428;
@@ -17,9 +18,11 @@
       --line:rgba(255,255,255,.12);
       --accent:#3aa0ff;
       --accent2:#79d4ff;
+      --wa1:#25D366;
+      --wa2:#128C7E;
       --shadow: 0 18px 60px rgba(0,0,0,.35);
       --radius:18px;
-      --max:1100px;
+      --max:1180px;
       --headerH: 120px;
     }
 
@@ -36,27 +39,39 @@
         radial-gradient(900px 600px at 40% 110%, rgba(58,160,255,.10), transparent 60%),
         linear-gradient(180deg, #061126 0%, #050b18 100%);
     }
+
     a{color:inherit}
-
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-
     section{scroll-margin-top: calc(var(--headerH) + 16px); padding:20px 0}
 
-    /* Header */
     .header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
       background: rgba(7,20,40,.8);
       border-bottom:1px solid var(--line);
     }
+
     .bar{
       display:flex; align-items:center; gap:10px;
       height:var(--headerH); padding:0 18px;
     }
+
     .headerLeft, .headerRight { display:flex; align-items:center; }
     .headerCenter { text-align:center; flex:1; }
-    .headerCenter h1{margin:0; font-size:24px; line-height:1.2}
-    .headerCenter span{display:block; font-size:14px; color:var(--muted); margin-top:4px}
+
+    .headerCenter h1{
+      margin:0;
+      font-size:24px;
+      line-height:1.2;
+    }
+
+    .headerCenter span{
+      display:block;
+      font-size:14px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
     .logo{
       width:72px; height:72px; border-radius:18px;
       border:1px solid var(--line);
@@ -64,10 +79,10 @@
       overflow:hidden;
       display:grid; place-items:center;
     }
+
     .logo img{width:100%; height:100%; object-fit:cover}
     .fallback{font-size:36px}
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 12px;
@@ -78,16 +93,25 @@
       text-decoration:none;
       font-size:13px;
       cursor:pointer;
+      transition:.2s ease;
     }
-    .btn:hover{background:rgba(255,255,255,.07)}
+
+    .btn:hover{
+      background:rgba(255,255,255,.07);
+      transform:translateY(-1px);
+    }
+
     .bigBtn{
-      font-size:16px; padding:12px 20px; font-weight:700;
+      font-size:16px;
+      padding:12px 20px;
+      font-weight:700;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color:white; border-color: var(--accent);
+      color:white;
+      border-color: var(--accent);
     }
+
     .bigBtn:hover{filter:brightness(1.08)}
 
-    /* Card */
     .card{
       border:1px solid var(--line);
       background: linear-gradient(180deg, rgba(12,31,59,.75), rgba(10,24,48,.65));
@@ -95,44 +119,247 @@
       box-shadow: var(--shadow);
       overflow:hidden;
     }
+
     .pad{padding:22px}
 
-    /* Footer */
+    .sectionHead{
+      text-align:center;
+      margin-bottom:18px;
+    }
+
+    .sectionHead h2{
+      margin:0;
+      font-size:32px;
+      line-height:1.1;
+    }
+
+    .sectionHead p{
+      margin:10px auto 0;
+      max-width:720px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .muted{color:var(--muted)}
+
+    .heroBox{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+
+    .infoCard{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .infoCard::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(500px 220px at 15% 0%, rgba(58,160,255,.18), transparent 60%),
+        radial-gradient(300px 180px at 90% 100%, rgba(121,212,255,.10), transparent 60%);
+      pointer-events:none;
+    }
+
+    .infoInner{
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:var(--accent2);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .infoInner h3{
+      margin:0 0 10px;
+      font-size:30px;
+      line-height:1.1;
+    }
+
+    .infoInner p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .whatsCard{
+      background:
+        linear-gradient(180deg, rgba(18,140,126,.28), rgba(7,20,40,.72)),
+        linear-gradient(180deg, rgba(12,31,59,.75), rgba(10,24,48,.65));
+      border:1px solid rgba(37,211,102,.28);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .whatsWrap{
+      text-align:center;
+      width:100%;
+    }
+
+    .whatsBadge{
+      width:68px;
+      height:68px;
+      margin:0 auto 14px;
+      border-radius:20px;
+      display:grid;
+      place-items:center;
+      font-size:34px;
+      background:linear-gradient(135deg, rgba(37,211,102,.22), rgba(18,140,126,.28));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 14px 35px rgba(0,0,0,.22);
+    }
+
+    .whatsWrap h3{
+      margin:0 0 8px;
+      font-size:24px;
+    }
+
+    .whatsWrap p{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .waBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-width:230px;
+      padding:14px 22px;
+      border-radius:16px;
+      text-decoration:none;
+      font-weight:800;
+      font-size:16px;
+      color:#fff;
+      background:linear-gradient(135deg, var(--wa1), var(--wa2));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 16px 34px rgba(0,0,0,.28);
+      transition:.2s ease;
+    }
+
+    .waBtn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+    }
+
+    .waHint{
+      margin-top:12px;
+      font-size:13px;
+      color:#d8fbe7;
+      opacity:.92;
+    }
+
+    .widgetsGrid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:18px;
+      align-items:start;
+    }
+
+    .widgetCard{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(12,31,59,.75), rgba(10,24,48,.65));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .widgetHead{
+      padding:16px 18px;
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    .widgetHead h3{
+      margin:0;
+      font-size:18px;
+    }
+
+    .widgetHead p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .widgetBody{
+      padding:14px;
+      min-height:320px;
+    }
+
+    .widgetBody > div[id^="fp-widget_root-"]{
+      width:100%;
+      min-height:280px;
+    }
+
     footer{
       border-top:1px solid var(--line);
       background: rgba(7,20,40,.8);
       padding:20px 0;
       margin-top:40px;
     }
+
     .footLinks{
-      display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:center;
       margin-bottom:12px;
     }
-    .copy{text-align:center; font-size:12px; color:var(--muted)}
 
-    /* Responsive */
+    .copy{
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+    }
+
     @media (max-width: 940px){
-      .grid2{grid-template-columns:1fr}
+      .heroBox{
+        grid-template-columns:1fr;
+      }
+      .widgetsGrid{
+        grid-template-columns:1fr;
+      }
     }
-    @media (max-width: 860px){
-      .navlinks{display:none}
-      .burger{display:inline-flex; align-items:center; justify-content:center}
-      .mobilemenu{display:none}
-      .brand{min-width:auto}
-    }
+
     @media (max-width: 520px){
+      :root{ --headerH: 96px; }
+
       .headerCenter h1{font-size:18px}
       .headerCenter span{font-size:12px}
-    }
-    @media (max-width: 520px){
-  :root{ --headerH: 96px; }
 
-  .logo{
-    width:64px;
-    height:64px;
-    border-radius:18px;
-  }
-}
+      .logo{
+        width:64px;
+        height:64px;
+        border-radius:18px;
+      }
+
+      .sectionHead h2{font-size:26px}
+      .infoInner h3{font-size:24px}
+      .whatsWrap h3{font-size:21px}
+      .waBtn{
+        width:100%;
+        min-width:0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -141,13 +368,15 @@
       <div class="bar">
         <div class="headerLeft">
           <div class="logo" aria-hidden="true">
-           <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
+            <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
           </div>
         </div>
+
         <div class="headerCenter">
           <h1>Kinnicher Fussball Fanclub 2024 e.V.</h1>
           <span>Bad König · Blau/Weiß</span>
         </div>
+
         <div class="headerRight">
           <div class="logo" aria-hidden="true">
             <img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='⚽';">
@@ -166,19 +395,60 @@
       <section id="liveticker">
         <div class="sectionHead">
           <h2>Live-Ticker</h2>
+          <p>Hier findest du unsere Spielbegleitung mit Live-Infos sowie schnelle Updates über den WhatsApp-Kanal.</p>
         </div>
 
-        <div class="card pad" style="text-align:center">
-          <h3>Spielinfo</h3>
-          <p class="muted">Hier werden die aktuellen Spielinformationen angezeigt.</p>
-
-          <div style="margin:20px 0">
-            <a class="bigBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
-              📱 Zum WhatsApp-Kanal
-            </a>
+        <div class="heroBox">
+          <div class="card pad infoCard">
+            <div class="infoInner">
+              <div class="eyebrow">⚽ Spieltag live dabei</div>
+              <h3>Aktuelle Infos rund um unsere Spiele</h3>
+              <p>
+                Verfolge unsere Begegnungen direkt auf dieser Seite über die FuPa-Liveticker-Widgets
+                und erhalte zusätzliche Hinweise, Reaktionen und Zwischenstände im WhatsApp-Kanal.
+              </p>
+            </div>
           </div>
 
-          <p class="muted">Updates im Kanal</p>
+          <div class="card pad whatsCard">
+            <div class="whatsWrap">
+              <div class="whatsBadge">📱</div>
+              <h3>Live-Ticker direkt vom Platz
+              <p>
+                Noch schneller informiert: News, Hinweise und Spieltags-Updates direkt auf dein Smartphone.
+              </p>
+              <a class="waBtn" href="https://whatsapp.com/channel/0029VaMg8M11t90lH7MP9n20" target="_blank" rel="noopener">
+                WhatsApp-Kanal öffnen
+              </a>
+              <div class="waHint">Jetzt folgen und keine Updates mehr verpassen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widgetsGrid">
+          <div class="widgetCard">
+            <div class="widgetHead">
+              <h3>Liveticker 1</h3>
+              <p>FuPa-Widget für aktuelle Spielinformationen</p>
+            </div>
+            <div class="widgetBody">
+              <div id="fp-widget_root-3B7mFSrd1SGWeFmmqDSTWMlTvDd">
+                <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="widgetCard">
+            <div class="widgetHead">
+              <h3>Liveticker 2</h3>
+              <p>Weiteres FuPa-Widget für Spieltags-Updates</p>
+            </div>
+            <div class="widgetBody">
+              <div id="fp-widget_root-3B7mOXqWB43ytpQ3ugaJG63X6bo">
+                <a href="https://www.fupa.net/club/tsg-bad-koenig" target="_blank" rel="noopener">TSG Bad König auf FuPa</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -201,8 +471,8 @@
     </div>
   </footer>
 
+  <script src="https://widget-api.fupa.net/vendor/widget.js?v1"></script>
   <script>
-    // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
