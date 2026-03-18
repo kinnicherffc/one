@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="de" id="top">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News | Kinnicher FFC</title>
+
+<style>
+:root{
+  --bg:#071428;
+  --card:#0c1f3b;
+  --text:#eaf2ff;
+  --muted:#b9c8e6;
+  --line:rgba(255,255,255,.12);
+  --radius:18px;
+  --shadow:0 18px 60px rgba(0,0,0,.35);
+  --max:1200px;
+}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:linear-gradient(#061126,#050b18);
+  color:var(--text);
+}
+
+.wrap{max-width:var(--max);margin:auto;padding:20px}
+
+.header{
+  position:sticky;top:0;
+  background:#050b18;
+  border-bottom:1px solid var(--line);
+}
+
+.topbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.btn{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:white;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:20px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  height:650px; /* EINHEITLICHE HÖHE */
+}
+
+.card h2{
+  margin:0;
+  padding:12px;
+  font-size:16px;
+}
+
+/* CONTENT */
+.embed{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  overflow:hidden;
+}
+
+/* FACEBOOK */
+.fb iframe{
+  width:100%;
+  max-width:500px;
+  height:100%;
+  border:0;
+}
+
+/* INSTAGRAM */
+.ig{
+  padding:10px;
+  overflow:auto;
+}
+
+.ig blockquote{
+  margin:auto !important;
+}
+
+/* POSTS */
+.posts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:20px;
+}
+
+.post{
+  height:650px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.post iframe{
+  width:100%;
+  max-width:500px;
+  height:100%;
+  border:0;
+}
+
+/* UP */
+.up{
+  margin:30px auto;
+  display:block;
+  width:50px;
+  height:50px;
+  text-align:center;
+  line-height:50px;
+  border-radius:50%;
+  border:1px solid var(--line);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .grid,.posts{grid-template-columns:1fr}
+  .card,.post{height:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="wrap topbar">
+    <h2>News</h2>
+
+    <a class="btn" href="index.html">← Start</a>
+
+    <div>
+      <a class="btn" href="#fb1">Facebook SGBKZ</a>
+      <a class="btn" href="#ig1">Instagram SGBKZ</a>
+      <a class="btn" href="#fb2">Facebook Fanclub</a>
+      <a class="btn" href="#ig2">Instagram Fanclub</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="grid">
+
+    <!-- FB SGBKZ -->
+    <div class="card" id="fb1">
+      <h2>Facebook SGBKZ</h2>
+      <div class="embed fb">
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig&tabs=timeline"></iframe>
+      </div>
+    </div>
+
+    <!-- IG SGBKZ -->
+    <div class="card" id="ig1">
+      <h2>Instagram SGBKZ</h2>
+      <div class="embed ig">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DV1iJ9GCOua/"
+          data-instgrm-version="14">
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- FB FANCLUB -->
+    <div class="card" id="fb2">
+      <h2>Facebook Fanclub</h2>
+      <div class="embed fb">
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574762261698&tabs=timeline"></iframe>
+      </div>
+    </div>
+
+    <!-- IG FANCLUB -->
+    <div class="card" id="ig2">
+      <h2>Instagram Fanclub</h2>
+      <div class="embed ig">
+        <blockquote class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/p/DV7_KU4DNkD/"
+          data-instgrm-version="14">
+        </blockquote>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- POSTS -->
+  <div class="posts">
+
+    <div class="post">
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig%2Fposts%2Fpfbid0XMz1RTr2aGKNmE9K3aeWE52XubsdvkoaPwij7AHNe4dyg7MKiRsdnBuzu7coxPtxl&show_text=true"></iframe>
+    </div>
+
+    <div class="post">
+      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig%2Fposts%2Fpfbid096MazWbWkMcp4yR25r8cXiH1TViAFzTcw2bLKRdEUM9SnMSqtzLVtJwufNFj13GUl&show_text=true"></iframe>
+    </div>
+
+  </div>
+
+  <a href="#top" class="up">↑</a>
+
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+
+</body>
+</html>
