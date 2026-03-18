@@ -103,7 +103,7 @@ body{
   box-shadow:var(--shadow);
   display:flex;
   flex-direction:column;
-  height:650px;
+  min-height:650px;
 }
 
 .card h2{
@@ -145,7 +145,7 @@ body{
 }
 
 .post{
-  height:650px;
+  min-height:650px;
   background:#fff;
   border-radius:var(--radius);
   overflow:hidden;
@@ -161,30 +161,91 @@ body{
   border:0;
 }
 
-/* MOBILE */
-@media(max-width:900px){
+/* TABLET */
+@media (max-width:900px){
   .grid,
   .posts{
     grid-template-columns:1fr;
   }
 
   .jumpNav{
-    flex-direction:column;
     width:100%;
-  }
-
-  .card,
-  .post{
-    height:auto;
-  }
-
-  .fb iframe,
-  .post iframe{
-    height:600px;
   }
 
   .topbar{
     align-items:flex-start;
+  }
+}
+
+/* MOBILE */
+@media (max-width:640px){
+  .wrap{
+    padding:12px;
+  }
+
+  .topbar{
+    gap:10px;
+  }
+
+  .topbar h2{
+    font-size:22px;
+  }
+
+  .jumpNav{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    width:100%;
+  }
+
+  .btn{
+    width:100%;
+    min-height:40px;
+    padding:9px 10px;
+    font-size:14px;
+    white-space:normal;
+    text-align:center;
+  }
+
+  .card,
+  .post{
+    min-height:auto;
+  }
+
+  .card h2{
+    font-size:15px;
+    padding:10px 12px;
+  }
+
+  .embed{
+    min-height:auto;
+  }
+
+  .fb iframe,
+  .post iframe{
+    max-width:100%;
+    min-height:0;
+    height:420px;
+  }
+
+  .ig{
+    padding:8px;
+  }
+}
+
+/* SEHR KLEINE HANDYS */
+@media (max-width:420px){
+  .topbar h2{
+    font-size:20px;
+  }
+
+  .jumpNav{
+    grid-template-columns:1fr;
+  }
+
+  .fb iframe,
+  .post iframe{
+    height:360px;
   }
 }
 </style>
@@ -233,18 +294,18 @@ body{
     </div>
 
     <div class="card" id="fb2">
-  <h2>Facebook Fanclub</h2>
-  <div class="embed fb">
-    <iframe
-      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkinnicherffc&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-      style="border:none;overflow:hidden"
-      scrolling="no"
-      frameborder="0"
-      allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
-  </div>
-</div>
+      <h2>Facebook Fanclub</h2>
+      <div class="embed fb">
+        <iframe
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkinnicherffc&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          style="border:none;overflow:hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+    </div>
 
     <div class="card" id="ig2">
       <h2>Instagram Fanclub</h2>
