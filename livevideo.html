@@ -26,6 +26,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -347,6 +348,10 @@
       display: block;
     }
 
+    .player-shell.live .placeholder {
+      display: none;
+    }
+
     .placeholder {
       display: grid;
       place-items: center;
@@ -431,16 +436,6 @@
       margin-top: 10px;
     }
 
-    .notice {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: rgba(245,158,11,0.10);
-      border: 1px solid rgba(245,158,11,0.28);
-      color: #fde68a;
-      font-size: 14px;
-    }
-
     footer {
       padding: 28px 0 56px;
       color: #94a3b8;
@@ -468,61 +463,70 @@
       }
     }
 
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .player-toolbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
     @media (max-width: 640px) {
-      .wrap { width: min(calc(100% - 20px), var(--max)); }
-      .hero { padding: 24px 0 18px; }
-      .hero-main, .hero-side, .info-card { padding: 18px; }
+      .wrap {
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .hero {
+        padding: 24px 0 18px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .info-card {
+        padding: 18px;
+      }
+
       .nav-links {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
       }
+
       .nav-links a {
         font-size: 13px;
         text-align: center;
       }
-      .btn { width: 100%; justify-content: center; }
-      .actions { flex-direction: column; }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
       .hero p,
       .placeholder p {
         font-size: 15px;
       }
+
       .countdown-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .countdown-item strong {
         font-size: 24px;
       }
+
       .player-shell {
         aspect-ratio: 16 / 10;
       }
+
       .live-chip {
         top: 10px;
         left: 10px;
         padding: 8px 12px;
         font-size: 13px;
       }
+
       .pill {
         width: 100%;
         justify-content: center;
         text-align: center;
       }
-    }
-      .hero-main, .hero-side, .info-card { padding: 18px; }
-      .nav-links a { font-size: 13px; }
-      .btn { width: 100%; justify-content: center; }
-      .actions { flex-direction: column; }
     }
   </style>
 </head>
@@ -539,7 +543,6 @@
       <nav class="nav-links">
         <a href="#livestream">Livestream</a>
         <a href="#spielinfo">Spielinfo</a>
-        <a href="#hinweise">Hinweise</a>
         <a href="/">Zur Startseite</a>
       </nav>
     </div>
@@ -553,8 +556,9 @@
           <h1>Live-Video zum Spieltag</h1>
           <p>
             Hier läuft der aktuelle Livestream zum Spieltag. Sobald euer Veo-Stream auf YouTube live geht,
-            wechselt diese Seite automatisch in den Live-Modus und zeigt das Spiel direkt im Player.
+            zeigt diese Seite das Spiel direkt im Player.
           </p>
+
           <div class="countdown-box">
             <div class="countdown-label">Countdown bis zum Spieltag</div>
             <div class="countdown-grid mobile-scroll">
@@ -564,27 +568,36 @@
               <div class="countdown-item"><strong id="cdSeconds">--</strong><span>Sekunden</span></div>
             </div>
           </div>
+
           <div class="actions">
             <a class="btn btn-primary" href="#livestream">▶ Jetzt zum Stream</a>
-            <a class="btn btn-secondary" id="youtubeLink" href="#" target="_blank" rel="noopener noreferrer">YouTube direkt öffnen</a>
+            <a
+              class="btn btn-secondary"
+              id="youtubeLink"
+              href="https://www.youtube.com/@KinnicherFFC/streams"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YouTube direkt öffnen
+            </a>
           </div>
         </div>
 
         <aside class="card hero-side">
           <div class="status-box">
             <div class="status-row">
-              <span class="dot offline" id="statusDot"></span>
-              <span id="statusText">Stream derzeit offline</span>
+              <span class="dot live" id="statusDot"></span>
+              <span id="statusText">Livestream wird über YouTube geladen</span>
             </div>
             <div style="color: var(--muted); font-size: 14px;">
-              Die Seite prüft automatisch in festen Abständen, ob das YouTube-Livevideo verfügbar ist.
+              Falls der Stream im Player noch nicht sichtbar ist, kann er alternativ direkt über YouTube geöffnet werden.
             </div>
           </div>
 
           <div class="status-box">
             <strong>Nächstes Spiel</strong>
             <div class="meta-list">
-              <div class="meta-item"><span>Begegnung</span><strong id="matchTitle">FC Rimhorn - TSG Bad König</strong></div>
+              <div class="meta-item"><span>Team</span><strong id="matchTitle">TSG Bad König</strong></div>
               <div class="meta-item"><span>Datum</span><strong id="matchDate">22.03.2026</strong></div>
               <div class="meta-item"><span>Anstoß</span><strong id="matchTime">15:00 Uhr</strong></div>
               <div class="meta-item"><span>Ort</span><strong id="matchPlace">Sportplatz Rimhorn</strong></div>
@@ -594,7 +607,7 @@
           <div class="status-box">
             <strong>Aktualisierung</strong>
             <div style="margin-top: 8px; color: var(--muted); font-size: 14px;">
-              Letzte Prüfung: <span id="lastChecked">–</span>
+              Seite geladen: <span id="lastChecked">–</span>
             </div>
           </div>
         </aside>
@@ -606,34 +619,35 @@
         <div class="section-head">
           <div>
             <h2>Livestream</h2>
-            <p>Der Player startet automatisch, sobald das Livevideo auf YouTube verfügbar ist.</p>
+            <p>Das YouTube-Livebild wird direkt im Player eingebettet.</p>
           </div>
         </div>
 
         <div class="card player-card">
           <div class="player-toolbar">
-            <div class="pill">🔴 Status: <strong id="toolbarStatus">Offline</strong></div>
+            <div class="pill">🔴 Status: <strong id="toolbarStatus">Live-Player aktiv</strong></div>
             <div class="pill">📺 Quelle: Veo → YouTube → kinnicherffc.de</div>
           </div>
 
-          <div class="player-shell" id="playerShell">
+          <div class="player-shell live" id="playerShell">
             <iframe
               id="liveFrame"
               title="Kinnicher FFC Livestream"
-              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              src=""
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
               allowfullscreen
               referrerpolicy="strict-origin-when-cross-origin"
-              loading="lazy">
+              loading="eager">
             </iframe>
 
             <div class="placeholder" id="placeholder">
               <div class="placeholder-inner">
-                <h3>Der Stream ist noch nicht live</h3>
+                <h3>Der Livestream wird geladen</h3>
                 <p>
-                  Sobald ihr das Spiel über Veo startet und YouTube das Livevideo bereitstellt,
-                  erscheint der Stream hier automatisch ohne dass die Besucher etwas tun müssen.
+                  Wenn YouTube im eingebetteten Player noch kein Bild anzeigt, öffnet bitte den Button
+                  „YouTube direkt öffnen“.
                 </p>
-                <small>Die Seite prüft regelmäßig den Livestatus.</small>
+                <small>Die Seite verwendet den YouTube-Live-Embed des Kanals.</small>
               </div>
             </div>
 
@@ -641,10 +655,6 @@
               <div class="live-chip"><span class="dot live"></span> LIVE</div>
             </div>
           </div>
-        </div>
-
-        <div class="notice">
-          Wichtig: Damit das sauber funktioniert, sollte das YouTube-Livevideo auf <strong>nicht gelistet</strong> oder <strong>öffentlich</strong> stehen und <strong>Einbetten erlauben</strong> aktiviert sein.
         </div>
       </div>
     </section>
@@ -655,7 +665,7 @@
           <h3>Für Besucher</h3>
           <ul>
             <li>Einfach die Seite öffnen und offen lassen.</li>
-            <li>Wenn das Spiel live geht, startet der eingebettete Stream automatisch.</li>
+            <li>Das Livebild wird direkt im eingebetteten YouTube-Player geladen.</li>
             <li>Falls auf dem Handy nichts startet: Seite einmal neu laden.</li>
             <li>Alternativ kann der Stream direkt über den YouTube-Link geöffnet werden.</li>
           </ul>
@@ -671,41 +681,16 @@
   </footer>
 
   <script>
-    /*
-      ==============================
-      KONFIGURATION
-      ==============================
-      1) channelHandle oder channelId eintragen
-      2) optional Spielinfos anpassen
-
-      EMPFEHLUNG:
-      Wenn ihr ein festes YouTube-Live-Setup nutzt, reicht meist der Channel-Link.
-      Die Seite prüft dann regelmäßig, ob das Livevideo aufrufbar ist.
-    */
-
     const config = {
-      // Variante A: YouTube Handle (ohne @ nur der Name, oder mit @)
-      channelHandle: '@kinnicherffc',
-
-      // Variante B: falls vorhanden, Channel-ID (hat Vorrang, wenn gepflegt)
       channelId: 'UC6hzmu52Mfx3yX64n_BdCWw',
+      youtubeWatchUrl: 'https://www.youtube.com/@KinnicherFFC/streams',
 
-      // YouTube-Link für Nutzer
-      youtubeWatchUrl: 'https://www.youtube.com/channel/UC6hzmu52Mfx3yX64n_BdCWw',
-
-      // Spielinfos
       matchTitle: 'TSG Bad König',
       matchDate: '22.03.2026',
       matchTime: '15:00 Uhr',
       matchPlace: 'Sportplatz Rimhorn',
 
-      // Countdown-Zeitpunkt im Format YYYY-MM-DDTHH:MM:SS
       kickoffDateTime: '2026-03-22T15:00:00',
-
-      // Prüfrhythmus in Millisekunden
-      checkInterval: 60000,
-
-      // Autoplay nur im eingebetteten Stream
       autoplay: true,
       muteOnAutoplay: true
     };
@@ -731,7 +716,10 @@
     };
 
     function updateStaticContent() {
-      els.year.textContent = new Date().getFullYear();
+      const now = new Date();
+      els.year.textContent = now.getFullYear();
+      els.lastChecked.textContent = now.toLocaleString('de-DE');
+
       els.youtubeLink.href = config.youtubeWatchUrl;
       els.matchTitle.textContent = config.matchTitle;
       els.matchDate.textContent = config.matchDate;
@@ -764,71 +752,25 @@
     }
 
     function getEmbedUrl() {
-      const parentDomain = window.location.hostname;
       const autoplay = config.autoplay ? '1' : '0';
       const mute = config.muteOnAutoplay ? '1' : '0';
 
-      if (config.channelId && config.channelId.trim()) {
-        return `https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(config.channelId.trim())}&autoplay=${autoplay}&mute=${mute}&playsinline=1&rel=0`;
-      }
-
-      let handle = config.channelHandle.trim();
-      if (!handle.startsWith('@')) handle = '@' + handle;
-      return `https://www.youtube.com/embed?listType=user_uploads&list=${encodeURIComponent(handle.replace('@',''))}&autoplay=${autoplay}&mute=${mute}&playsinline=1&rel=0`;
+      return `https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(config.channelId)}&autoplay=${autoplay}&mute=${mute}&playsinline=1&rel=0&modestbranding=1`;
     }
 
-    async function checkLiveStatus() {
-      const time = new Date().toLocaleString('de-DE');
-      els.lastChecked.textContent = time;
-
-      // Robuste Praxis für statische Seiten ohne API-Key:
-      // Wir verwenden das spezielle YouTube live_stream Embed, wenn channelId vorhanden ist.
-      // Ohne Channel-ID zeigen wir das iFrame direkt an den YouTube-Link gekoppelt an.
-
-      if (config.channelId && config.channelId.trim()) {
-        setLiveMode(true);
-        return;
-      }
-
-      // Ohne Channel-ID kein verlässlicher API-Check auf statischer GitHub-Page ohne Server.
-      // Deshalb bleibt die Seite im Platzhaltermodus und verweist auf YouTube.
-      setLiveMode(false);
-    }
-
-    function setLiveMode(isLive) {
-      if (isLive) {
-        els.statusDot.classList.remove('offline');
-        els.statusDot.classList.add('live');
-        els.statusText.textContent = 'Stream ist live';
-        els.toolbarStatus.textContent = 'Live';
-        els.playerShell.classList.add('live');
-        if (!els.frame.src) {
-          els.frame.src = getEmbedUrl();
-        }
-      } else {
-        els.statusDot.classList.remove('live');
-        els.statusDot.classList.add('offline');
-        els.statusText.textContent = 'Stream derzeit offline';
-        els.toolbarStatus.textContent = 'Offline';
-        els.playerShell.classList.remove('live');
-        els.frame.removeAttribute('src');
-      }
+    function initPlayer() {
+      els.frame.src = getEmbedUrl();
+      els.playerShell.classList.add('live');
+      els.statusDot.classList.remove('offline');
+      els.statusDot.classList.add('live');
+      els.statusText.textContent = 'Livestream wird über YouTube geladen';
+      els.toolbarStatus.textContent = 'Live-Player aktiv';
     }
 
     updateStaticContent();
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // Wenn Channel-ID gepflegt ist, direkt mit YouTube live_stream Embed arbeiten.
-    if (config.channelId && config.channelId.trim()) {
-      els.frame.src = getEmbedUrl();
-      setLiveMode(true);
-    } else {
-      setLiveMode(false);
-    }
-
-    checkLiveStatus();
-    setInterval(checkLiveStatus, config.checkInterval);
+    initPlayer();
   </script>
 </body>
 </html>

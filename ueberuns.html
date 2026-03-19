@@ -35,9 +35,9 @@
         radial-gradient(900px 600px at 40% 110%, rgba(58,160,255,.10), transparent 60%),
         linear-gradient(180deg, #061126 0%, #050b18 100%);
     }
+
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-
     section{scroll-margin-top: calc(var(--headerH) + 16px); padding:20px 0}
 
     /* Header */
@@ -47,6 +47,7 @@
       background: rgba(5,11,24,.62);
       border-bottom:1px solid var(--line);
     }
+
     .bar{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:12px 0;
@@ -56,30 +57,35 @@
     .brand{display:flex; align-items:center; gap:10px; flex:1; justify-content:center; text-align:center}
     .headerLeft, .headerRight { display:flex; align-items:center; }
     .headerCenter { text-align:center; flex:1; }
-    .logo{      
-  width:88px;
-  height:88px;
-  border-radius:22px;
-  background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
-  border:1px solid var(--line);
-  display:grid;
-  place-items:center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  flex:0 0 auto;
-  overflow:hidden;
-} 
+
+    .logo{
+      width:88px;
+      height:88px;
+      border-radius:22px;
+      background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+      overflow:hidden;
+    }
+
     .logo img{
       width:100%; height:100%;
       object-fit:contain;
       display:block;
-        padding:10px;
+      padding:10px;
     }
+
     .logo.fallback{font-size:18px}
 
     .brand h1{font-size:18px; margin:0; line-height:1.2}
     .brand span{display:block; font-size:14px; color:var(--muted)}
+
     nav{display:flex; align-items:center; gap:10px}
     .navlinks{display:flex; gap:10px; align-items:center}
+
     .navlinks a{
       text-decoration:none;
       padding:8px 10px;
@@ -89,7 +95,13 @@
       font-size:13px;
       white-space:nowrap;
     }
-    .navlinks a:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04)}
+
+    .navlinks a:hover{
+      border-color:var(--line);
+      color:var(--text);
+      background:rgba(255,255,255,.04)
+    }
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:8px;
@@ -101,8 +113,30 @@
       font-size:13px;
       color:var(--text);
       cursor:pointer;
+      transition:all .2s ease;
     }
+
     .btn:hover{background:rgba(255,255,255,.07)}
+
+    .ctaCenter{
+      text-align:center;
+      margin:26px 0 10px;
+    }
+
+    .ctaCenter .btn{
+      min-width:220px;
+      font-weight:700;
+      padding:12px 18px;
+      font-size:15px;
+      background:linear-gradient(135deg, rgba(58,160,255,.22), rgba(121,212,255,.12));
+      border:1px solid rgba(121,212,255,.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+
+    .ctaCenter .btn:hover{
+      background:linear-gradient(135deg, rgba(58,160,255,.30), rgba(121,212,255,.18));
+      transform:translateY(-1px);
+    }
 
     /* Footer */
     footer{
@@ -110,6 +144,7 @@
       border-top:1px solid var(--line);
       background: rgba(5,11,24,.55);
     }
+
     .footerGrid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -117,7 +152,14 @@
       padding:18px 0;
       align-items:start;
     }
-    .footLinks{display:flex; flex-wrap:wrap; gap:10px}
+
+    .footLinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+    }
+
     .copy{color:var(--muted); font-size:12px; margin-top:10px}
 
     /* Sections */
@@ -125,10 +167,18 @@
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
       margin:0 0 12px;
     }
+
     .sectionHead h2{margin:0; font-size:18px}
     .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
     .pad{padding:18px}
     .muted{color:var(--muted)}
+
+    .boardTitle{
+      margin:0 0 14px;
+      font-size:22px;
+      line-height:1.2;
+      color:var(--text);
+    }
 
     .boardGrid{
       display:grid;
@@ -136,6 +186,7 @@
       gap:14px;
       margin-top:14px;
     }
+
     .boardCard{
       border:1px solid var(--line);
       border-radius:16px;
@@ -143,6 +194,7 @@
       text-align:center;
       background:rgba(255,255,255,.04);
     }
+
     .boardCard .avatar{
       width:72px; height:72px;
       margin:0 auto 10px;
@@ -151,8 +203,9 @@
       display:grid; place-items:center;
       font-size:32px;
     }
+
     .boardCard .name{font-weight:700; margin:6px 0 2px;}
-    .boardCard .role{font-size:13px; color:var(--muted);}    
+    .boardCard .role{font-size:13px; color:var(--muted);}
 
     .card{
       border:1px solid var(--line);
@@ -162,29 +215,135 @@
       margin-bottom:18px;
     }
 
+    .memberIntro{
+      margin:28px 0 12px;
+      text-align:center;
+    }
+
+    .memberIntro h3{
+      margin:0 0 6px;
+      font-size:22px;
+    }
+
+    .memberIntro p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .memberGrid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:16px;
+      margin:18px 0 24px;
+    }
+
+    .memberCard{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding:18px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      text-align:left;
+    }
+
+    .memberBadge{
+      display:inline-block;
+      margin-bottom:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      color:var(--text);
+      background:rgba(58,160,255,.16);
+      border:1px solid rgba(121,212,255,.25);
+      width:max-content;
+    }
+
+    .memberCard h4{
+      margin:0 0 6px;
+      font-size:20px;
+      line-height:1.2;
+    }
+
+    .memberPrice{
+      font-size:26px;
+      font-weight:800;
+      margin:6px 0 6px;
+    }
+
+    .memberSub{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:12px;
+      line-height:1.5;
+      min-height:54px;
+    }
+
+    .memberList{
+      margin:0;
+      padding-left:18px;
+      color:var(--text);
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .memberList li + li{
+      margin-top:6px;
+    }
+
+    .memberCard.highlight{
+      border-color:rgba(121,212,255,.40);
+      background:
+        radial-gradient(500px 180px at 50% 0%, rgba(58,160,255,.18), transparent 65%),
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+    }
+
     /* Responsive */
+    @media (max-width: 1080px){
+      .memberGrid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 940px){
       .grid2{grid-template-columns:1fr}
     }
+
     @media (max-width: 860px){
       .navlinks{display:none}
       .burger{display:inline-flex; align-items:center; justify-content:center}
       .mobilemenu{display:none}
       .brand{min-width:auto}
     }
+
+    @media (max-width: 640px){
+      .memberGrid{
+        grid-template-columns: 1fr;
+      }
+
+      .ctaCenter .btn{
+        width:100%;
+        max-width:340px;
+      }
+    }
+
     @media (max-width: 520px){
       .headerCenter h1{font-size:18px}
       .headerCenter span{font-size:12px}
     }
-    @media (max-width: 520px){
-  :root{ --headerH: 96px; }
 
-  .logo{
-    width:64px;
-    height:64px;
-    border-radius:18px;
-  }
-}
+    @media (max-width: 520px){
+      :root{ --headerH: 96px; }
+
+      .logo{
+        width:64px;
+        height:64px;
+        border-radius:18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -193,7 +352,7 @@
       <div class="bar">
         <div class="headerLeft">
           <div class="logo" aria-hidden="true">
-           <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
+            <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
           </div>
         </div>
         <div class="headerCenter">
@@ -219,74 +378,163 @@
         <div class="sectionHead">
           <h2>Über uns</h2>
         </div>
+
         <div class="card pad">
           <p class="muted" style="margin:0; line-height:1.8">
             Unser Fanclub bietet eine Plattform für alle, die die gleiche Leidenschaft teilen, um sich zu treffen und
             auszutauschen. Diese Gemeinschaft fördert ein Gefühl der Zugehörigkeit und stärkt soziale Bindungen.
             Wir organisieren Aktivitäten, um die Mannschaften zu unterstützen und die Mitglieder, Vorstände und
             Mannschaften näher zusammen zu bringen.<br><br>
+
             Wir wollen mit dem Fanclub die bisherigen sehr guten Strukturen der Sparte Fußball und des
             Fördervereins mit unterstützen und um diese dritte Säule erweitern.<br><br>
+
             Wir setzen uns für unsere Mitglieder und die Belange der Fans ein und tragen die Wünsche oder
             Verbesserungsvorschläge an die beiden Vorstände heran.<br><br>
+
             Bereits vor der Gründung des Fanclubs fanden mit den Beteiligten erste Gespräche statt und es
             herrschte einstimmige Befürwortung. Beschlüsse für den Bereich Senioren und die sportliche Leitung
             erfolgen ausschließlich durch den Spartenvorstand Fußball.<br><br>
+
             Der Fanclub möchte seine jungen Mitglieder an diese Vereinsaufgaben heranführen,
             um unseren Verein zukunftsfähig aufzustellen.
-            
-            <!-- Vorstand / Beisitzer – Platzhalter -->
-             <br><br>
-<a class="appBtn" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">
-                    <div class="label">Philosophie</div>
-        </a>
-<br><br>
-            <h3 class="boardTitle">Vorstand</h3>
-
-<div class="boardGrid" aria-label="Vorstand & Beisitzer">
-  <div class="boardCard">
-    <div class="avatar" aria-hidden="true">🧑‍✈️</div>
-    <div class="name">Mario Ballheimer</div>
-    <div class="role">1. Vorsitzender</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar" aria-hidden="true">🧑‍💼</div>
-    <div class="name">Jens Sagmeister</div>
-    <div class="role">2. Vorsitzender</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar" aria-hidden="true">💰</div>
-    <div class="name">Veronika Ballheimer</div>
-    <div class="role">Schatzmeisterin</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar" aria-hidden="true">✍️</div>
-    <div class="name">Tamina Weichel</div>
-    <div class="role">Schriftführerin</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar" aria-hidden="true">🤝</div>
-    <div class="name">Werner Koch</div>
-    <div class="role">Beisitzer</div>
-  </div>
-   <div class="boardCard">
-    <div class="avatar" aria-hidden="true">🤝</div>
-    <div class="name">Olaf Ehrlich</div>
-    <div class="role">Beisitzer</div>
-  </div>
-  <div class="boardCard">
-    <div class="avatar" aria-hidden="true">🤝</div>
-    <div class="name">Ellen Reichert</div>
-    <div class="role">Beisitzer</div>
-  </div>
-   <div class="boardCard">
-    <div class="avatar" aria-hidden="true">🤝</div>
-    <div class="name">Melde dich</div>
-    <div class="role">bei uns</div>
-  </div>
-</div>
-
           </p>
+
+          <div class="ctaCenter">
+            <a class="btn" href="https://24e7d3e9-2f60-436d-8854-0399286e910b.filesusr.com/ugd/6c86e9_a7eae09dce3c45458bb700c6203118cb.pdf" target="_blank" rel="noopener">
+              Philosophie ansehen
+            </a>
+          </div>
+
+          <div class="memberIntro">
+            <h3>Unsere Mitgliedermodelle</h3>
+            <p>Wähle das Modell, das am besten zu dir passt.</p>
+          </div>
+
+          <div class="memberGrid" aria-label="Mitgliedermodelle">
+            <div class="memberCard">
+              <div class="memberBadge">Standard</div>
+              <h4>Kinnicher Jungs und Mädels</h4>
+              <div class="memberPrice">18,63 € / Monat</div>
+              <div class="memberSub">
+                223,56 € jährlich
+              </div>
+              <ul class="memberList">
+                <li>Fan-Schal und Aufkleber einmalig</li>
+                <li>Mitgliedsausweis / Dauerkarte Heimspiele</li>
+                <li>Vergünstigungen bei gemeinsamen Veranstaltungen mit der 1a und 1b Mannschaft</li>
+                <li>Bevorzugte Platzreservierung bei Auswärtsspielen im Bus</li>
+                <li>Preisnachlässe bei teilnehmenden Partnern und Veranstaltungen</li>
+              </ul>
+            </div>
+
+            <div class="memberCard">
+              <div class="memberBadge">Standard ermäßigt</div>
+              <h4>Für Schüler, Studenten, Rentner u. a.</h4>
+              <div class="memberPrice">9,63 € / Monat</div>
+              <div class="memberSub">
+                115,56 € jährlich
+              </div>
+              <ul class="memberList">
+                <li>Für Schüler, Studenten, Rentner, Behinderte</li>
+                <li>Auch für TSG-Trainer und Eltern aktiver Jugendspieler</li>
+                <li>Gleiche Standard-Benefits wie regulär</li>
+                <li>Mitgliedsausweis / Dauerkarte Heimspiele</li>
+                <li>Vergünstigungen und bevorzugte Reservierung im Bus</li>
+              </ul>
+            </div>
+
+            <div class="memberCard highlight">
+              <div class="memberBadge">Premium</div>
+              <h4>Kinnicher Edelfan</h4>
+              <div class="memberPrice">299,00 € / Jahr</div>
+              <div class="memberSub">
+                mind. 299,00 € frei wählbar nach oben<br>
+                entspricht ca. 24,92 € monatlich
+              </div>
+              <ul class="memberList">
+                <li>Fan-Schal und Aufkleber einmalig</li>
+                <li>Fanshirt einmalig</li>
+                <li>Mitgliedsausweis mit Bild / Dauerkarte Heimspiele</li>
+                <li>Ermäßigung bei gemeinsamen Veranstaltungen mit der 1a und 1b Mannschaft</li>
+                <li>Kostenfreie Bus-Anreise zu geplanten Auswärtsspielen inkl. Verpflegung</li>
+              </ul>
+            </div>
+
+            <div class="memberCard highlight">
+              <div class="memberBadge">Premium ermäßigt</div>
+              <h4>Edelfan zum Sonderbeitrag</h4>
+              <div class="memberPrice">199,00 € / Jahr</div>
+              <div class="memberSub">
+                entspricht ca. 16,58 € monatlich
+              </div>
+              <ul class="memberList">
+                <li>Für Schüler, Studenten, Rentner, Behinderte</li>
+                <li>Auch für TSG-Trainer und Eltern aktiver Jugendspieler</li>
+                <li>Alle Premium-Benefits enthalten</li>
+                <li>Mitgliedsausweis mit Bild / Dauerkarte Heimspiele</li>
+                <li>Kostenfreie Bus-Anreise zu geplanten Auswärtsspielen inkl. Verpflegung</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ctaCenter">
+            <a class="btn" href="https://fussball-badkoenig.de/fanclub" target="_blank" rel="noopener">
+              Jetzt online Antrag ausfüllen
+            </a>
+          </div>
+
+          <h3 class="boardTitle">Vorstand</h3>
+
+          <div class="boardGrid" aria-label="Vorstand & Beisitzer">
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">🧑‍✈️</div>
+              <div class="name">Mario Ballheimer</div>
+              <div class="role">1. Vorsitzender</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">🧑‍💼</div>
+              <div class="name">Jens Sagmeister</div>
+              <div class="role">2. Vorsitzender</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">💰</div>
+              <div class="name">Veronika Ballheimer</div>
+              <div class="role">Schatzmeisterin</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">✍️</div>
+              <div class="name">Tamina Weichel</div>
+              <div class="role">Schriftführerin</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">🤝</div>
+              <div class="name">Werner Koch</div>
+              <div class="role">Beisitzer</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">🤝</div>
+              <div class="name">Olaf Ehrlich</div>
+              <div class="role">Beisitzer</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">🤝</div>
+              <div class="name">Ellen Reichert</div>
+              <div class="role">Beisitzer</div>
+            </div>
+
+            <div class="boardCard">
+              <div class="avatar" aria-hidden="true">🤝</div>
+              <div class="name">Melde dich</div>
+              <div class="role">bei uns</div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -310,7 +558,6 @@
   </footer>
 
   <script>
-    // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
