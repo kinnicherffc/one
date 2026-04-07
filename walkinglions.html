@@ -272,7 +272,9 @@
 
     .hero-card,
     .card,
-    .cta-box {
+    .cta-box,
+    .termine-box,
+    .legal-box {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -622,6 +624,120 @@
       word-break: break-word;
     }
 
+    .termine-box {
+      padding: 24px;
+    }
+
+    .termine-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .termin-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .termin-date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.2);
+      color: var(--gold-soft);
+      font-weight: 700;
+      min-height: 84px;
+    }
+
+    .termin-content h3 {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+      color: var(--text);
+    }
+
+    .termin-content p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .legal-section {
+      padding-top: 8px;
+    }
+
+    .legal-toggle {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      padding: 16px 18px;
+      border-radius: 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .legal-toggle:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(212,175,55,0.35);
+    }
+
+    .legal-toggle-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-left: 16px;
+      color: var(--gold-soft);
+    }
+
+    .legal-content {
+      margin-top: 14px;
+    }
+
+    .legal-box {
+      padding: 24px 22px;
+    }
+
+    .legal-box h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
+
+    .legal-box h3 {
+      margin: 22px 0 10px;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .legal-box p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .legal-box a {
+      color: var(--gold-soft);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legal-note {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: #aab7c8;
+    }
+
     .footer {
       margin-top: 40px;
       padding: 28px 0 46px;
@@ -677,7 +793,8 @@
       .grid-2,
       .grid-3,
       .footer-grid,
-      .social-grid {
+      .social-grid,
+      .termin-item {
         grid-template-columns: 1fr;
       }
 
@@ -688,6 +805,11 @@
       .nav-inner {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .termin-date {
+        justify-content: flex-start;
+        text-align: left;
       }
     }
 
@@ -757,7 +879,9 @@
 
       .hero-card,
       .card,
-      .cta-box {
+      .cta-box,
+      .termine-box,
+      .legal-box {
         padding: 18px;
       }
 
@@ -803,6 +927,7 @@
 
       <nav class="nav-links">
         <a href="#ueber-uns">Über uns</a>
+        <a href="#termine">Termine</a>
         <a href="#gehfussball">Gehfußball</a>
         <a href="#training">Training</a>
         <a href="#video">Video</a>
@@ -851,6 +976,41 @@
             <p class="small" style="max-width:340px; margin:10px 0 0;">
               Gehfußball in Bad König – gemeinsam aktiv, fair und mit Freude am Spiel.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="termine" class="section">
+      <div class="wrap">
+        <h2>Terminübersicht</h2>
+        <p class="section-intro">
+          
+        <div class="termine-box">
+          <div class="termine-list">
+            <div class="termin-item">
+              <div class="termin-date">30.05.2026<br>16:00 Uhr</div>
+              <div class="termin-content">
+                <h3>9er Cup</h3>
+                <p>Ort: Sportzentrum Bad König<br></p>
+              </div>
+            </div>
+
+            <div class="termin-item">
+              <div class="termin-date">12.09.2026<br>10:00 Uhr</div>
+              <div class="termin-content">
+                <h3>Hessen-Cup</h3>
+                <p>Ort: Grünberg<br>Weitere Infos: tbd</p>
+              </div>
+            </div>
+
+            <div class="termin-item">
+              <div class="termin-date">04.06.2026<br>10:00 Uhr</div>
+              <div class="termin-content">
+                <h3>Turnier</h3>
+                <p>Ort: Rüsselsheim<br>Weitere Infos: Turnier bei Opel Rüsselsheim</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1188,10 +1348,108 @@
       <div>
         <strong>Rechtliches</strong>
         <div class="footer-links">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <a href="#rechtliches">Impressum & Datenschutz</a>
         </div>
-        <div class="small" style="margin-top:10px;">
+      </div>
+    </div>
+
+    <div class="wrap legal-section" id="rechtliches" style="margin-top:24px;">
+      <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="legalContent">
+        Impressum & Datenschutz
+        <span class="legal-toggle-icon">+</span>
+      </button>
+
+      <div id="legalContent" class="legal-content" hidden>
+        <div class="legal-box">
+          <h2>Impressum & Datenschutz</h2>
+
+          <p>
+            Diese Seite „Walking Lions“ ist keine eigenständige Website einer eigenen juristischen Person,
+            sondern eine Informationsseite zur Gehfußball-Mannschaft innerhalb der Sparte Fußball der
+            <strong>TSG Bad König 1863 e.V.</strong>
+          </p>
+
+          <h3>1. Anbieter / Verantwortlicher</h3>
+          <p>Angaben gemäß § 5 DDG:</p>
+          <p>
+            <strong>TSG Bad König 1863 e.V. Sparte Fußball-Gehfussball</strong><br>
+            <br>
+            64732 Bad König
+          </p>
+            E-Mail:
+            <a href="mailto:kontakt@tsg-badkoenig.de">kontakt@tsg-badkoenig.de</a>
+          </p>
+          <p>
+            Maßgeblich ist außerdem das offizielle Impressum des Hauptvereins:
+            <a href="https://tsg-badkoenig.de/impressum" target="_blank" rel="noopener noreferrer">
+              Zum Impressum der TSG Bad König 1863 e.V.
+            </a>
+          </p>
+
+          <h3>2. Redaktionell verantwortlich für die Inhalte dieser Walking-Lions-Seite</h3>
+          <p>
+            Walking Lions – Gehfußball<br>
+            Mannschaft der Sparte Fußball der TSG Bad König 1863 e.V.
+          </p>
+
+          <p>
+            Kontakt für inhaltliche Hinweise zu dieser Seite:<br>
+            <a href="mailto:walkinglions@kinnicherffc.de">walkinglions@kinnicherffc.de</a>
+          </p>
+
+          <h3>3. Datenschutzhinweise</h3>
+          <p>
+            Verantwortliche Stelle für die Datenverarbeitung im Zusammenhang mit dem Vereinsangebot ist
+            die TSG Bad König 1863 e.V., Schwimmbad-Straße 38, 64732 Bad König,
+            E-Mail <a href="mailto:kontakt@tsg-badkoenig.de">kontakt@tsg-badkoenig.de</a>.
+          </p>
+
+          <p>
+            Beim Aufruf dieser Website können durch den technischen Betrieb der Seite bzw. des Hostings
+            insbesondere folgende Daten verarbeitet werden: IP-Adresse, Datum und Uhrzeit des Zugriffs,
+            Browsertyp, Betriebssystem, Referrer-URL und technisch erforderliche Server-Logdaten.
+          </p>
+
+          <p>
+            Sofern Du per E-Mail oder über verlinkte Kontaktwege Kontakt aufnimmst, werden die von Dir
+            übermittelten personenbezogenen Daten ausschließlich zur Bearbeitung Deiner Anfrage verarbeitet.
+          </p>
+
+          <p>
+            Auf dieser Seite können Links zu externen Diensten und Plattformen enthalten sein, insbesondere
+            zu WhatsApp, Instagram, Facebook, Google Maps, YouTube oder weiteren externen Angeboten.
+            Beim Anklicken dieser Links oder beim Laden externer Inhalte können Daten an die jeweiligen
+            Anbieter übermittelt werden. Für deren Datenverarbeitung gelten die Datenschutzbestimmungen
+            der jeweiligen Anbieter.
+          </p>
+
+          <p>
+            Diese Seite selbst verwendet nach heutigem Stand keine bewusst gesetzten eigenen Tracking-
+            oder Marketing-Cookies. Soweit technisch notwendige oder durch Drittanbieter veranlasste
+            Speicherungen erfolgen, richten sich diese nach dem jeweiligen technischen Dienst.
+          </p>
+
+          <p>
+            Betroffene Personen haben im Rahmen der gesetzlichen Vorgaben insbesondere das Recht auf
+            Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Widerspruch gegen
+            die Verarbeitung ihrer personenbezogenen Daten.
+          </p>
+
+          <p>
+            Ergänzend gilt die offizielle Datenschutzerklärung des Hauptvereins:
+            <a href="https://tsg-badkoenig.de/kontakt/datenschutzerklaerung" target="_blank" rel="noopener noreferrer">
+              Zur Datenschutzerklärung der TSG Bad König 1863 e.V.
+            </a>
+          </p>
+
+          <h3>4. Hinweis zum Charakter dieser Seite</h3>
+          <p>
+            Die „Walking Lions“ sind eine Mannschaft innerhalb der Sparte Fußball der TSG Bad König 1863 e.V.
+            Diese Website dient der Information über Training, Kontakt und Aktivitäten des Teams und begründet
+            keine eigenständige Rechtspersönlichkeit.
+          </p>
+
+          <p class="legal-note">Stand: April 2026</p>
         </div>
       </div>
     </div>
@@ -1211,6 +1469,10 @@
     const copyEmailBtn = document.getElementById("copyEmailBtn");
     const copyFeedback = document.getElementById("copyFeedback");
     const emailText = document.getElementById("emailText").textContent.trim();
+
+    const legalToggle = document.querySelector(".legal-toggle");
+    const legalContent = document.getElementById("legalContent");
+    const legalIcon = document.querySelector(".legal-toggle-icon");
 
     function openModal() {
       flyerModal.classList.add("is-open");
@@ -1247,6 +1509,15 @@
         copyFeedback.textContent = "Kopieren nicht möglich. Bitte Adresse manuell markieren.";
       }
     });
+
+    if (legalToggle && legalContent && legalIcon) {
+      legalToggle.addEventListener("click", function () {
+        const isOpen = legalToggle.getAttribute("aria-expanded") === "true";
+        legalToggle.setAttribute("aria-expanded", String(!isOpen));
+        legalContent.hidden = isOpen;
+        legalIcon.textContent = isOpen ? "+" : "−";
+      });
+    }
   </script>
 </body>
 </html>
