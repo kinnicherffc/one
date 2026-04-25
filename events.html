@@ -1,260 +1,438 @@
 <!doctype html>
-<html lang="de" id="top">
+<html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Events & Kalender – Kinnicher FFC</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="manifest" href="manifest.json">
-  <style>
-    :root{
-      --bg:#071428;
-      --card:#0c1f3b;
-      --card2:#0a1830;
-      --text:#eaf2ff;
-      --muted:#b9c8e6;
-      --line:rgba(255,255,255,.12);
-      --accent:#3aa0ff;
-      --accent2:#79d4ff;
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1100px;
-      --headerH: 120px;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 12% 10%, rgba(58,160,255,.18), transparent 60%),
-        radial-gradient(700px 420px at 85% 10%, rgba(121,212,255,.12), transparent 55%),
-        radial-gradient(900px 600px at 40% 110%, rgba(58,160,255,.10), transparent 60%),
-        linear-gradient(180deg, #061126 0%, #050b18 100%);
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+<title>Events & Kalender – Kinnicher FFC</title>
 
-    section{scroll-margin-top: calc(var(--headerH) + 16px); padding:20px 0}
+<link rel="icon" href="assets/favicon.png">
 
-    /* Header */
-    .header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(5,11,24,.62);
-      border-bottom:1px solid var(--line);
-    }
-    .bar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:12px 0;
-      min-height: var(--headerH);
-    }
-
-    .brand{display:flex; align-items:center; gap:10px; flex:1; justify-content:center; text-align:center}
-    .headerLeft, .headerRight { display:flex; align-items:center; }
-    .headerCenter { text-align:center; flex:1; }
-    .headerLeft, .headerRight { display:flex; align-items:center; }
-    .headerCenter { text-align:center; flex:1; }
-    .logo{      
-  width:88px;
-  height:88px;
-  border-radius:22px;
-  background: linear-gradient(135deg, rgba(58,160,255,.25), rgba(121,212,255,.15));
-  border:1px solid var(--line);
-  display:grid;
-  place-items:center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  flex:0 0 auto;
-  overflow:hidden;
-} 
-    .logo img{
-      width:100%; height:100%;
-      object-fit:contain;
-      display:block;
-        padding:10px;
-    }
-    .logo.fallback{font-size:18px}
-
-    .brand h1{font-size:18px; margin:0; line-height:1.2}
-    .brand span{display:block; font-size:14px; color:var(--muted)}
-    nav{display:flex; align-items:center; gap:10px}
-    .navlinks{display:flex; gap:10px; align-items:center}
-    .navlinks a{
-      text-decoration:none;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      color:var(--muted);
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .navlinks a:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      text-decoration:none;
-      font-size:13px;
-      color:var(--text);
-      cursor:pointer;
-    }
-    .btn:hover{background:rgba(255,255,255,.07)}
-
-    /* Footer */
-    footer{
-      margin-top:30px;
-      border-top:1px solid var(--line);
-      background: rgba(5,11,24,.55);
-    }
-    .footerGrid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      padding:18px 0;
-      align-items:start;
-    }
-    .footLinks{display:flex; flex-wrap:wrap; gap:10px}
-    .copy{color:var(--muted); font-size:12px; margin-top:10px}
-
-    /* Sections */
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin:0 0 12px;
-    }
-    .sectionHead h2{margin:0; font-size:18px}
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .pad{padding:18px}
-    .muted{color:var(--muted)}
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.04);
-      padding:18px;
-      margin-bottom:18px;
-    }
-
-    /* Responsive */
-    @media (max-width: 940px){
-      .grid2{grid-template-columns:1fr}
-    }
-    @media (max-width: 860px){
-      .navlinks{display:none}
-      .burger{display:inline-flex; align-items:center; justify-content:center}
-      .mobilemenu{display:none}
-      .brand{min-width:auto}
-    }
-    @media (max-width: 520px){
-      .iframeWrap iframe{height:400px}
-    }
-    @media (max-width: 520px){
-  :root{ --headerH: 96px; }
-
-  .logo{
-    width:64px;
-    height:64px;
-    border-radius:18px;
-  }
+<style>
+:root{
+--bg:#071428;
+--card:#0c1f3b;
+--text:#eaf2ff;
+--muted:#b9c8e6;
+--line:rgba(255,255,255,.12);
+--accent:#3aa0ff;
+--shadow:0 18px 60px rgba(0,0,0,.35);
+--radius:20px;
+--max:1180px;
+--headerH:112px;
 }
-  </style>
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+color:var(--text);
+background:
+radial-gradient(900px 500px at 10% 10%,rgba(58,160,255,.18),transparent 60%),
+radial-gradient(700px 420px at 90% 5%,rgba(121,212,255,.12),transparent 55%),
+linear-gradient(180deg,#061126 0%,#050b18 100%);
+}
+
+.wrap{max-width:var(--max);margin:auto;padding:0 18px}
+a{color:inherit;text-decoration:none}
+
+.header{
+position:sticky;
+top:0;
+z-index:999;
+backdrop-filter:blur(12px);
+background:rgba(5,11,24,.72);
+border-bottom:1px solid var(--line);
+}
+
+.bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+min-height:var(--headerH);
+gap:18px;
+}
+
+.logo{
+width:82px;
+height:82px;
+border-radius:20px;
+overflow:hidden;
+background:linear-gradient(135deg,rgba(58,160,255,.25),rgba(121,212,255,.14));
+border:1px solid var(--line);
+display:grid;
+place-items:center;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:contain;
+padding:10px;
+}
+
+.headerCenter{text-align:center;flex:1}
+.headerCenter h1{margin:0;font-size:19px}
+.headerCenter span{font-size:14px;color:var(--muted)}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:11px 16px;
+border-radius:14px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
+font-size:14px;
+cursor:pointer;
+}
+
+.btn:hover{background:rgba(255,255,255,.08)}
+
+section{padding:26px 0}
+.sectionHead{margin-bottom:18px}
+.sectionHead h2{margin:0;font-size:26px}
+.muted{color:var(--muted)}
+
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+}
+
+.card{
+background:rgba(255,255,255,.045);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:22px;
+box-shadow:var(--shadow);
+}
+
+.card h3{margin-top:0}
+
+.frameWrap{
+margin-top:14px;
+border-radius:16px;
+overflow:hidden;
+}
+
+.frameWrap iframe{
+display:block;
+width:100%;
+height:520px;
+border:1px solid #bfcbda55;
+border-radius:16px;
+background:#fff;
+}
+
+.eventGrid{
+display:grid;
+grid-template-columns:1fr;
+gap:26px;
+margin-top:25px;
+}
+
+.eventCard{padding:26px}
+
+.badge{
+display:inline-block;
+background:rgba(58,160,255,.14);
+border:1px solid rgba(58,160,255,.35);
+padding:7px 14px;
+border-radius:30px;
+font-size:13px;
+margin-bottom:14px;
+}
+
+.eventActions{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:18px;
+}
+
+.placeholder{
+min-height:240px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:26px;
+font-weight:700;
+border-radius:16px;
+background:linear-gradient(135deg,#0d203e,#102a54);
+border:1px dashed rgba(255,255,255,.2);
+}
+
+footer{
+margin-top:45px;
+border-top:1px solid var(--line);
+background:rgba(5,11,24,.5);
+}
+
+.footLinks{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+padding:24px 0 10px;
+}
+
+.copy{
+text-align:center;
+font-size:12px;
+color:var(--muted);
+padding-bottom:24px;
+}
+
+@media(max-width:960px){
+.grid2{grid-template-columns:1fr}
+}
+
+@media(max-width:650px){
+:root{--headerH:88px}
+
+.logo{
+width:62px;
+height:62px;
+border-radius:16px;
+}
+
+.headerCenter h1{font-size:15px}
+.headerCenter span{font-size:12px}
+
+.sectionHead h2{font-size:22px}
+
+.card{padding:18px}
+
+.frameWrap iframe{height:500px}
+
+.eventActions .btn{
+width:100%;
+}
+
+.placeholder{
+font-size:22px;
+min-height:180px;
+}
+}
+</style>
 </head>
+
 <body>
-  <header class="header">
-    <div class="wrap">
-      <div class="bar">
-        <div class="headerLeft">
-          <div class="logo" aria-hidden="true">
-           <img src="assets/logo-loewe.png" alt="Löwe Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='🦁';">
-          </div>
-        </div>
-        <div class="headerCenter">
-          <h1>Kinnicher Fussball Fanclub 2024 e.V.</h1>
-          <span>Bad König · Blau/Weiß</span>
-        </div>
-        <div class="headerRight">
-          <div class="logo" aria-hidden="true">
-            <img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo" onerror="this.remove(); this.parentElement.classList.add('fallback'); this.parentElement.textContent='⚽';">
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <div class="wrap">
-      <div style="margin:20px 0; text-align:center">
-        <a class="btn" href="index.html">← Zur Startseite</a>
-      </div>
+<header class="header">
+<div class="wrap">
+<div class="bar">
 
-      <section id="events">
-        <div class="sectionHead">
-          <h2>Events & Kalender</h2>
-        </div>
+<div class="logo">
+<img src="assets/logo-loewe.png" alt="Löwe Logo">
+</div>
+
+<div class="headerCenter">
+<h1>Kinnicher Fussball Fanclub 2024 e.V.</h1>
+<span>Bad König · Blau/Weiß</span>
+</div>
+
+<div class="logo">
+<img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo">
+</div>
+
+</div>
+</div>
+</header>
+
+<main>
+<div class="wrap">
+
+<div style="margin:22px 0;text-align:center">
+<a class="btn" href="index.html">← Zur Startseite</a>
+</div>
+
+<section>
+
+<div class="sectionHead">
+<h2>Events & Kalender</h2>
+</div>
+
 <div class="grid2">
-  <!-- LINKS -->
-  <div class="card pad">
-    <h3>Spielbetrieb</h3>
 
-    <div style="margin:6px 0 16px">
-      <a class="btn" href="fupa.html">Spiele & Tabellen (FuPa)</a>
-    </div>
+<div class="card">
+<h3>Spielbetrieb & Termine</h3>
 
-    <div style="height:1px; background:var(--line); margin:14px 0"></div>
+<div style="margin-bottom:18px">
+<a class="btn" href="fupa.html">Spiele & Tabellen (FuPa)</a>
+</div>
 
-    <h3>Kalender</h3>
+<hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
 
-    <p class="muted" style="margin:0 0 12px">
-      Kalender wird fortlaufend aktualisiert.
-    </p>
+<h3>Kalender</h3>
 
-    <div style="display:flex; gap:10px; flex-wrap:wrap">
-      <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">
-        Google Kalender öffnen
-      </a>
-      <a class="btn" href="kontakt.html">Termin vorschlagen</a>
-    </div>
-  </div>
-   
-                              <div class="card pad">
-            <div class="iframeWrap" aria-label="Kalender Einbettung">
-              <iframe
-  title="Google Kalender – Kinnicher FFC (Agenda)"
-  width="100%"
-  height="600"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTabs=0&src=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
+<p class="muted">
+Kalender wird fortlaufend aktualisiert.
+</p>
 
-  <footer>
-    <div class="wrap">
-      <div style="text-align:center">
-        <div class="footLinks">
-          <a class="btn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
-          <a class="btn" href="members.html">Mitglieder-Login</a>
-          <a class="btn" href="legal.html">Impressum</a>
-          <a class="btn" href="legal.html#datenschutz">Datenschutz</a>
-          <a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
-          <a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
-        </div>
-        <div class="copy">© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.</div>
-      </div>
-    </div>
-  </footer>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">
+Google Kalender öffnen
+</a>
 
-  <script>
-    // Footer Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<a class="btn" href="kontakt.html">
+Termin vorschlagen
+</a>
+</div>
+</div>
+
+<div class="card">
+<h3>Vereinskalender</h3>
+
+<div class="frameWrap">
+<iframe
+title="Google Kalender"
+loading="lazy"
+src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTabs=0&src=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e">
+</iframe>
+</div>
+</div>
+
+</div>
+
+<div class="sectionHead" style="margin-top:36px">
+<h2>Zu- und Absagen Events</h2>
+</div>
+
+<p class="muted">
+Anmeldung direkt über Luma. Mit Kalendereintrag, Fristen und Teilnehmerverwaltung.
+</p>
+
+<div class="eventGrid">
+
+<div class="card eventCard">
+<div class="badge">Event 1</div>
+<h3>Aktuelle Veranstaltung</h3>
+
+<div class="frameWrap">
+<iframe
+src="https://luma.com/embed/event/evt-lO5M7AmQWfLZEvJ/simple"
+loading="lazy"
+allow="fullscreen; payment">
+</iframe>
+</div>
+
+<div class="eventActions">
+<a class="btn" href="https://luma.com/evt-lO5M7AmQWfLZEvJ" target="_blank" rel="noopener">
+📅 In Kalender speichern
+</a>
+
+<a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://luma.com/evt-lO5M7AmQWfLZEvJ" target="_blank" rel="noopener">
+📣 Bei Facebook teilen
+</a>
+
+<a class="btn" href="#" onclick="return false;" title="PayPal-Link folgt">
+💙 PayPal Zahlung
+</a>
+</div>
+</div>
+
+<div class="card eventCard">
+<div class="badge">Event 2</div>
+<h3>Nächste Veranstaltung</h3>
+
+<div class="frameWrap">
+<iframe
+src="https://luma.com/embed/event/evt-HJRXLQTrSfP6Hva/simple"
+loading="lazy"
+allow="fullscreen; payment">
+</iframe>
+</div>
+
+<div class="eventActions">
+<a class="btn" href="https://luma.com/evt-HJRXLQTrSfP6Hva" target="_blank" rel="noopener">
+📅 In Kalender speichern
+</a>
+
+<a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://luma.com/evt-HJRXLQTrSfP6Hva" target="_blank" rel="noopener">
+📣 Bei Facebook teilen
+</a>
+
+<a class="btn" href="#" onclick="return false;" title="PayPal-Link folgt">
+💙 PayPal 
+</a>
+</div>
+</div>
+
+<div class="card eventCard">
+<div class="badge">Event 3</div>
+<h3>Weitere Veranstaltung</h3>
+
+<div class="frameWrap">
+<iframe
+src="https://luma.com/embed/event/evt-Y5LxOmOddg3u3VO/simple"
+loading="lazy"
+allow="fullscreen; payment">
+</iframe>
+</div>
+
+<div class="eventActions">
+<a class="btn" href="https://luma.com/evt-Y5LxOmOddg3u3VO" target="_blank" rel="noopener">
+📅 In Kalender speichern
+</a>
+
+<a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://luma.com/evt-Y5LxOmOddg3u3VO" target="_blank" rel="noopener">
+📣 Bei Facebook teilen
+</a>
+
+<a class="btn" href="#" onclick="return false;" title="PayPal-Link folgt">
+💙 PayPal Zahlung
+</a>
+</div>
+</div>
+
+<div class="card eventCard">
+<div class="badge">Event 4</div>
+<div class="placeholder">
+Nächstes Event folgt
+</div>
+</div>
+
+<div class="card eventCard">
+<div class="badge">Event 5</div>
+<div class="placeholder">
+Nächstes Event folgt
+</div>
+</div>
+
+</div>
+
+</section>
+</div>
+</main>
+
+<footer>
+<div class="wrap">
+
+<div class="footLinks">
+<a class="btn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
+<a class="btn" href="members.html">Mitglieder-Login</a>
+<a class="btn" href="legal.html">Impressum</a>
+<a class="btn" href="legal.html#datenschutz">Datenschutz</a>
+<a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
+<a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
+<a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
+</div>
+
+<div class="copy">
+© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.
+</div>
+
+</div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
