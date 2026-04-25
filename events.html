@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Events & Kalender – Kinnicher FFC</title>
-
 <link rel="icon" href="assets/favicon.png">
 
 <style>
@@ -15,7 +14,6 @@
 --text:#eaf2ff;
 --muted:#b9c8e6;
 --line:rgba(255,255,255,.12);
---accent:#3aa0ff;
 --shadow:0 18px 60px rgba(0,0,0,.35);
 --radius:20px;
 --max:1180px;
@@ -24,9 +22,10 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
 margin:0;
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 color:var(--text);
 background:
 radial-gradient(900px 500px at 10% 10%,rgba(58,160,255,.18),transparent 60%),
@@ -34,8 +33,18 @@ radial-gradient(700px 420px at 90% 5%,rgba(121,212,255,.12),transparent 55%),
 linear-gradient(180deg,#061126 0%,#050b18 100%);
 }
 
-.wrap{max-width:var(--max);margin:auto;padding:0 18px}
-a{color:inherit;text-decoration:none}
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.wrap{
+max-width:var(--max);
+margin:auto;
+padding:0 18px;
+}
+
+/* Header */
 
 .header{
 position:sticky;
@@ -73,9 +82,20 @@ object-fit:contain;
 padding:10px;
 }
 
-.headerCenter{text-align:center;flex:1}
-.headerCenter h1{margin:0;font-size:19px}
-.headerCenter span{font-size:14px;color:var(--muted)}
+.headerCenter{
+flex:1;
+text-align:center;
+}
+
+.headerCenter h1{
+margin:0;
+font-size:19px;
+}
+
+.headerCenter span{
+font-size:14px;
+color:var(--muted);
+}
 
 .btn{
 display:inline-flex;
@@ -86,15 +106,30 @@ border-radius:14px;
 border:1px solid var(--line);
 background:rgba(255,255,255,.04);
 font-size:14px;
-cursor:pointer;
 }
 
-.btn:hover{background:rgba(255,255,255,.08)}
+.btn:hover{
+background:rgba(255,255,255,.08);
+}
 
-section{padding:26px 0}
-.sectionHead{margin-bottom:18px}
-.sectionHead h2{margin:0;font-size:26px}
-.muted{color:var(--muted)}
+/* Content */
+
+section{
+padding:26px 0;
+}
+
+.sectionHead{
+margin-bottom:18px;
+}
+
+.sectionHead h2{
+margin:0;
+font-size:26px;
+}
+
+.muted{
+color:var(--muted);
+}
 
 .grid2{
 display:grid;
@@ -110,7 +145,9 @@ padding:22px;
 box-shadow:var(--shadow);
 }
 
-.card h3{margin-top:0}
+.card h3{
+margin-top:0;
+}
 
 .frameWrap{
 margin-top:14px;
@@ -122,7 +159,7 @@ overflow:hidden;
 display:block;
 width:100%;
 height:520px;
-border:1px solid #bfcbda55;
+border:1px solid #bfcbda66;
 border-radius:16px;
 background:#fff;
 }
@@ -134,7 +171,9 @@ gap:26px;
 margin-top:25px;
 }
 
-.eventCard{padding:26px}
+.eventCard{
+padding:26px;
+}
 
 .badge{
 display:inline-block;
@@ -146,25 +185,7 @@ font-size:13px;
 margin-bottom:14px;
 }
 
-.eventActions{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-top:18px;
-}
-
-.placeholder{
-min-height:240px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-size:26px;
-font-weight:700;
-border-radius:16px;
-background:linear-gradient(135deg,#0d203e,#102a54);
-border:1px dashed rgba(255,255,255,.2);
-}
+/* Footer */
 
 footer{
 margin-top:45px;
@@ -187,12 +208,19 @@ color:var(--muted);
 padding-bottom:24px;
 }
 
+/* Mobile */
+
 @media(max-width:960px){
-.grid2{grid-template-columns:1fr}
+.grid2{
+grid-template-columns:1fr;
+}
 }
 
 @media(max-width:650px){
-:root{--headerH:88px}
+
+:root{
+--headerH:88px;
+}
 
 .logo{
 width:62px;
@@ -200,22 +228,24 @@ height:62px;
 border-radius:16px;
 }
 
-.headerCenter h1{font-size:15px}
-.headerCenter span{font-size:12px}
-
-.sectionHead h2{font-size:22px}
-
-.card{padding:18px}
-
-.frameWrap iframe{height:500px}
-
-.eventActions .btn{
-width:100%;
+.headerCenter h1{
+font-size:15px;
 }
 
-.placeholder{
+.headerCenter span{
+font-size:12px;
+}
+
+.sectionHead h2{
 font-size:22px;
-min-height:180px;
+}
+
+.card{
+padding:18px;
+}
+
+.frameWrap iframe{
+height:500px;
 }
 }
 </style>
@@ -237,19 +267,23 @@ min-height:180px;
 </div>
 
 <div class="logo">
-<img src="assets/logo-kffc.png" alt="Kinnicher FFC Logo">
+<img src="assets/logo-kffc.png" alt="KFFC Logo">
 </div>
 
 </div>
 </div>
 </header>
 
+
 <main>
 <div class="wrap">
 
 <div style="margin:22px 0;text-align:center">
-<a class="btn" href="index.html">← Zur Startseite</a>
+<a class="btn" href="index.html">
+← Zur Startseite
+</a>
 </div>
+
 
 <section>
 
@@ -260,10 +294,13 @@ min-height:180px;
 <div class="grid2">
 
 <div class="card">
+
 <h3>Spielbetrieb & Termine</h3>
 
 <div style="margin-bottom:18px">
-<a class="btn" href="fupa.html">Spiele & Tabellen (FuPa)</a>
+<a class="btn" href="fupa.html">
+Spiele & Tabellen (FuPa)
+</a>
 </div>
 
 <hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
@@ -274,18 +311,24 @@ min-height:180px;
 Kalender wird fortlaufend aktualisiert.
 </p>
 
-<div style="display:flex;flex-wrap:wrap;gap:10px">
-<a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<a class="btn"
+href="https://calendar.google.com/calendar/u/1/r?pli=1"
+target="_blank">
 Google Kalender öffnen
 </a>
 
-<a class="btn" href="kontakt.html">
+<a class="btn"
+href="kontakt.html">
 Termin vorschlagen
 </a>
 </div>
+
 </div>
 
+
 <div class="card">
+
 <h3>Vereinskalender</h3>
 
 <div class="frameWrap">
@@ -295,19 +338,24 @@ loading="lazy"
 src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTabs=0&src=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e">
 </iframe>
 </div>
+
 </div>
 
 </div>
+
 
 <div class="sectionHead" style="margin-top:36px">
-<h2>Zu- und Absagen Events</h2>
+<h2>Unsere Events</h2>
 </div>
 
 <p class="muted">
-Anmeldung direkt über Luma. Mit Kalendereintrag, Fristen und Teilnehmerverwaltung.
+Melde dich gerne zu unseren Events an. Beachte einige sind nur für Mitglieder und wir können nur bei enstprechenden Kapazitäten weiter Teilnehmer aufnehmen. Es gibt jedoch auch eine Warteliste!
 </p>
 
+
 <div class="eventGrid">
+
+<!-- EVENT 1 -->
 
 <div class="card eventCard">
 <div class="badge">Event 1</div>
@@ -315,57 +363,20 @@ Anmeldung direkt über Luma. Mit Kalendereintrag, Fristen und Teilnehmerverwaltu
 
 <div class="frameWrap">
 <iframe
-src="https://luma.com/embed/event/evt-lO5M7AmQWfLZEvJ/simple"
+src="https://luma.com/embed/event/evt-Et3ZSL86qkxMjHx/simple"  
 loading="lazy"
 allow="fullscreen; payment">
 </iframe>
 </div>
 
-<div class="eventActions">
-<a class="btn" href="https://luma.com/evt-lO5M7AmQWfLZEvJ" target="_blank" rel="noopener">
-📅 In Kalender speichern
-</a>
-
-<a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://luma.com/evt-lO5M7AmQWfLZEvJ" target="_blank" rel="noopener">
-📣 Bei Facebook teilen
-</a>
-
-<a class="btn" href="#" onclick="return false;" title="PayPal-Link folgt">
-💙 PayPal Zahlung
-</a>
 </div>
-</div>
+
+
+<!-- EVENT 2 -->
 
 <div class="card eventCard">
 <div class="badge">Event 2</div>
 <h3>Nächste Veranstaltung</h3>
-
-<div class="frameWrap">
-<iframe
-src="https://luma.com/embed/event/evt-HJRXLQTrSfP6Hva/simple"
-loading="lazy"
-allow="fullscreen; payment">
-</iframe>
-</div>
-
-<div class="eventActions">
-<a class="btn" href="https://luma.com/evt-HJRXLQTrSfP6Hva" target="_blank" rel="noopener">
-📅 In Kalender speichern
-</a>
-
-<a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://luma.com/evt-HJRXLQTrSfP6Hva" target="_blank" rel="noopener">
-📣 Bei Facebook teilen
-</a>
-
-<a class="btn" href="#" onclick="return false;" title="PayPal-Link folgt">
-💙 PayPal 
-</a>
-</div>
-</div>
-
-<div class="card eventCard">
-<div class="badge">Event 3</div>
-<h3>Weitere Veranstaltung</h3>
 
 <div class="frameWrap">
 <iframe
@@ -375,33 +386,57 @@ allow="fullscreen; payment">
 </iframe>
 </div>
 
-<div class="eventActions">
-<a class="btn" href="https://luma.com/evt-Y5LxOmOddg3u3VO" target="_blank" rel="noopener">
-📅 In Kalender speichern
-</a>
-
-<a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https://luma.com/evt-Y5LxOmOddg3u3VO" target="_blank" rel="noopener">
-📣 Bei Facebook teilen
-</a>
-
-<a class="btn" href="#" onclick="return false;" title="PayPal-Link folgt">
-💙 PayPal Zahlung
-</a>
 </div>
+
+
+<!-- EVENT 3 -->
+
+<div class="card eventCard">
+<div class="badge">Event 3</div>
+<h3>Weitere Veranstaltung</h3>
+
+<div class="frameWrap">
+<iframe
+src="https://luma.com/embed/event/evt-5xKQHu6hH1AvI6a/simple"
+loading="lazy"
+allow="fullscreen; payment">
+</iframe>
 </div>
+
+</div>
+
+
+<!-- EVENT 4 -->
 
 <div class="card eventCard">
 <div class="badge">Event 4</div>
-<div class="placeholder">
-Nächstes Event folgt
+<h3>Auswärtsfahrt / Fanclub Event</h3>
+
+<div class="frameWrap">
+<iframe
+src="https://luma.com/embed/event/evt-HJRXLQTrSfP6Hva/simple"
+loading="lazy"
+allow="fullscreen; payment">
+</iframe>
 </div>
+
 </div>
+
+
+<!-- EVENT 5 -->
 
 <div class="card eventCard">
 <div class="badge">Event 5</div>
-<div class="placeholder">
-Nächstes Event folgt
+<h3>Weitere Anmeldung</h3>
+
+<div class="frameWrap">
+<iframe
+src="https://luma.com/embed/event/evt-lO5M7AmQWfLZEvJ/simple" 
+loading="lazy"
+allow="fullscreen; payment">
+</iframe>
 </div>
+
 </div>
 
 </div>
@@ -410,17 +445,49 @@ Nächstes Event folgt
 </div>
 </main>
 
+
 <footer>
 <div class="wrap">
 
 <div class="footLinks">
-<a class="btn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
-<a class="btn" href="members.html">Mitglieder-Login</a>
-<a class="btn" href="legal.html">Impressum</a>
-<a class="btn" href="legal.html#datenschutz">Datenschutz</a>
-<a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
-<a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
-<a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
+<a class="btn"
+href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206"
+target="_blank">
+Fanshop
+</a>
+
+<a class="btn"
+href="members.html">
+Mitglieder-Login
+</a>
+
+<a class="btn"
+href="legal.html">
+Impressum
+</a>
+
+<a class="btn"
+href="legal.html#datenschutz">
+Datenschutz
+</a>
+
+<a class="btn"
+href="https://www.instagram.com/kinnicher_ffc/"
+target="_blank">
+Instagram
+</a>
+
+<a class="btn"
+href="https://www.facebook.com/profile.php?id=61574762261698"
+target="_blank">
+Facebook
+</a>
+
+<a class="btn"
+href="https://www.youtube.com/@KinnicherFFC"
+target="_blank">
+YouTube
+</a>
 </div>
 
 <div class="copy">
@@ -430,8 +497,10 @@ Nächstes Event folgt
 </div>
 </footer>
 
+
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById('year').textContent =
+new Date().getFullYear();
 </script>
 
 </body>
