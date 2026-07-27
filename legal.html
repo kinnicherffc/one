@@ -57,10 +57,422 @@
 
     <div class="card" id="impressum">
       <h2>Impressum</h2>
+      <!doctype html>
+<html lang="de" id="top">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="index, follow">
+
+<title>Impressum | Kinnicher FFC</title>
+
+<style>
+:root{
+  --bg:#071428;
+  --bg-dark:#050b18;
+  --card:#0c1f3b;
+  --text:#eaf2ff;
+  --muted:#b9c8e6;
+  --line:rgba(255,255,255,.12);
+  --accent:#3aa0ff;
+  --radius:18px;
+  --shadow:0 18px 60px rgba(0,0,0,.35);
+  --max:900px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(58,160,255,.12), transparent 35%),
+    linear-gradient(var(--bg), var(--bg-dark));
+  color:var(--text);
+}
+
+a{
+  color:#7fc1ff;
+  text-decoration:none;
+}
+
+a:hover{
+  color:#fff;
+  text-decoration:underline;
+}
+
+.wrap{
+  width:100%;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:20px;
+}
+
+/* HEADER */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(5,11,24,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.topbar h1{
+  margin:0;
+  font-size:28px;
+  line-height:1.1;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  text-decoration:none;
+  text-align:center;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.btn:hover{
+  color:#fff;
+  text-decoration:none;
+  background:rgba(58,160,255,.16);
+  border-color:rgba(58,160,255,.5);
+  transform:translateY(-1px);
+}
+
+/* CONTENT */
+
+.imprint-card{
+  margin-top:24px;
+  padding:clamp(20px, 4vw, 38px);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.imprint-card h2{
+  margin:32px 0 10px;
+  padding-bottom:8px;
+  font-size:20px;
+  border-bottom:1px solid var(--line);
+}
+
+.imprint-card h2:first-child{
+  margin-top:0;
+}
+
+.imprint-card p{
+  margin:8px 0;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+.imprint-card strong{
+  color:var(--text);
+}
+
+.address{
+  font-style:normal;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+.notice{
+  margin-top:28px;
+  padding:14px 16px;
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  background:rgba(58,160,255,.08);
+}
+
+.notice p{
+  margin:0;
+}
+
+.footer{
+  padding:28px 0 10px;
+  color:var(--muted);
+  font-size:14px;
+  text-align:center;
+}
+
+.footer-nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-bottom:12px;
+}
+
+/* MOBILE */
+
+@media (max-width:640px){
+  .wrap{
+    padding:12px;
+  }
+
+  .topbar{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .topbar h1{
+    font-size:23px;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .imprint-card{
+    margin-top:14px;
+    padding:18px;
+  }
+
+  .imprint-card h2{
+    margin-top:26px;
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="wrap topbar">
+    <h1>Impressum</h1>
+
+    <a class="btn" href="index.html">
+      ← Zur Startseite
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <article class="imprint-card">
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+
+    <p>
+      <strong>Kinnicher Fußball Fanclub 2024 e.V.</strong>
+    </p>
+
+    <address class="address">
+      Oskar-Zimper-Straße 30<br>
+      64732 Bad König<br>
+      Deutschland
+    </address>
+
+    <h2>Vertretungsberechtigter Vorstand</h2>
+
+    <p>
+      Der Verein wird gemäß § 26 BGB durch den Vorstand vertreten.
+    </p>
+
+    <p>
+      1. Vorsitzender:
+      <strong>BITTE EINTRAGEN</strong>
+    </p>
+
+    <p>
+      2. Vorsitzender:
+      <strong>BITTE EINTRAGEN</strong>
+    </p>
+
+    <!--
+      Diesen Satz an eure tatsächliche Satzungsregelung anpassen.
+
+      Beispiele:
+
+      "Der Verein wird durch zwei Vorstandsmitglieder gemeinsam vertreten."
+
+      oder:
+
+      "Der 1. Vorsitzende und der 2. Vorsitzende sind jeweils
+      einzelvertretungsberechtigt."
+    -->
+
+    <p>
+      Art der Vertretung:
+      <strong>BITTE GEMÄSS SATZUNG EINTRAGEN</strong>
+    </p>
+
+    <h2>Vereinsregister</h2>
+
+    <p>
+      Eingetragen im Vereinsregister.
+    </p>
+
+    <p>
+      Registergericht:
+      <strong>Amtsgericht BITTE EINTRAGEN</strong>
+    </p>
+
+    <p>
+      Registernummer:
+      <strong>VR BITTE EINTRAGEN</strong>
+    </p>
+
+    <h2>Kontakt</h2>
+
+    <p>
+      E-Mail:
+      <a href="mailto:info@kinnicherffc.de">
+        info@kinnicherffc.de
+      </a>
+    </p>
+
+    <p>
+      Internet:
+      <a href="https://kinnicherffc.de">
+        kinnicherffc.de
+      </a>
+    </p>
+
+    <!--
+      Sofern eine geschäftlich erreichbare Telefonnummer vorhanden ist,
+      kann sie hier ergänzt werden:
+
       <p>
-        <b>Hinweis:</b> Auf eurer Wix-Impressum-Seite war im Quelltext kein Impressum-Text zuverlässig auslesbar.
-        Bitte den vollständigen Impressum-Text hier einfügen (1:1 aus eurem bestehenden Impressum übernehmen).
+        Telefon:
+        <a href="tel:+49...">...</a>
       </p>
+    -->
+
+    <h2>Verantwortlich für journalistisch-redaktionelle Inhalte</h2>
+
+    <p>
+      Verantwortlich gemäß § 18 Absatz 2 Medienstaatsvertrag:
+    </p>
+
+    <p>
+      <strong>BITTE VOLLSTÄNDIGEN NAMEN EINTRAGEN</strong>
+    </p>
+
+    <address class="address">
+      Kinnicher Fußball Fanclub 2024 e.V.<br>
+      Oskar-Zimper-Straße 30<br>
+      64732 Bad König
+    </address>
+
+    <h2>Haftung für Inhalte</h2>
+
+    <p>
+      Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten
+      nach den allgemeinen Gesetzen verantwortlich. Wir übernehmen jedoch
+      keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der
+      bereitgestellten Inhalte.
+    </p>
+
+    <h2>Haftung für externe Links</h2>
+
+    <p>
+      Unsere Website enthält Links zu externen Websites Dritter, auf deren
+      Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können
+      wir daher keine Gewähr übernehmen. Für die Inhalte der verlinkten
+      Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+    </p>
+
+    <p>
+      Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht
+      erkennbar. Eine dauerhafte Kontrolle der verlinkten Seiten ist ohne
+      konkrete Anhaltspunkte für eine Rechtsverletzung nicht zumutbar.
+      Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Links
+      entfernt.
+    </p>
+
+    <h2>Urheberrecht</h2>
+
+    <p>
+      Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen
+      dem deutschen Urheberrecht. Jede Vervielfältigung, Bearbeitung,
+      Verbreitung oder sonstige Verwertung außerhalb der Grenzen des
+      Urheberrechts bedarf der vorherigen Zustimmung des jeweiligen
+      Rechteinhabers.
+    </p>
+
+    <p>
+      Soweit Inhalte auf dieser Website nicht vom Betreiber erstellt wurden,
+      werden die Urheberrechte Dritter beachtet. Sollten Sie dennoch auf eine
+      mögliche Urheberrechtsverletzung aufmerksam werden, bitten wir um einen
+      entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen
+      werden die betroffenen Inhalte entfernt.
+    </p>
+
+    <h2>Verbraucherstreitbeilegung</h2>
+
+    <p>
+      Wir sind nicht bereit und nicht verpflichtet, an einem
+      Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+      teilzunehmen.
+    </p>
+
+    <div class="notice">
+      <p>
+        <strong>Hinweis:</strong>
+        Bitte ergänzt vor der Veröffentlichung alle mit
+        „BITTE EINTRAGEN“ markierten Angaben und prüft die Vertretungsregelung
+        anhand eurer Vereinssatzung.
+      </p>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <nav class="footer-nav" aria-label="Rechtliche Informationen">
+      <a href="index.html">Startseite</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+
+    <div>
+      © <span id="current-year"></span>
+      Kinnicher Fußball Fanclub 2024 e.V.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+document.getElementById("current-year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
 
       <!-- TODO: Impressum-Text hier einfügen -->
       <p class="note">Platzhalter – bitte ersetzen.</p>
