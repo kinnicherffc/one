@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>News | Kinnicher FFC</title>
 
 <style>
@@ -15,10 +16,12 @@
   --accent:#3aa0ff;
   --radius:18px;
   --shadow:0 18px 60px rgba(0,0,0,.35);
-  --max:1200px;
+  --max:1100px;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 html{
   scroll-behavior:smooth;
@@ -26,175 +29,184 @@ html{
 
 body{
   margin:0;
-  font-family:system-ui, Arial, sans-serif;
-  background:linear-gradient(#061126,#050b18);
+  min-height:100vh;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background:linear-gradient(#061126, #050b18);
   color:var(--text);
 }
 
 .wrap{
+  width:100%;
   max-width:var(--max);
-  margin:auto;
+  margin:0 auto;
   padding:20px;
 }
+
+/* HEADER */
 
 .header{
   position:sticky;
   top:0;
   z-index:100;
-  background:#050b18;
+  background:rgba(5,11,24,.96);
   border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
 }
 
 .topbar{
   display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
 
-.topbar h2{
+.topbar h1{
   margin:0;
   font-size:28px;
   line-height:1.1;
+}
+
+.navigation{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:10px 14px;
   min-height:42px;
-  border-radius:12px;
+  padding:10px 14px;
   border:1px solid var(--line);
+  border-radius:12px;
   background:rgba(255,255,255,.04);
   color:var(--text);
   text-decoration:none;
-  transition:.2s ease;
-  white-space:nowrap;
+  text-align:center;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
 }
 
 .btn:hover{
   background:rgba(58,160,255,.16);
   border-color:rgba(58,160,255,.5);
-  color:#fff;
+  transform:translateY(-1px);
 }
 
-.jumpNav{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+/* INTRO */
+
+.intro{
+  margin:10px 0 22px;
+  color:var(--muted);
+  line-height:1.6;
 }
 
-/* GRID */
-.grid{
+/* NEWS GRID */
+
+.news-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:20px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:20px;
 }
 
-/* CARD */
-.card{
+.news-card{
+  min-width:0;
+  overflow:hidden;
   background:var(--card);
   border:1px solid var(--line);
   border-radius:var(--radius);
-  overflow:hidden;
   box-shadow:var(--shadow);
-  display:flex;
-  flex-direction:column;
-  min-height:650px;
 }
 
-.card h2{
-  margin:0;
-  padding:12px;
-  font-size:16px;
+.news-card-header{
+  padding:16px 18px;
   border-bottom:1px solid var(--line);
 }
 
-/* EMBED */
-.embed{
-  flex:1;
+.news-card-header h2{
+  margin:0;
+  font-size:18px;
+}
+
+.news-card-header p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* FACEBOOK EMBED */
+
+.facebook-embed{
   display:flex;
-  align-items:center;
   justify-content:center;
-  background:#fff;
-}
-
-/* FACEBOOK */
-.fb iframe{
-  width:100%;
-  max-width:500px;
-  height:100%;
-  min-height:600px;
-  border:0;
-}
-
-/* INSTAGRAM */
-.ig{
-  padding:10px;
-}
-
-/* POSTS */
-.posts{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:20px;
-}
-
-.post{
   min-height:650px;
-  background:#fff;
-  border-radius:var(--radius);
+  padding:0;
   overflow:hidden;
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
+  background:#fff;
 }
 
-.post iframe{
+.facebook-embed iframe{
+  display:block;
   width:100%;
   max-width:500px;
-  height:100%;
-  min-height:600px;
+  height:650px;
   border:0;
+}
+
+/* SOCIAL LINKS */
+
+.social-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:24px;
+}
+
+.social-links .btn{
+  background:rgba(58,160,255,.1);
 }
 
 /* TABLET */
-@media (max-width:900px){
-  .grid,
-  .posts{
-    grid-template-columns:1fr;
-  }
 
-  .jumpNav{
-    width:100%;
+@media (max-width:900px){
+  .news-grid{
+    grid-template-columns:1fr;
   }
 
   .topbar{
     align-items:flex-start;
   }
+
+  .navigation{
+    justify-content:flex-start;
+  }
 }
 
 /* MOBILE */
+
 @media (max-width:640px){
   .wrap{
     padding:12px;
   }
 
   .topbar{
-    gap:10px;
+    flex-direction:column;
+    align-items:stretch;
   }
 
-  .topbar h2{
-    font-size:22px;
+  .topbar h1{
+    font-size:23px;
   }
 
-  .jumpNav{
+  .navigation{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:8px;
     width:100%;
   }
 
@@ -203,49 +215,42 @@ body{
     min-height:40px;
     padding:9px 10px;
     font-size:14px;
-    white-space:normal;
-    text-align:center;
   }
 
-  .card,
-  .post{
-    min-height:auto;
-  }
-
-  .card h2{
+  .intro{
+    margin-top:6px;
     font-size:15px;
-    padding:10px 12px;
   }
 
-  .embed{
-    min-height:auto;
+  .news-card-header{
+    padding:13px 14px;
   }
 
-  .fb iframe,
-  .post iframe{
-    max-width:100%;
-    min-height:0;
-    height:420px;
+  .facebook-embed{
+    min-height:600px;
   }
 
-  .ig{
-    padding:8px;
+  .facebook-embed iframe{
+    height:600px;
+  }
+
+  .social-links{
+    display:grid;
+    grid-template-columns:1fr;
   }
 }
 
 /* SEHR KLEINE HANDYS */
-@media (max-width:420px){
-  .topbar h2{
-    font-size:20px;
-  }
 
-  .jumpNav{
+@media (max-width:420px){
+  .navigation{
     grid-template-columns:1fr;
   }
 
-  .fb iframe,
-  .post iframe{
-    height:360px;
+  .facebook-embed,
+  .facebook-embed iframe{
+    min-height:560px;
+    height:560px;
   }
 }
 </style>
@@ -255,96 +260,106 @@ body{
 
 <header class="header">
   <div class="wrap topbar">
-    <h2>News</h2>
 
-    <a class="btn" href="index.html">← Start</a>
+    <h1>News</h1>
 
-    <div class="jumpNav">
-      <a class="btn" href="#fb1">Facebook SGBKZ</a>
-      <a class="btn" href="#ig1">Instagram SGBKZ</a>
-      <a class="btn" href="#fb2">Facebook Fanclub</a>
-      <a class="btn" href="#ig2">Instagram Fanclub</a>
-    </div>
+    <nav class="navigation" aria-label="Seitennavigation">
+      <a class="btn" href="index.html">← Startseite</a>
+      <a class="btn" href="#sgbkz">SG Bad König/Zell</a>
+      <a class="btn" href="#fanclub">Fanclub</a>
+    </nav>
+
   </div>
 </header>
 
-<div class="wrap">
+<main class="wrap">
 
-  <div class="grid">
+  <p class="intro">
+    Hier erscheinen automatisch die aktuellen Facebook-Beiträge der
+    SG Bad König/Zell und des Kinnicher Fußball Fanclubs.
+  </p>
 
-    <div class="card" id="fb1">
-      <h2>Facebook SGBKZ</h2>
-      <div class="embed fb">
+  <section class="news-grid" aria-label="Aktuelle Neuigkeiten">
+
+    <!-- SG BAD KÖNIG / ZELL -->
+
+    <article class="news-card" id="sgbkz">
+
+      <header class="news-card-header">
+        <h2>SG Bad König/Zell</h2>
+        <p>Aktuelle Beiträge von Facebook</p>
+      </header>
+
+      <div class="facebook-embed">
+
         <iframe
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          title="Facebook-Beiträge der SG Bad König/Zell"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+          width="500"
+          height="650"
           style="border:none;overflow:hidden"
           scrolling="no"
           frameborder="0"
-          allowfullscreen="true"
+          allowfullscreen
+          loading="lazy"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
         </iframe>
-      </div>
-    </div>
 
-    <div class="card" id="ig1">
-      <h2>Instagram SGBKZ</h2>
-      <div class="embed ig">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV1iJ9GCOua/"></blockquote>
       </div>
-    </div>
 
-    <div class="card" id="fb2">
-      <h2>Facebook Fanclub</h2>
-      <div class="embed fb">
+    </article>
+
+    <!-- KINNICHER FANCLUB -->
+
+    <article class="news-card" id="fanclub">
+
+      <header class="news-card-header">
+        <h2>Kinnicher Fußball Fanclub</h2>
+        <p>Aktuelle Beiträge von Facebook</p>
+      </header>
+
+      <div class="facebook-embed">
+
         <iframe
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkinnicherffc&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          title="Facebook-Beiträge des Kinnicher Fußball Fanclubs"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkinnicherffc&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+          width="500"
+          height="650"
           style="border:none;overflow:hidden"
           scrolling="no"
           frameborder="0"
-          allowfullscreen="true"
+          allowfullscreen
+          loading="lazy"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
         </iframe>
+
       </div>
-    </div>
 
-    <div class="card" id="ig2">
-      <h2>Instagram Fanclub</h2>
-      <div class="embed ig">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV7_KU4DNkD/"></blockquote>
-      </div>
-    </div>
+    </article>
 
-  </div>
+  </section>
 
-  <div class="posts">
+  <nav class="social-links" aria-label="Social-Media-Profile">
 
-    <div class="post">
-      <iframe
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig%2Fposts%2Fpfbid0XMz1RTr2aGKNmE9K3aeWE52XubsdvkoaPwij7AHNe4dyg7MKiRsdnBuzu7coxPtxl&show_text=true&width=500"
-        style="border:none;overflow:hidden"
-        scrolling="no"
-        frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-      </iframe>
-    </div>
+    <a
+      class="btn"
+      href="https://www.instagram.com/sgbadkoenigzell/"
+      target="_blank"
+      rel="noopener noreferrer">
+      Instagram SG Bad König/Zell öffnen
+    </a>
 
-    <div class="post">
-      <iframe
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig%2Fposts%2Fpfbid096MazWbWkMcp4yR25r8cXiH1TViAFzTcw2bLKRdEUM9SnMSqtzLVtJwufNFj13GUl&show_text=true&width=500"
-        style="border:none;overflow:hidden"
-        scrolling="no"
-        frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-      </iframe>
-    </div>
+    <a
+      class="btn"
+      href="https://www.instagram.com/kinnicher_ffc/"
+      target="_blank"
+      rel="noopener noreferrer">
+      Instagram Fanclub öffnen
+    </a>
 
-  </div>
+  </nav>
 
-</div>
-
-<script async src="https://www.instagram.com/embed.js"></script>
+</main>
 
 </body>
 </html>
