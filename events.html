@@ -33,18 +33,9 @@ radial-gradient(700px 420px at 90% 5%,rgba(121,212,255,.12),transparent 55%),
 linear-gradient(180deg,#061126 0%,#050b18 100%);
 }
 
-a{
-text-decoration:none;
-color:inherit;
-}
+a{text-decoration:none;color:inherit}
 
-.wrap{
-max-width:var(--max);
-margin:auto;
-padding:0 18px;
-}
-
-/* Header */
+.wrap{max-width:var(--max);margin:auto;padding:0 18px}
 
 .header{
 position:sticky;
@@ -75,27 +66,11 @@ place-items:center;
 box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
-.logo img{
-width:100%;
-height:100%;
-object-fit:contain;
-padding:10px;
-}
+.logo img{width:100%;height:100%;object-fit:contain;padding:10px}
 
-.headerCenter{
-flex:1;
-text-align:center;
-}
-
-.headerCenter h1{
-margin:0;
-font-size:19px;
-}
-
-.headerCenter span{
-font-size:14px;
-color:var(--muted);
-}
+.headerCenter{flex:1;text-align:center}
+.headerCenter h1{margin:0;font-size:19px}
+.headerCenter span{font-size:14px;color:var(--muted)}
 
 .btn{
 display:inline-flex;
@@ -108,28 +83,26 @@ background:rgba(255,255,255,.04);
 font-size:14px;
 }
 
-.btn:hover{
-background:rgba(255,255,255,.08);
+.btn:hover{background:rgba(255,255,255,.08)}
+
+.calendarActions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
 }
 
-/* Content */
-
-section{
-padding:26px 0;
+.calendarSubscribe{
+grid-column:1 / -1;
+width:100%;
+font-weight:700;
+background:rgba(58,160,255,.14);
+border-color:rgba(58,160,255,.35);
 }
 
-.sectionHead{
-margin-bottom:18px;
-}
-
-.sectionHead h2{
-margin:0;
-font-size:26px;
-}
-
-.muted{
-color:var(--muted);
-}
+section{padding:26px 0}
+.sectionHead{margin-bottom:18px}
+.sectionHead h2{margin:0;font-size:26px}
+.muted{color:var(--muted)}
 
 .grid2{
 display:grid;
@@ -145,9 +118,7 @@ padding:22px;
 box-shadow:var(--shadow);
 }
 
-.card h3{
-margin-top:0;
-}
+.card h3{margin-top:0}
 
 .frameWrap{
 margin-top:14px;
@@ -164,6 +135,15 @@ border-radius:16px;
 background:#fff;
 }
 
+.eventImage{
+display:block;
+width:100%;
+height:auto;
+border-radius:16px;
+border:1px solid #bfcbda66;
+background:#fff;
+}
+
 .eventGrid{
 display:grid;
 grid-template-columns:1fr;
@@ -171,9 +151,7 @@ gap:26px;
 margin-top:25px;
 }
 
-.eventCard{
-padding:26px;
-}
+.eventCard{padding:26px}
 
 .badge{
 display:inline-block;
@@ -184,8 +162,6 @@ border-radius:30px;
 font-size:13px;
 margin-bottom:14px;
 }
-
-/* Footer */
 
 footer{
 margin-top:45px;
@@ -201,266 +177,145 @@ gap:10px;
 padding:24px 0 10px;
 }
 
-.copy{
-text-align:center;
-font-size:12px;
-color:var(--muted);
-padding-bottom:24px;
-}
+.copy{text-align:center;font-size:12px;color:var(--muted);padding-bottom:24px}
 
-/* Mobile */
-
-@media(max-width:960px){
-.grid2{
-grid-template-columns:1fr;
-}
-}
+@media(max-width:960px){.grid2{grid-template-columns:1fr}}
 
 @media(max-width:650px){
-
-:root{
---headerH:88px;
-}
-
-.logo{
-width:62px;
-height:62px;
-border-radius:16px;
-}
-
-.headerCenter h1{
-font-size:15px;
-}
-
-.headerCenter span{
-font-size:12px;
-}
-
-.sectionHead h2{
-font-size:22px;
-}
-
-.card{
-padding:18px;
-}
-
-.frameWrap iframe{
-height:500px;
-}
+:root{--headerH:88px}
+.logo{width:62px;height:62px;border-radius:16px}
+.headerCenter h1{font-size:15px}
+.headerCenter span{font-size:12px}
+.sectionHead h2{font-size:22px}
+.card{padding:18px}
+.frameWrap iframe{height:500px}
+.calendarActions{grid-template-columns:1fr}
+.calendarSubscribe{grid-column:auto}
 }
 </style>
 </head>
 
 <body>
-
 <header class="header">
 <div class="wrap">
 <div class="bar">
-
-<div class="logo">
-<img src="assets/logo-loewe.png" alt="Löwe Logo">
-</div>
-
+<div class="logo"><img src="assets/logo-loewe.png" alt="Löwe Logo"></div>
 <div class="headerCenter">
 <h1>Kinnicher Fussball Fanclub 2024 e.V.</h1>
 <span>Bad König · Blau/Weiß</span>
 </div>
-
-<div class="logo">
-<img src="assets/logo-kffc.png" alt="KFFC Logo">
-</div>
-
+<div class="logo"><img src="assets/logo-kffc.png" alt="KFFC Logo"></div>
 </div>
 </div>
 </header>
 
-
 <main>
 <div class="wrap">
-
 <div style="margin:22px 0;text-align:center">
-<a class="btn" href="index.html">
-← Zur Startseite
-</a>
+<a class="btn" href="index.html">← Zur Startseite</a>
 </div>
-
 
 <section>
-
-<div class="sectionHead">
-<h2>Events & Kalender</h2>
-</div>
+<div class="sectionHead"><h2>Events & Kalender</h2></div>
 
 <div class="grid2">
-
 <div class="card">
-
 <h3>Spielbetrieb & Termine</h3>
-
 <div style="margin-bottom:18px">
-<a class="btn" href="fupa.html">
-Spiele & Tabellen (FuPa)
-</a>
+<a class="btn" href="fupa.html">Spiele & Tabellen (FuPa)</a>
 </div>
 
 <hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
 
 <h3>Kalender</h3>
+<p class="muted">Kalender wird fortlaufend aktualisiert.</p>
 
-<p class="muted">
-Kalender wird fortlaufend aktualisiert.
-</p>
+<div class="calendarActions">
+<a class="btn calendarSubscribe"
+href="https://calendar.google.com/calendar/r?cid=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20"
+target="_blank" rel="noopener">
+Fanclub-Vereinskalender abonnieren
+</a>
 
-<div style="display:flex;gap:10px;flex-wrap:wrap">
-<a class="btn"
-href="https://calendar.google.com/calendar/u/1/r?pli=1"
-target="_blank">
+<a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">
 Google Kalender öffnen
 </a>
 
-<a class="btn"
-href="kontakt.html">
-Termin vorschlagen
-</a>
+<a class="btn" href="kontakt.html">Termin vorschlagen</a>
 </div>
-
 </div>
-
 
 <div class="card">
-
-<h3>Vereinskalender</h3>
-
+<h3>Fanclub-Vereinskalender</h3>
 <div class="frameWrap">
 <iframe
-title="Google Kalender"
+title="Fanclub-Vereinskalender"
 loading="lazy"
 src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTabs=0&src=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e">
 </iframe>
 </div>
-
+</div>
 </div>
 
-</div>
-
-
-<div class="sectionHead" style="margin-top:36px">
-<h2>Unsere Events</h2>
-</div>
-
-<p class="muted">
-Melde dich gerne zu unseren Events an. Beachte einige sind nur für Mitglieder und wir können nur bei enstprechenden Kapazitäten weiter Teilnehmer aufnehmen. Es gibt jedoch auch eine Warteliste!
-</p>
-
+<div class="sectionHead" style="margin-top:36px"><h2>Zu- und Absagen Events</h2></div>
+<p class="muted">Anmeldung direkt über Luma. Mit Kalendereintrag, Fristen und Teilnehmerverwaltung.</p>
 
 <div class="eventGrid">
 
-
-<!-- EVENT 3 -->
-
 <div class="card eventCard">
-<div class="badge">Event</div>
-<h3>Auswärtsfahrt - weitere Infos folgen </h3>
-
-
-
-
-<!-- EVENT 4 -->
-
-<div class="card eventCard">
-<div class="badge">Event</div>
-<h3>Sommerfest</h3>
-
+<div class="badge">Nächstes Event</div>
+<h3>TSG-Sommerfest</h3>
 <div class="frameWrap">
-<iframe
-src="https://luma.com/embed/event/evt-HJRXLQTrSfP6Hva/simple"
-loading="lazy"
-allow="fullscreen; payment">
-</iframe>
+<img class="eventImage" src="assets/tsg-sommerfest-2026.png" alt="Plakat zum TSG-Sommerfest am 15. August">
 </div>
-
 </div>
-
-
-<!-- EVENT 5 -->
 
 <div class="card eventCard">
-<div class="badge">Event</div>
-<h3>Fussball-Golf</h3>
-
+<div class="badge">Save the Date</div>
+<h3>Fanclub-Weihnachtsfeier</h3>
 <div class="frameWrap">
-<iframe
-src="https://luma.com/embed/event/evt-lO5M7AmQWfLZEvJ/simple" 
-loading="lazy"
-allow="fullscreen; payment">
-</iframe>
+<img class="eventImage" src="assets/fanclub-weihnachtsfeier-2026.png" alt="Save the Date zur Fanclub-Weihnachtsfeier am 4. Dezember 2026 im Burghof Bromisch">
+</div>
+</div>
+
+<div class="card eventCard">
+<div class="badge">Event 3</div>
+<h3>Weitere Veranstaltung</h3>
+<div class="frameWrap">
+<iframe src="https://luma.com/embed/event/evt-Y5LxOmOddg3u3VO/simple" loading="lazy" allow="fullscreen; payment"></iframe>
+</div>
+</div>
+
+<div class="card eventCard">
+<div class="badge">Event 5</div>
+<h3>Weitere Anmeldung</h3>
+<div class="frameWrap">
+<iframe src="https://luma.com/embed/event/evt-5xKQHu6hH1AvI6a/simple" loading="lazy" allow="fullscreen; payment"></iframe>
+</div>
 </div>
 
 </div>
-
-</div>
-
 </section>
 </div>
 </main>
 
-
 <footer>
 <div class="wrap">
-
 <div class="footLinks">
-<a class="btn"
-href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206"
-target="_blank">
-Fanshop
-</a>
-
-<a class="btn"
-href="members.html">
-Mitglieder-Login
-</a>
-
-<a class="btn"
-href="legal.html">
-Impressum
-</a>
-
-<a class="btn"
-href="legal.html#datenschutz">
-Datenschutz
-</a>
-
-<a class="btn"
-href="https://www.instagram.com/kinnicher_ffc/"
-target="_blank">
-Instagram
-</a>
-
-<a class="btn"
-href="https://www.facebook.com/profile.php?id=61574762261698"
-target="_blank">
-Facebook
-</a>
-
-<a class="btn"
-href="https://www.youtube.com/@KinnicherFFC"
-target="_blank">
-YouTube
-</a>
+<a class="btn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
+<a class="btn" href="members.html">Mitglieder-Login</a>
+<a class="btn" href="legal.html">Impressum</a>
+<a class="btn" href="legal.html#datenschutz">Datenschutz</a>
+<a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
+<a class="btn" href="https://www.facebook.com/profile.php?id=61574762261698" target="_blank" rel="noopener">Facebook</a>
+<a class="btn" href="https://www.youtube.com/@KinnicherFFC" target="_blank" rel="noopener">YouTube</a>
 </div>
-
-<div class="copy">
-© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.
-</div>
-
+<div class="copy">© <span id="year"></span> Kinnicher Fussball Fanclub 2024 e.V.</div>
 </div>
 </footer>
 
-
 <script>
-document.getElementById('year').textContent =
-new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
