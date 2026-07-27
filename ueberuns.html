@@ -202,6 +202,23 @@
       background:rgba(255,255,255,.08);
       display:grid; place-items:center;
       font-size:32px;
+      overflow:hidden;
+    }
+
+    .boardCard .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .boardPhoto{
+      width:100%;
+      display:block;
+      margin:0 0 18px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      object-fit:cover;
     }
 
     .boardCard .name{font-weight:700; margin:6px 0 2px;}
@@ -488,40 +505,42 @@
 
           <h3 class="boardTitle">Vorstand</h3>
 
+          <img class="boardPhoto" src="assets/vorstand-gruppenbild.jpg" alt="Vorstand des Kinnicher Fussball Fanclub 2024 e.V.">
+
           <div class="boardGrid" aria-label="Vorstand & Beisitzer">
             <div class="boardCard">
-              <div class="avatar" aria-hidden="true">🧑‍✈️</div>
+              <div class="avatar"><img src="assets/vorstand-mario.jpg" alt="Mario Ballheimer"></div>
               <div class="name">Mario Ballheimer</div>
               <div class="role">1. Vorsitzender</div>
             </div>
 
             <div class="boardCard">
-              <div class="avatar" aria-hidden="true">🧑‍💼</div>
+              <div class="avatar"><img src="assets/vorstand-jens.png" alt="Jens Sagmeister"></div>
               <div class="name">Jens Sagmeister</div>
               <div class="role">2. Vorsitzender</div>
             </div>
 
             <div class="boardCard">
-              <div class="avatar" aria-hidden="true">💰</div>
+              <div class="avatar"><img src="assets/vorstand-veronika.jpg" alt="Veronika Ballheimer"></div>
               <div class="name">Veronika Ballheimer</div>
               <div class="role">Schatzmeisterin</div>
             </div>
 
             <div class="boardCard">
-              <div class="avatar" aria-hidden="true">✍️</div>
+              <div class="avatar"><img src="assets/vorstand-tamina.jpg" alt="Tamina Weichel"></div>
               <div class="name">Tamina Weichel</div>
               <div class="role">Schriftführerin</div>
             </div>
 
             <div class="boardCard">
-              <div class="avatar" aria-hidden="true">🤝</div>
+              <div class="avatar"><img src="assets/vorstand-werner.jpg" alt="Werner Koch"></div>
               <div class="name">Werner Koch</div>
               <div class="role">Beisitzer</div>
             </div>
 
             <div class="boardCard">
               <div class="avatar" aria-hidden="true">🤝</div>
-              <div class="name">Olaf Ehrlich</div>
+              <div class="name">Marco Wiesner</div>
               <div class="role">Beisitzer</div>
             </div>
 
@@ -533,8 +552,8 @@
 
             <div class="boardCard">
               <div class="avatar" aria-hidden="true">🤝</div>
-              <div class="name">Melde dich</div>
-              <div class="role">bei uns</div>
+              <div class="name">Nicole Hochgräfe</div>
+              <div class="role">Beisitzerin</div>
             </div>
           </div>
         </div>
