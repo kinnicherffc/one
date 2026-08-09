@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="de">
 <head>
@@ -146,15 +147,58 @@ background:#fff;
 
 .eventGrid{
 display:grid;
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:26px;
 margin-top:25px;
+align-items:stretch;
 }
 
-.eventCard{padding:26px}
+.eventCard{
+padding:26px;
+display:flex;
+flex-direction:column;
+min-width:0;
+height:100%;
+}
+
+.eventCard h3{
+margin-bottom:14px;
+}
+
+.eventCard .frameWrap{
+flex:1;
+display:flex;
+min-height:0;
+}
+
+.eventCard .eventImage{
+width:100%;
+height:100%;
+min-height:450px;
+object-fit:contain;
+}
+
+.eventEmbed{
+margin-top:14px;
+border-radius:16px;
+overflow:hidden;
+flex:1;
+min-height:450px;
+}
+
+.eventEmbed iframe{
+display:block;
+width:100%;
+height:100%;
+min-height:450px;
+border:1px solid #bfcbda88;
+border-radius:16px;
+background:#fff;
+}
 
 .badge{
 display:inline-block;
+align-self:flex-start;
 background:rgba(58,160,255,.14);
 border:1px solid rgba(58,160,255,.35);
 padding:7px 14px;
@@ -179,18 +223,126 @@ padding:24px 0 10px;
 
 .copy{text-align:center;font-size:12px;color:var(--muted);padding-bottom:24px}
 
-@media(max-width:960px){.grid2{grid-template-columns:1fr}}
+@media(max-width:960px){
+.grid2{grid-template-columns:1fr}
+
+.eventGrid{
+grid-template-columns:1fr;
+}
+
+.eventCard .eventImage{
+min-height:0;
+height:auto;
+object-fit:contain;
+}
+
+.eventEmbed{
+min-height:500px;
+}
+
+.eventEmbed iframe{
+min-height:500px;
+}
+}
 
 @media(max-width:650px){
 :root{--headerH:88px}
-.logo{width:62px;height:62px;border-radius:16px}
+
+.wrap{
+padding:0 12px;
+}
+
+.logo{
+width:62px;
+height:62px;
+border-radius:16px;
+}
+
 .headerCenter h1{font-size:15px}
 .headerCenter span{font-size:12px}
 .sectionHead h2{font-size:22px}
-.card{padding:18px}
-.frameWrap iframe{height:500px}
-.calendarActions{grid-template-columns:1fr}
-.calendarSubscribe{grid-column:auto}
+
+.card{
+padding:18px;
+}
+
+.frameWrap iframe{
+height:500px;
+}
+
+.calendarActions{
+grid-template-columns:1fr;
+}
+
+.calendarSubscribe{
+grid-column:auto;
+}
+
+.eventGrid{
+gap:18px;
+margin-top:20px;
+}
+
+.eventCard{
+padding:16px;
+border-radius:16px;
+overflow:hidden;
+}
+
+.eventCard h3{
+font-size:20px;
+margin-bottom:10px;
+}
+
+.eventCard .frameWrap{
+margin-top:10px;
+width:100%;
+}
+
+.eventCard .eventImage{
+display:block;
+width:100%;
+height:auto;
+min-height:0;
+object-fit:contain;
+border-radius:12px;
+}
+
+.eventEmbed{
+width:100%;
+margin-top:10px;
+min-height:520px;
+border-radius:12px;
+}
+
+.eventEmbed iframe{
+width:100%;
+height:520px;
+min-height:520px;
+border-radius:12px;
+}
+
+.badge{
+font-size:12px;
+padding:6px 11px;
+margin-bottom:11px;
+}
+}
+
+@media(max-width:400px){
+.wrap{
+padding:0 10px;
+}
+
+.eventCard{
+padding:14px;
+}
+
+.eventEmbed,
+.eventEmbed iframe{
+height:500px;
+min-height:500px;
+}
 }
 </style>
 </head>
@@ -273,17 +425,16 @@ src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FB
 <div class="card eventCard">
 <div class="badge">Save the Date</div>
 <h3>Fanclub-Weihnachtsfeier</h3>
-<div class="frameWrap">
-</div><iframe
-  src="https://luma.com/embed/event/evt-3BBxvEaQuKhm9bt/simple"
-  width="900"
-  height="450"
-  frameborder="0"
-  style="border: 1px solid #bfcbda88; border-radius: 4px;"
-  allow="fullscreen; payment"
-  aria-hidden="false"
-  tabindex="0"
-></iframe>
+<div class="eventEmbed">
+<iframe
+src="https://luma.com/embed/event/evt-3BBxvEaQuKhm9bt/simple"
+title="Fanclub-Weihnachtsfeier"
+frameborder="0"
+allow="fullscreen; payment"
+aria-hidden="false"
+tabindex="0">
+</iframe>
+</div>
 </div>
 
 </div>
@@ -311,3 +462,4 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+```
