@@ -602,6 +602,11 @@
             </div>
           </div>
 
+          <div class="status-box" id="posterBox" style="display:none">
+            <strong>Spieltagsplakat</strong>
+            <img id="matchPoster" alt="Spieltagsplakat" style="display:block;width:100%;height:auto;border-radius:12px;margin-top:10px">
+          </div>
+
           <div class="status-box">
             <strong>Nächstes Spiel</strong>
             <div class="meta-list">
@@ -806,6 +811,7 @@
         config.matchPlace = g.place || (g.venue === 'heim' ? 'Bad König' : 'auswärts');
         config.kickoffDateTime = new Date(g.start).toISOString();
         if (g.stream && g.stream.ytId) { config.youtubeWatchUrl = 'https://www.youtube.com/watch?v=' + g.stream.ytId; config.videoId = g.stream.ytId; }
+        const pb = document.getElementById('posterBox'); if (g.poster) { document.getElementById("matchPoster").src = g.poster; pb.style.display = ""; } else { pb.style.display = "none"; }
         if (g.status === 'live' || g.status === 'halbzeit') { els.statusText.textContent = 'LIVE: ' + g.home + ' ' + g.score + ' ' + g.away + (g.status === 'live' ? ' (' + g.minute + '. Min.)' : ' – Halbzeit'); }
       }
       updateStaticContent();
