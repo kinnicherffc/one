@@ -255,6 +255,8 @@ body{
 }
 </style>
 <script type="module" src="https://web-widgets.vereinsplaner.com/v1/vp-news-widget"></script>
+<link rel="stylesheet" href="assets/ffc-kabine.css">
+<script src="assets/ffc-kabine.js" defer></script>
 </head>
 
 <body>
@@ -276,8 +278,8 @@ body{
 <main class="wrap">
 
   <p class="intro">
-    Hier erscheinen automatisch die aktuellen Facebook-Beiträge der
-    SG Bad König/Zell und des Kinnicher Fußball Fanclubs.
+    Hier erscheinen automatisch die Neuigkeiten des Fanclubs und die
+    aktuellen Beiträge unserer Facebook-Seiten.
   </p>
 
   <section class="news-card" aria-label="Fanclub-News aus dem Vereinsplaner" style="margin-bottom:24px">
@@ -288,64 +290,12 @@ body{
     <vp-news-widget widget-id="01a16d35-e689-714f-b3af-c223605e51b0" variant="styled"></vp-news-widget>
   </section>
 
-  <section class="news-grid" aria-label="Aktuelle Neuigkeiten">
-
-    <!-- SG BAD KÖNIG / ZELL -->
-
-    <article class="news-card" id="sgbkz">
-
-      <header class="news-card-header">
-        <h2>SG Bad König/Zell</h2>
-        <p>Aktuelle Beiträge von Facebook</p>
-      </header>
-
-      <div class="facebook-embed">
-
-        <iframe
-          title="Facebook-Beiträge der SG Bad König/Zell"
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffussball.badkoenig&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
-          width="500"
-          height="650"
-          style="border:none;overflow:hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
-
-      </div>
-
-    </article>
-
-    <!-- KINNICHER FANCLUB -->
-
-    <article class="news-card" id="fanclub">
-
-      <header class="news-card-header">
-        <h2>Kinnicher Fußball Fanclub</h2>
-        <p>Aktuelle Beiträge von Facebook</p>
-      </header>
-
-      <div class="facebook-embed">
-
-        <iframe
-          title="Facebook-Beiträge des Kinnicher Fußball Fanclubs"
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkinnicherffc&tabs=timeline&width=500&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
-          width="500"
-          height="650"
-          style="border:none;overflow:hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
-
-      </div>
-
-    </article>
-
+  <section class="news-card" aria-label="Neueste Beiträge" style="margin-bottom:24px">
+    <header class="news-card-header">
+      <h2>Neueste Beiträge</h2>
+      <p>Von unseren Facebook-Seiten – ohne Facebook-Tracking geladen</p>
+    </header>
+    <div data-ffc="social"></div>
   </section>
 
   <nav class="social-links" aria-label="Social-Media-Profile">
@@ -365,6 +315,9 @@ body{
       rel="noopener noreferrer">
       Instagram Fanclub öffnen
     </a>
+
+    <a class="btn" href="https://www.facebook.com/kinnicherffc" target="_blank" rel="noopener noreferrer">Facebook Fanclub öffnen</a>
+    <a class="btn" href="https://www.facebook.com/fussball.badkoenig" target="_blank" rel="noopener noreferrer">Facebook SG Bad König/Zell öffnen</a>
 
   </nav>
 

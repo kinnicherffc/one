@@ -1,0 +1,60 @@
+/* Daten aus der FFC Kabine (app.kinnicherffc.de) – Spiele, Termine, Liveticker, Beiträge */
+.ffc-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.ffc-tabs button{font:inherit;font-size:14px;font-weight:600;color:var(--muted,#b9c8e6);background:rgba(255,255,255,.06);border:1px solid var(--line,rgba(255,255,255,.12));border-radius:999px;padding:6px 14px;cursor:pointer}
+.ffc-tabs button[aria-pressed="true"]{color:#071428;background:#eaf2ff;border-color:#eaf2ff}
+.ffc-list{display:flex;flex-direction:column;gap:10px}
+.ffc-game{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:12px;border:1px solid var(--line,rgba(255,255,255,.12));border-radius:14px;background:rgba(255,255,255,.04)}
+.ffc-date{text-align:center;line-height:1.1}
+.ffc-date b{display:block;font-size:22px}
+.ffc-date small{display:block;font-size:12px;color:var(--muted,#b9c8e6);text-transform:uppercase;letter-spacing:.06em}
+.ffc-match{display:grid;grid-template-columns:1fr auto;grid-template-areas:"h m" "a m";gap:6px 12px;align-items:center;min-width:0}
+.ffc-team{display:flex;align-items:center;gap:8px;min-width:0;font-weight:600;font-size:15px;line-height:1.25}
+.ffc-team.home{grid-area:h}.ffc-team.away{grid-area:a}
+.ffc-mid{grid-area:m}
+.ffc-team img,.ffc-team .ph{width:34px;height:34px;object-fit:contain;flex:0 0 34px;border-radius:6px}
+.ffc-team .ph{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);font-size:16px}
+.ffc-mid{text-align:center;min-width:64px;padding-left:12px;border-left:1px solid var(--line,rgba(255,255,255,.12))}
+.ffc-mid b{font-size:20px;letter-spacing:.02em}
+.ffc-mid small{display:block;font-size:12px;color:var(--muted,#b9c8e6)}
+.ffc-meta{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;color:var(--muted,#b9c8e6)}
+.ffc-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;border:1px solid var(--line,rgba(255,255,255,.12))}
+.ffc-pill.live{color:#fff;background:#d32f2f;border-color:#d32f2f;font-weight:700}
+.ffc-pill.stream{color:#ffd24d;border-color:#ffd24d}
+.ffc-pill.off{color:#ff8a80;border-color:#ff8a80}
+.ffc-pill.team{color:#071428;background:#eaf2ff;font-weight:700}
+.ffc-empty{color:var(--muted,#b9c8e6);padding:8px 0}
+.ffc-abo{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ffc-termin{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line,rgba(255,255,255,.12))}
+.ffc-termin:last-child{border-bottom:0}
+.ffc-termin .t b{display:block;font-size:15px}
+.ffc-termin .t small{color:var(--muted,#b9c8e6);font-size:13px}
+/* Liveticker */
+.ffc-board{border-radius:18px;padding:16px;background:linear-gradient(160deg,#0f2a52,#071428);border:1px solid var(--line,rgba(255,255,255,.12));margin-bottom:14px}
+.ffc-board .head{display:flex;justify-content:space-between;gap:8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#b9c8e6);margin-bottom:10px}
+.ffc-board .score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+.ffc-board .side{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-weight:700;font-size:15px}
+.ffc-board .side img,.ffc-board .side .ph{width:64px;height:64px;object-fit:contain}
+.ffc-board .side .ph{display:flex;align-items:center;justify-content:center;font-size:30px;background:rgba(255,255,255,.08);border-radius:12px}
+.ffc-board .res{font-size:44px;font-weight:900;color:#ffd24d;text-align:center;line-height:1}
+.ffc-board .res small{display:block;font-size:13px;font-weight:600;color:#fff;margin-top:6px}
+.ffc-events{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.ffc-events li{display:flex;gap:10px;align-items:center;font-size:14px;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.05)}
+.ffc-events li.gast{flex-direction:row-reverse;text-align:right}
+.ffc-events li b{min-width:40px}
+.ffc-notify{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:4px 0 12px;font-size:13px;color:var(--muted,#b9c8e6)}
+/* Beiträge */
+.ffc-posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ffc-post{display:flex;flex-direction:column;border:1px solid var(--line,rgba(255,255,255,.12));border-radius:14px;overflow:hidden;background:rgba(255,255,255,.04);color:inherit;text-decoration:none}
+.ffc-post img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#0c1f3b}
+.ffc-post div{padding:10px 12px;font-size:14px;line-height:1.4}
+.ffc-post small{display:block;color:var(--muted,#b9c8e6);font-size:12px;margin-bottom:4px}
+.ffc-post p{margin:0;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}
+@media (max-width:560px){
+  .ffc-game{grid-template-columns:48px 1fr;padding:10px;gap:8px}
+  .ffc-date b{font-size:18px}
+  .ffc-team{font-size:14px}
+  .ffc-team img,.ffc-team .ph{width:28px;height:28px;flex-basis:28px}
+  .ffc-mid{min-width:52px}
+  .ffc-board .res{font-size:36px}
+  .ffc-board .side img,.ffc-board .side .ph{width:48px;height:48px}
+}

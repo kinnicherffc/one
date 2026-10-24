@@ -641,6 +641,8 @@
       }
     }
   </style>
+<link rel="stylesheet" href="assets/ffc-kabine.css">
+<script src="assets/ffc-kabine.js" defer></script>
 </head>
 
 <body>
@@ -740,7 +742,7 @@
           <div class="label">Mitglieder Login</div>
         </a>
 
-        <a class="appBtn" href="https://app.vereinsplaner.at/t/aktuelles" target="_blank" rel="noopener">
+        <a class="appBtn" href="https://app.kinnicherffc.de/#vorstand" target="_blank" rel="noopener">
           <div class="icon">👥</div>
           <div class="label">Vorstand Login</div>
         </a>
@@ -838,19 +840,12 @@
 
             <div class="card heroSide">
               <h3>Nächste Termine</h3>
-              <ul class="list">
-                
-                
-                <li>⚽ alle Spieltage ---> siehe Spielplan</li>
-                <li>⚽ 24.09.2026 - 19 Uhr - SG1 Bewirtung Heimspieltag</li>
-                <li>⚽ 18.10.2026 - 13 Uhr - SG1+2 Bewirtung Heimspieltag</li>
-                <li>⚽ 22.11.2026 - 13 Uhr - SG1+2 Bewirtung Heimspieltag</li>
-                <li>⚽ 04.12.2026 - 19 Uhr - Weihnachtsfeier Fanclub Mitglieder im Burghof Bromisch</li>
-              </ul>
+              <div data-ffc="termine" data-limit="5" data-games="2"></div>
 
               <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
                 <a class="btn" href="mailto:info@kinnicherffc.de?subject=Termin%20vorschlagen">Termin vorschlagen</a>
-                <a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">Kalender öffnen</a>
+                <a class="btn" href="events.html#abo">Kalender abonnieren</a>
+                <a class="btn" href="events.html#spielplan">Spielplan</a>
               </div>
             </div>
           </div>

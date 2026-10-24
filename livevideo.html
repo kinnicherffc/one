@@ -527,6 +527,7 @@
       }
     }
   </style>
+<script src="assets/ffc-kabine.js"></script>
 </head>
 <body>
   <header>
@@ -793,9 +794,33 @@
       }, 2500);
     }
 
+    // Nächstes übertragenes Spiel kommt automatisch aus der FFC Kabine (app.kinnicherffc.de)
+    function applyStream(g) {
+      if (!g) {
+        config.matchTitle = 'Noch kein Spiel geplant'; config.matchDate = '–'; config.matchTime = '–'; config.matchPlace = '–'; config.kickoffDateTime = '';
+      } else {
+        const d = new Date(g.start);
+        config.matchTitle = g.home + ' – ' + g.away;
+        config.matchDate = d.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Berlin' });
+        config.matchTime = g.time + ' Uhr';
+        config.matchPlace = g.place || (g.venue === 'heim' ? 'Bad König' : 'auswärts');
+        config.kickoffDateTime = new Date(g.start).toISOString();
+        if (g.stream && g.stream.ytId) { config.youtubeWatchUrl = 'https://www.youtube.com/watch?v=' + g.stream.ytId; config.videoId = g.stream.ytId; }
+        if (g.status === 'live' || g.status === 'halbzeit') { els.statusText.textContent = 'LIVE: ' + g.home + ' ' + g.score + ' ' + g.away + (g.status === 'live' ? ' (' + g.minute + '. Min.)' : ' – Halbzeit'); }
+      }
+      updateStaticContent();
+    }
+    const _getEmbedUrl = getEmbedUrl;
+    getEmbedUrl = function () {
+      if (!config.videoId) return _getEmbedUrl();
+      return 'https://www.youtube.com/embed/' + encodeURIComponent(config.videoId) + '?autoplay=' + (config.autoplay ? 1 : 0) + '&mute=' + (config.muteOnAutoplay ? 1 : 0) + '&playsinline=1&rel=0&modestbranding=1';
+    };
+
     updateStaticContent();
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    window.ffcVideo(function (g) { const had = config.videoId; applyStream(g); if (config.videoId && config.videoId !== had) initPlayer(); });
+    setInterval(function () { window.ffcVideo(function (g) { const had = config.videoId; applyStream(g); if (config.videoId && config.videoId !== had) initPlayer(); }); }, 60000);
     initPlayer();
   </script>
 </body>

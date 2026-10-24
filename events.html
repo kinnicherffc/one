@@ -346,6 +346,8 @@ min-height:500px;
 }
 </style>
 <script type="module" src="https://web-widgets.vereinsplaner.com/v1/vp-event-widget"></script>
+<link rel="stylesheet" href="assets/ffc-kabine.css">
+<script src="assets/ffc-kabine.js" defer></script>
 </head>
 
 <body>
@@ -377,57 +379,24 @@ min-height:500px;
 <vp-event-widget widget-id="01a16d35-63cd-702e-9837-9871f4bcdc09" variant="styled"></vp-event-widget>
 </div>
 
-<div class="grid2">
-<div class="card">
-<h3>Spielbetrieb & Termine</h3>
-<div style="margin-bottom:18px">
-<a class="btn" href="fupa.html">Spiele & Tabellen (FuPa)</a>
+<div class="card" style="margin-bottom:18px" id="spielplan">
+<h3>Spieltage 1a &amp; 1b</h3>
+<p class="muted">Alle angesetzten Spiele – bei laufenden Spielen mit Live-Stand.</p>
+<div data-ffc="spiele"></div>
+<div style="margin-top:14px"><a class="btn" href="liveticker.html">Zum Liveticker</a> <a class="btn" href="fupa.html">Tabellen (FuPa)</a></div>
 </div>
 
-<hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
-
-<h3>Kalender</h3>
-<p class="muted">Kalender wird fortlaufend aktualisiert.</p>
-
-<div class="calendarActions">
-<a class="btn calendarSubscribe"
-href="https://calendar.google.com/calendar/r?cid=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20"
-target="_blank" rel="noopener">
-Fanclub-Vereinskalender abonnieren
-</a>
-
-<a class="btn" href="https://calendar.google.com/calendar/u/1/r?pli=1" target="_blank" rel="noopener">
-Google Kalender öffnen
-</a>
-
-<a class="btn" href="kontakt.html">Termin vorschlagen</a>
-</div>
-</div>
-
-<div class="card">
-<h3>Fanclub-Vereinskalender</h3>
-<div class="frameWrap">
-<iframe
-title="Fanclub-Vereinskalender"
-loading="lazy"
-src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showTabs=0&src=aTI3ZzRqcDRoNWoybTQ5YTJvcTNlbTFuZmVpdmdzbHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f4511e">
-</iframe>
-</div>
-</div>
+<div class="card" style="margin-bottom:18px" id="abo">
+<h3>Kalender abonnieren</h3>
+<p class="muted">Alle Spiele und Fanclub-Termine direkt in deinem Handy-Kalender.</p>
+<div data-ffc="abo"></div>
+<div style="margin-top:12px"><a class="btn" href="kontakt.html">Termin vorschlagen</a></div>
 </div>
 
 <div class="sectionHead" style="margin-top:36px"><h2>Zu- und Absagen Events</h2></div>
 <p class="muted">Anmeldung direkt über Luma. Mit Kalendereintrag, Fristen und Teilnehmerverwaltung.</p>
 
 <div class="eventGrid">
-
-<div class="card eventCard">
-<div class="badge">Nächstes Event</div>
-<h3>TSG-Sommerfest</h3>
-<div class="frameWrap">
-<img class="eventImage" src="assets/tsg-sommerfest-2026.png" alt="Plakat zum TSG-Sommerfest am 15. August">
-</div>
-</div>
 
 <div class="card eventCard">
 <div class="badge">Save the Date</div>
