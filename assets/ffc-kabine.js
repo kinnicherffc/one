@@ -61,7 +61,7 @@
     function board(g) {
       return '<div class="ffc-board"><div class="head"><span>' + esc(g.comp || '') + ' · ' + esc(g.team) + '</span><span>' + (g.status === 'beendet' ? 'Endstand' : g.status === 'halbzeit' ? 'Halbzeit' : g.status === 'live' ? '● LIVE · ' + esc(g.minute) + '. Min.' : esc(wday(g.start) + ' ' + day(g.start) + ' · ' + g.time + ' Uhr')) + '</span></div>' +
         '<div class="score"><div class="side">' + logo(g.homeLogo) + '<span>' + esc(g.home) + '</span></div><div class="res">' + esc(g.score || '–:–') + (g.status === 'geplant' ? '<small>Anpfiff ' + esc(g.time) + ' Uhr</small>' : '') + '</div><div class="side">' + logo(g.awayLogo) + '<span>' + esc(g.away) + '</span></div></div>' +
-        (g.events && g.events.length ? '<ul class="ffc-events">' + g.events.slice().reverse().map(function (e) { return '<li class="' + e.side + '"><b>' + esc(e.min) + '.\'</b><span>⚽ ' + esc(e.score) + (e.name ? ' – ' + esc(e.name) : '') + '</span></li>'; }).join('') + '</ul>' : '') +
+        (g.events && g.events.length ? '<ul class="ffc-events">' + g.events.slice().reverse().map(function (e) { return '<li class="' + e.side + '"><b>' + esc(e.min) + '.\'</b><span>⚽ ' + esc(e.score) + (e.name ? ' – ' + esc(e.name) : '') + (e.assist ? '<small style="display:block;opacity:.75">Vorlage: ' + esc(e.assist) + '</small>' : '') + '</span></li>'; }).join('') + '</ul>' : '') +
         (g.stream && (g.status === 'live' || g.status === 'halbzeit') ? '<p style="margin:12px 0 0"><a class="btn" href="livevideo.html">▶ Zum Livestream</a></p>' : '') + '</div>';
     }
     function load() {
