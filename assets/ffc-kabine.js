@@ -16,7 +16,7 @@
       : g.status === 'abgesagt' ? '<b>–</b><small>abgesagt</small>' : '<b>' + esc(g.time) + '</b><small>Uhr</small>';
     return '<div class="ffc-game"><div class="ffc-date"><small>' + esc(wday(g.start)) + '</small><b>' + esc(day(g.start)) + '</b></div>' +
       '<div class="ffc-match"><div class="ffc-team home">' + logo(g.homeLogo) + '<span>' + esc(g.home) + '</span></div><div class="ffc-team away">' + logo(g.awayLogo) + '<span>' + esc(g.away) + '</span></div><div class="ffc-mid">' + mid + '</div></div>' +
-      '<div class="ffc-meta"><span class="ffc-pill team">' + esc(g.team) + '</span>' + (STAT[g.status] || '') + (g.stream ? '<span class="ffc-pill stream">▶ Livestream</span>' : '') + '<span class="ffc-pill">' + (g.venue === 'heim' ? 'Heimspiel' : 'Auswärts') + '</span>' + (g.comp ? '<span>' + esc(g.comp) + '</span>' : '') + (g.place ? '<span>📍 ' + esc(g.place) + '</span>' : '') + '</div></div>';
+      '<div class="ffc-meta"><span class="ffc-pill team">' + esc(g.team) + '</span>' + (STAT[g.status] || '') + (g.stream ? '<span class="ffc-pill stream">▶ Livestream</span>' : '') + (g.highlight ? '<a class="ffc-pill stream" href="https://youtu.be/' + esc(g.highlight) + '" target="_blank" rel="noopener">🎬 Highlights</a>' : '') + '<span class="ffc-pill">' + (g.venue === 'heim' ? 'Heimspiel' : 'Auswärts') + '</span>' + (g.comp ? '<span>' + esc(g.comp) + '</span>' : '') + (g.place ? '<span>📍 ' + esc(g.place) + '</span>' : '') + '</div></div>';
   }
 
   function spiele(el) {
@@ -93,7 +93,14 @@
   // Live-Video-Seite: nächstes übertragenes Spiel + Countdown + Player (window.ffcVideo(cb) liefert die Daten)
   window.ffcVideo = function (cb) { get('/pub/live.json').then(function (d) { cb(d.nextStream || null, d); }).catch(function () { cb(null, null); }); };
 
-  var R = { spiele: spiele, termine: termine, abo: abo, ticker: ticker, social: social };
+  // Highlights: die letzten Spiele mit Highlight-Video (YouTube, ohne Cookies)
+  function highlights(el) {
+    get('/pub/spiele.json').then(function (d) {
+      var hs = (d.games || []).filter(function (g) { return g.highlight; }).slice(-3).reverse();
+      el.innerHTML = hs.length ? hs.map(function (g) { return '<div style="margin-bottom:16px"><div style="font-weight:700;margin-bottom:6px">' + esc(g.team) + ': ' + esc(g.home) + ' ' + esc(g.score || '') + ' ' + esc(g.away) + ' <small style="opacity:.7">· ' + esc(day(g.start)) + '</small></div><div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000"><iframe src="https://www.youtube-nocookie.com/embed/' + esc(g.highlight) + '" title="Highlights" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div></div>'; }).join('') : '<div class="ffc-empty">Noch keine Highlights – sie erscheinen nach dem Spieltag.</div>';
+    }).catch(function () { el.innerHTML = ''; });
+  }
+  var R = { highlights: highlights, spiele: spiele, termine: termine, abo: abo, ticker: ticker, social: social };
   function init() { document.querySelectorAll('[data-ffc]').forEach(function (el) { var f = R[el.getAttribute('data-ffc')]; if (f) f(el); }); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
