@@ -1,11 +1,10 @@
-```html
 <!doctype html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Events & Kalender – Kinnicher FFC</title>
+<title>Events, Kalender &amp; News – Kinnicher FFC</title>
 <link rel="icon" href="assets/favicon.png">
 
 <style>
@@ -347,10 +346,13 @@ height:500px;
 min-height:500px;
 }
 }
+.news-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 </style>
 <script type="module" src="https://web-widgets.vereinsplaner.com/v1/vp-event-widget"></script>
+<script type="module" src="https://web-widgets.vereinsplaner.com/v1/vp-news-widget"></script>
 <link rel="stylesheet" href="assets/ffc-kabine.css">
 <script src="assets/ffc-kabine.js" defer></script>
+<link rel="stylesheet" href="assets/mobile-readable.css">
 </head>
 
 <body>
@@ -374,7 +376,7 @@ min-height:500px;
 </div>
 
 <section>
-<div class="sectionHead"><h2>Events & Kalender</h2></div>
+<div class="sectionHead"><h2>Events, Kalender &amp; News</h2></div>
 
 <div class="card" style="margin-bottom:18px">
 <h3>Nächste Termine</h3>
@@ -396,6 +398,25 @@ min-height:500px;
 <div style="margin-top:12px"><a class="btn" href="kontakt.html">Termin vorschlagen</a></div>
 </div>
 
+<section id="news" aria-label="News">
+<div class="sectionHead" style="margin-top:36px"><h2>News</h2></div>
+<div class="card" style="margin-bottom:18px">
+<h3>Neues vom Fanclub</h3>
+<p class="muted">Direkt aus dem Vereinsplaner.</p>
+<vp-news-widget widget-id="01a16d35-e689-714f-b3af-c223605e51b0" variant="styled"></vp-news-widget>
+</div>
+<div class="card" style="margin-bottom:18px">
+<h3>Neueste Beiträge</h3>
+<p class="muted">Von unseren Facebook-Seiten – ohne Facebook-Tracking geladen.</p>
+<div data-ffc="social"></div>
+<div class="news-links">
+<a class="btn" href="https://www.instagram.com/sgbadkoenigzell/" target="_blank" rel="noopener noreferrer">Instagram SG Bad König/Zell</a>
+<a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener noreferrer">Instagram Fanclub</a>
+<a class="btn" href="https://www.facebook.com/kinnicherffc" target="_blank" rel="noopener noreferrer">Facebook Fanclub</a>
+<a class="btn" href="https://www.facebook.com/fussball.badkoenig" target="_blank" rel="noopener noreferrer">Facebook SG Bad König/Zell</a>
+</div>
+</div>
+</section>
 <div class="sectionHead" style="margin-top:36px"><h2>Zu- und Absagen Events</h2></div>
 <p class="muted">Anmeldung direkt über Luma. Mit Kalendereintrag, Fristen und Teilnehmerverwaltung.</p>
 
@@ -425,7 +446,6 @@ tabindex="0">
 <div class="wrap">
 <div class="footLinks">
 <a class="btn" href="https://shop.teamshirts.de/kickerinkoenigshop/collection/7206" target="_blank" rel="noopener">Fanshop</a>
-<a class="btn" href="members.html">Mitglieder-Login</a>
 <a class="btn" href="legal.html">Impressum</a>
 <a class="btn" href="legal.html#datenschutz">Datenschutz</a>
 <a class="btn" href="https://www.instagram.com/kinnicher_ffc/" target="_blank" rel="noopener">Instagram</a>
@@ -441,4 +461,3 @@ document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-```

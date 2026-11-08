@@ -1,0 +1,11 @@
+/* Bessere Lesbarkeit auf kleinen Bildschirmen */
+@media (max-width: 650px) {
+  body { font-size: 16px; line-height: 1.5; }
+  p, li, .btn, .appBtn .label, .mobilemenu a, .heroText, .heroSide p,
+  .heroSide h3, .kv .row, .list, .ffc-team, .ffc-termin .t b,
+  .ffc-post div, .card p, input, select, textarea, button { font-size: 16px; }
+  .ffc-meta, .ffc-date small, .ffc-mid small, .ffc-termin .t small,
+  .ffc-post small, .copy, .heroBadge .btxt span { font-size: 14px; }
+  .ffc-team span, .ffc-termin .t { overflow-wrap: anywhere; }
+  .ffc-posts { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+}
