@@ -177,6 +177,20 @@ min-height:450px;
 object-fit:contain;
 }
 
+.luma-checkout--button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 22px;
+border-radius:12px;
+background:#2169bc;
+border:1px solid rgba(255,255,255,.28);
+color:white;
+font-weight:700;
+cursor:pointer;
+text-decoration:none;
+}
+.luma-checkout--button:hover{background:#2c7bd7}
 .eventEmbed{
 margin-top:14px;
 border-radius:16px;
@@ -422,18 +436,21 @@ min-height:500px;
 
 <div class="eventGrid">
 
-<div class="card eventCard">
-<div class="badge">Save the Date</div>
-<h3>Fanclub-Weihnachtsfeier</h3>
-<div class="eventEmbed">
-<iframe
-src="https://luma.com/embed/event/evt-3BBxvEaQuKhm9bt/simple"
-title="Fanclub-Weihnachtsfeier"
-frameborder="0"
-allow="fullscreen; payment"
-aria-hidden="false"
-tabindex="0">
-</iframe>
+<div class="card eventCard" id="weihnachtsfeier-2026" style="grid-column:1 / -1">
+<div class="badge">Anmeldung bis 22.11.2026</div>
+<h3>Fanclub-Weihnachtsfeier 2026</h3>
+<p><strong>Freitag, 4. Dezember 2026 · ab 18:00 Uhr</strong></p>
+<p>Burghof Brombachtal</p>
+<p>Alle Mitglieder sind herzlich eingeladen! Es erwartet euch ein besonderes Überraschungsgeschenk.</p>
+<p>Essen und Getränke à la carte, grundsätzlich Selbstzahler. Der Fanclub beteiligt sich mit <strong>25 € pro teilnehmendem Mitglied</strong> an den Kosten.</p>
+<p><strong>Anmeldung bis Sonntag, 22.11.2026, 24:00 Uhr.</strong> Die Plätze werden in der Reihenfolge der eingehenden Anmeldungen vergeben.</p>
+<div style="margin-top:12px">
+<a
+  href="https://luma.com/event/evt-3BBxvEaQuKhm9bt"
+  class="luma-checkout--button"
+  data-luma-action="checkout"
+  data-luma-event-id="evt-3BBxvEaQuKhm9bt"
+>Für Event anmelden</a>
 </div>
 </div>
 
@@ -459,5 +476,6 @@ tabindex="0">
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 </body>
 </html>
